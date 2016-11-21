@@ -1,0 +1,374 @@
+﻿<dotnetnuke type="Package" version="5.0">
+    <packages>
+        <package name="DNNspot Store" type="Module" version="2.5.22">
+            <friendlyName>DNNspot Store</friendlyName>
+            <description>Powerful, yet simple eCommerce for DotNetNuke (DNN6)</description>
+            <owner>
+                <name>DNNspot</name>
+                <organization>DNNspot</organization>    
+                <url><![CDATA[<a href="http://www.dnnspot.com/">http://www.dnnspot.com/</a>]]></url>    
+                <email><![CDATA[<a href="mailto:web@dnnspot.com">web@dnnspot.com</a>]]></email>
+            </owner>
+            <license src="license.html" />
+            <releaseNotes src="releaseNotes.html" />
+            <dependencies>
+                <dependency type="coreversion">
+                    05.03.01
+                </dependency>
+                <!--
+                <dependency type="package">
+                    DNNspot Store
+                </dependency>                
+                -->
+				<!--
+                <dependency type="package">
+                    <name>DNNspot-Store</name>
+					<version>01.00.17</version>
+                </dependency>                				
+				-->
+            </dependencies>
+            <components>
+			
+                <component type="Script">
+                    <scripts>
+                        <basePath>DesktopModules\DNNspot-Store\SqlScripts</basePath>
+                        <script type="Install">                        
+                            <name>01.00.00.SqlDataProvider</name>
+                            <version>01.00.00</version>
+                        </script>
+                        <script type="Install">                        
+                            <name>01.00.01.SqlDataProvider</name>
+                            <version>01.00.01</version>
+                        </script>       
+                        <script type="Install">                        
+                            <name>01.00.04.SqlDataProvider</name>
+                            <version>01.00.04</version>
+                        </script>       	
+                        <script type="Install">                        
+                            <name>01.00.07.SqlDataProvider</name>
+                            <version>01.00.07</version>
+                        </script>      
+                        <script type="Install">                        
+                            <name>01.00.08.SqlDataProvider</name>
+                            <version>01.00.08</version>
+                        </script>      		
+                        <script type="Install">                        
+                            <name>01.00.10.SqlDataProvider</name>
+                            <version>01.00.10</version>
+                        </script>      					
+                        <script type="Install">                        
+                            <name>01.00.17.SqlDataProvider</name>
+                            <version>01.00.17</version>
+                        </script>      					
+                        <script type="Install">                        
+                            <name>02.00.00.SqlDataProvider</name>
+                            <version>02.00.00</version>
+                        </script>      							
+                        <script type="Install">                        
+                            <name>02.00.01.SqlDataProvider</name>
+                            <version>02.00.01</version>
+                        </script>      					
+                        <script type="Install">                        
+                            <name>02.00.08.SqlDataProvider</name>
+                            <version>02.00.08</version>
+                        </script>      				
+                        <script type="Install">                        
+                            <name>02.00.13.SqlDataProvider</name>
+                            <version>02.00.13</version>
+                        </script>                
+						<script type="Install">                        
+                            <name>02.00.17.SqlDataProvider</name>
+                            <version>02.00.17</version>
+                        </script> 						
+						<script type="Install">                        
+                            <name>02.00.18.SqlDataProvider</name>
+                            <version>02.00.18</version>
+                        </script> 						
+						<script type="Install">                        
+                            <name>02.00.20.SqlDataProvider</name>
+                            <version>02.00.20</version>
+                        </script>      									
+						<script type="Install">                        
+                            <name>02.03.00.SqlDataProvider</name>
+                            <version>02.03.00</version>
+                        </script>  						
+						<script type="Install">                        
+                            <name>02.05.02.SqlDataProvider</name>
+                            <version>02.05.02</version>
+                        </script>    						
+						<script type="Install">                        
+                            <name>02.05.10.SqlDataProvider</name>
+                            <version>02.05.10</version>
+                        </script>      		    						
+						<script type="Install">                        
+                            <name>02.05.16.SqlDataProvider</name>
+                            <version>02.05.16</version>
+                        </script>    	      		    						
+						<script type="Install">                        
+                            <name>02.05.22.SqlDataProvider</name>
+                            <version>02.05.22</version>
+                        </script> 				
+                        <script type="UnInstall">                            
+                            <name>UnInstall.SqlDataProvider</name>                            
+                        </script>
+                    </scripts>
+                </component> 						
+			
+                <component type="Module">
+                  <desktopModule>
+                    <moduleName>DNNspot-Store</moduleName>
+                    <foldername>DNNspot-Store</foldername>
+                    <businessControllerClass>DNNspot.Store.DnnModuleFeaturesController</businessControllerClass>
+                    <supportedFeatures>
+                      <supportedFeature type="Searchable" />
+                    </supportedFeatures>
+                    <moduleDefinitions>
+                      <moduleDefinition>
+                        <friendlyName>DNNspot-Store-MainDispatch</friendlyName>
+                        <defaultCacheTime>0</defaultCacheTime>
+                        <moduleControls>
+                          <moduleControl>
+                            <controlKey />
+                            <controlSrc>DesktopModules/DNNspot-Store/Modules/MainDispatch.ascx</controlSrc>
+                            <supportsPartialRendering>False</supportsPartialRendering>
+                            <controlTitle>Main Dispatch</controlTitle>
+                            <controlType>View</controlType>
+                            <iconFile />
+                            <helpUrl />
+                          </moduleControl>
+                        </moduleControls>
+                      </moduleDefinition>
+                      <moduleDefinition>
+                        <friendlyName>DNNspot-Store-CategoryMenu</friendlyName>
+                        <defaultCacheTime>0</defaultCacheTime>
+                        <moduleControls>
+                          <moduleControl>
+                            <controlKey />
+                            <controlSrc>DesktopModules/DNNspot-Store/Modules/Catalog/CatalogCategoryMenu.ascx</controlSrc>
+                            <supportsPartialRendering>False</supportsPartialRendering>
+                            <controlTitle>Catalog</controlTitle>
+                            <controlType>View</controlType>
+                            <iconFile />
+                            <helpUrl />
+                          </moduleControl>
+                        </moduleControls>
+                      </moduleDefinition>
+                      <moduleDefinition>
+                        <friendlyName>DNNspot-Store-MiniCart</friendlyName>
+                        <defaultCacheTime>0</defaultCacheTime>
+                        <moduleControls>
+                          <moduleControl>
+                            <controlKey />
+                            <controlSrc>DesktopModules/DNNspot-Store/Modules/Cart/MiniCart.ascx</controlSrc>
+                            <supportsPartialRendering>False</supportsPartialRendering>
+                            <controlTitle>Mini Cart</controlTitle>
+                            <controlType>View</controlType>
+                            <iconFile />
+                            <helpUrl />
+                          </moduleControl>
+                        </moduleControls>
+                      </moduleDefinition>
+                    </moduleDefinitions>
+                  </desktopModule>                  
+                  <eventMessage>
+                    <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+                    <processorCommand>UpgradeModule</processorCommand>
+                    <attributes>
+                      <businessControllerClass>DNNspot.Store.DnnModuleFeaturesController</businessControllerClass>
+                      <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+                      <upgradeVersionsList />
+                    </attributes>
+                  </eventMessage>
+                </component>
+                
+                <component type="Assembly">
+                  <assemblies>
+                    <basePath>bin</basePath>
+                    <assembly>
+                      <name>DNNspot.Store.dll</name>
+					  <version>2.5.22</version>
+                    </assembly>
+                    <assembly>
+                      <name>DNNspot.EntitySpaces.dll</name>
+                      <version>2009.2.1214.0</version>
+                    </assembly>                                        
+                    <assembly>
+                      <name>DNNspot.Licensing.ClientCommon.dll</name>
+                      <version>1.0.8.0</version>
+                    </assembly>
+                    <assembly>
+                      <name>WA.Shared.dll</name>
+                    </assembly>
+                    <assembly>
+                      <name>WA.Shipping.dll</name>
+                    </assembly>			
+                    <assembly>
+                      <name>WA.Geocoding.dll</name>
+					  <version>1.1.0.0</version>
+                    </assembly>			
+                    <assembly>
+                      <name>nsoftware.InShipWeb.dll</name>
+					  <version>4.0.4430.0</version>
+                    </assembly>			
+                    <assembly>
+                      <name>nsoftware.InShip.System.dll</name>
+					  <version>10.0.0.0</version>
+                    </assembly>								
+                    <assembly>
+                      <name>itextsharp.dll</name>
+                    </assembly>					
+                    <assembly>
+                      <name>Newtonsoft.Json.dll</name>
+                      <version>3.5.0.0</version>
+                    </assembly>
+                    <assembly>
+                      <name>FluentValidation.dll</name>
+                      <version>1.1.0.0</version>
+                    </assembly>
+                  </assemblies>
+                </component>
+                
+                <component type="ResourceFile">
+                    <resourceFiles> 
+                        <basePath>DesktopModules\DNNspot-Store</basePath> 
+                        <resourceFile>
+                            <name>Resources.zip</name> 
+                        </resourceFile>
+                    </resourceFiles>
+                </component>                              
+                
+            </components>
+        </package>
+        
+        <package name="DNNspot Store - Admin" type="Module" version="2.5.22">
+            <friendlyName>DNNspot Store - Admin</friendlyName>
+            <description>Administration Module for DNNspot Store</description>
+            <owner>
+                <name>DNNspot</name>
+                <organization>DNNspot</organization>    
+                <url><![CDATA[<a href="http://www.dnnspot.com/">http://www.dnnspot.com/</a>]]></url>    
+                <email><![CDATA[<a href="mailto:web@dnnspot.com">web@dnnspot.com</a>]]></email>
+            </owner>
+            <license>Refer to main store module license</license>
+            <releaseNotes />
+            <components>
+                <component type="Module">
+                  <desktopModule>
+                    <moduleName>DNNspot-Store-Admin</moduleName>
+                    <foldername>DNNspot-Store</foldername>
+                    <businessControllerClass />
+                    <supportedFeatures />
+                    <moduleDefinitions>
+                      <moduleDefinition>
+                        <friendlyName>DNNspot Store - Admin</friendlyName>
+                        <defaultCacheTime>0</defaultCacheTime>
+                        <moduleControls>
+                          <moduleControl>
+                            <controlKey />
+                            <controlSrc>DesktopModules/DNNspot-Store/Modules/Admin/Admin.ascx</controlSrc>
+                            <supportsPartialRendering>False</supportsPartialRendering>
+                            <controlTitle>Store Management</controlTitle>
+                            <controlType>View</controlType>
+                            <iconFile />
+                            <helpUrl />
+                            <viewOrder>0</viewOrder>
+                          </moduleControl>
+                        </moduleControls>
+                      </moduleDefinition>
+                    </moduleDefinitions>
+                  </desktopModule>                  
+                </component>            
+            </components>
+        </package>
+        
+        <package name="DNNspot Store - My Orders" type="Module" version="2.5.22">
+            <friendlyName>DNNspot Store - My Orders</friendlyName>
+            <description>Shows order history for a customer</description>
+            <owner>
+                <name>DNNspot</name>
+                <organization>DNNspot</organization>    
+                <url><![CDATA[<a href="http://www.dnnspot.com/">http://www.dnnspot.com/</a>]]></url>    
+                <email><![CDATA[<a href="mailto:web@dnnspot.com">web@dnnspot.com</a>]]></email>
+            </owner>
+            <license>Refer to main store module license</license>
+            <releaseNotes />                 
+            <components>
+                <component type="Module">
+                  <desktopModule>
+                    <moduleName>DNNspot-Store-MyOrders</moduleName>
+                    <foldername>DNNspot-Store</foldername>
+                    <businessControllerClass />
+                    <supportedFeatures />
+                    <moduleDefinitions>
+                      <moduleDefinition>
+                        <friendlyName>DNNspot Store - My Orders</friendlyName>
+                        <defaultCacheTime>0</defaultCacheTime>
+                        <moduleControls>
+                          <moduleControl>
+                            <controlKey />
+                            <controlSrc>DesktopModules/DNNspot-Store/Modules/MyOrders/Dispatch.ascx</controlSrc>
+                            <supportsPartialRendering>False</supportsPartialRendering>
+                            <controlTitle />
+                            <controlType>View</controlType>
+                            <iconFile />
+                            <helpUrl />
+                          </moduleControl>
+                        </moduleControls>
+                      </moduleDefinition>
+                    </moduleDefinitions>
+                  </desktopModule>                  
+                </component>            
+            </components>
+        </package>
+		
+        <package name="DNNspot Store - Featured Products" type="Module" version="2.5.22">
+            <friendlyName>DNNspot Store - Featured Products</friendlyName>
+            <description>Display featured products on any page in your site</description>
+            <owner>
+                <name>DNNspot</name>
+                <organization>DNNspot</organization>    
+                <url><![CDATA[<a href="http://www.dnnspot.com/">http://www.dnnspot.com/</a>]]></url>    
+                <email><![CDATA[<a href="mailto:web@dnnspot.com">web@dnnspot.com</a>]]></email>
+            </owner>
+            <license>Refer to main store module license</license>
+            <releaseNotes />                 
+            <components>
+                <component type="Module">
+                  <desktopModule>
+                    <moduleName>DNNspot-Store-FeaturedProducts</moduleName>
+                    <foldername>DNNspot-Store</foldername>
+                    <businessControllerClass />
+                    <supportedFeatures />
+                    <moduleDefinitions>
+                      <moduleDefinition>
+                        <friendlyName>DNNspot Store - Featured Products</friendlyName>
+                        <defaultCacheTime>0</defaultCacheTime>
+                        <moduleControls>
+                          <moduleControl>
+                            <controlKey />
+                            <controlSrc>DesktopModules/DNNspot-Store/Modules/Featured/FeaturedProducts.ascx</controlSrc>
+                            <supportsPartialRendering>False</supportsPartialRendering>
+                            <controlTitle />
+                            <controlType>View</controlType>
+                            <iconFile />
+                            <helpUrl />
+                          </moduleControl>
+                          <moduleControl>
+                            <controlKey>Settings</controlKey>
+                            <controlSrc>DesktopModules/DNNspot-Store/Modules/Featured/Settings.ascx</controlSrc>
+                            <supportsPartialRendering>False</supportsPartialRendering>
+                            <controlTitle>Settings</controlTitle>
+                            <controlType>Edit</controlType>
+                            <iconFile />
+                            <helpUrl />
+                          </moduleControl>						  
+                        </moduleControls>
+                      </moduleDefinition>
+                    </moduleDefinitions>
+                  </desktopModule>                  
+                </component>            
+            </components>
+        </package>		
+        
+    </packages>
+</dotnetnuke>

@@ -1,0 +1,2 @@
+ALTER TABLE {objectQualifier}DNNspot_Store_Order
+ADD [CreditCardSecurityCode] [varchar](5) NOT NULL DEFAULT('')

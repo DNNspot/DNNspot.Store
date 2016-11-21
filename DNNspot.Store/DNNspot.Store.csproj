@@ -1,0 +1,1058 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A42A4133-BEDE-48EC-B70E-E0E93EDB01B5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DNNspot.Store</RootNamespace>
+    <AssemblyName>DNNspot.Store</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DNNspot.Newtonsoft.Json">
+      <HintPath>..\lib\DNNspot.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetNuke">
+      <HintPath>..\lib\DNN7\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.HttpModules">
+      <HintPath>..\lib\DNN7\DotNetNuke.HttpModules.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.WebControls">
+      <HintPath>..\lib\DNN7\DotNetNuke.WebControls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EntitySpaces.Core">
+      <HintPath>..\lib\EntitySpaces.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntitySpaces.DebuggerVisualizer">
+      <HintPath>..\lib\EntitySpaces.DebuggerVisualizer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntitySpaces.DynamicQuery">
+      <HintPath>..\lib\EntitySpaces.DynamicQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="EntitySpaces.Interfaces">
+      <HintPath>..\lib\EntitySpaces.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EntitySpaces.LoaderMT">
+      <HintPath>..\lib\EntitySpaces.LoaderMT.dll</HintPath>
+    </Reference>
+    <Reference Include="EntitySpaces.SqlClientProvider">
+      <HintPath>..\lib\EntitySpaces.SqlClientProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nsoftware.InShip.System">
+      <HintPath>..\lib\nsoftware.InShip.System.dll</HintPath>
+    </Reference>
+    <Reference Include="nsoftware.InShipWeb">
+      <HintPath>..\lib\nsoftware.InShipWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WA.Geocoding">
+      <HintPath>..\lib\WA.Geocoding.dll</HintPath>
+    </Reference>
+    <Reference Include="WA.Shared, Version=1.0.0.35127, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\WA.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="WA.Shipping">
+      <HintPath>..\lib\WA.Shipping.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Base\DnnIHttpHandler.cs" />
+    <Compile Include="Core\Base\StoreCheckoutModuleBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Core\ProcessShipmentResult.cs" />
+    <Compile Include="Core\Debug.cs" />
+    <Compile Include="Core\Helpers\CacheHelper.cs" />
+    <Compile Include="Core\Helpers\CryptoHelper.cs" />
+    <Compile Include="Core\Helpers\DnnVersionSingleton.cs" />
+    <Compile Include="Core\Helpers\StoreExtensions.cs" />
+    <Compile Include="Core\Helpers\HttpHelper.cs" />
+    <Compile Include="Core\Helpers\iTextHelper.cs" />
+    <Compile Include="Core\Helpers\RequestHelper.cs" />
+    <Compile Include="Core\Helpers\TokenHelper.cs" />
+    <Compile Include="Core\Helpers\XmlHelper.cs" />
+    <Compile Include="Core\Importers\ProductCsvImporter.cs" />
+    <Compile Include="Core\Importers\ProductCsvImportResult.cs" />
+    <Compile Include="Core\InfoObjects\CheckoutRoleInfo.cs" />
+    <Compile Include="Core\InfoObjects\CsvProductInfo.cs" />
+    <Compile Include="Core\InfoObjects\CustomerInfo.cs" />
+    <Compile Include="Core\InfoObjects\ShippingOption.cs" />
+    <Compile Include="Core\KeyNameHelpers.cs" />
+    <Compile Include="Core\CouponController.cs" />
+    <Compile Include="Core\DnnModuleFeaturesController.cs" />
+    <Compile Include="Core\InfoObjects\AddressInfo.cs" />
+    <Compile Include="Core\CartController.cs" />
+    <Compile Include="Core\InfoObjects\CheckoutCouponInfo.cs" />
+    <Compile Include="Core\InfoObjects\CheckoutOrderInfo.cs" />
+    <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\InfoObjects\CreditCardInfo.cs" />
+    <Compile Include="Core\InfoObjects\JsonObjects.cs" />
+    <Compile Include="Core\PaymentProviders\AuthorizeNetAimProvider.cs" />
+    <Compile Include="Core\PaymentProviders\PayLaterPaymentProvider.cs" />
+    <Compile Include="Core\PaymentProviders\PayPalExpressCheckoutPaymentProvider.cs" />
+    <Compile Include="Core\PaymentProviders\IPaymentProvider.cs" />
+    <Compile Include="Core\PaymentProviders\CardCaptureOnlyPaymentProvider.cs" />
+    <Compile Include="Core\PaymentProviders\PaymentProcessingResult.cs" />
+    <Compile Include="Core\PaymentProviders\PaymentProvider.cs" />
+    <Compile Include="Core\ProviderConfig.cs" />
+    <Compile Include="Core\OrderController.cs" />
+    <Compile Include="Core\PaymentProviders\PayPalDirectPaymentProvider.cs" />
+    <Compile Include="Core\PaymentProviders\PayPalStandardProvider.cs" />
+    <Compile Include="Core\PostCheckoutController.cs" />
+    <Compile Include="Core\RegexPatterns.cs" />
+    <Compile Include="Core\Helpers\CategoryTreeRenderer.cs" />
+    <Compile Include="Core\ShippingProviders\CustomShippingProvider.cs" />
+    <Compile Include="Core\ShippingProviders\FedExShippingProvider.cs" />
+    <Compile Include="Core\ShippingProviders\IShippingProvider.cs" />
+    <Compile Include="Core\ShippingProviders\ShippingProvider.cs" />
+    <Compile Include="Core\ShippingProviders\ShippingProviderFactory.cs" />
+    <Compile Include="Core\SlugFactory.cs" />
+    <Compile Include="Core\ModuleDefs.cs" />
+    <Compile Include="Core\Base\StoreAdminModuleBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Core\StoreContext.cs" />
+    <Compile Include="Core\StoreUrls.cs" />
+    <Compile Include="Core\Helpers\HtmlHelper.cs" />
+    <Compile Include="Core\FluentValidation\CheckoutValidators.cs" />
+    <Compile Include="Core\FluentValidation\CreditCardInfoValidator.cs" />
+    <Compile Include="Core\TemplateProcessor.cs" />
+    <Compile Include="DataModel\Custom\Cart.cs" />
+    <Compile Include="DataModel\Custom\CartCollection.cs" />
+    <Compile Include="DataModel\Custom\CartItem.cs" />
+    <Compile Include="DataModel\Custom\CartItemCollection.cs" />
+    <Compile Include="DataModel\Custom\CartItemQuery.cs" />
+    <Compile Include="DataModel\Custom\CartQuery.cs" />
+    <Compile Include="DataModel\Custom\Category.cs" />
+    <Compile Include="DataModel\Custom\CategoryCollection.cs" />
+    <Compile Include="DataModel\Custom\CategoryQuery.cs" />
+    <Compile Include="DataModel\Custom\Coupon.cs" />
+    <Compile Include="DataModel\Custom\CouponCollection.cs" />
+    <Compile Include="DataModel\Custom\CouponQuery.cs" />
+    <Compile Include="DataModel\Custom\Currency.cs" />
+    <Compile Include="DataModel\Custom\CurrencyCollection.cs" />
+    <Compile Include="DataModel\Custom\CurrencyQuery.cs" />
+    <Compile Include="DataModel\Custom\DeliveryMethod.cs" />
+    <Compile Include="DataModel\Custom\DeliveryMethodCollection.cs" />
+    <Compile Include="DataModel\Custom\DeliveryMethodQuery.cs" />
+    <Compile Include="DataModel\Custom\Discount.cs" />
+    <Compile Include="DataModel\Custom\DiscountCollection.cs" />
+    <Compile Include="DataModel\Custom\DiscountQuery.cs" />
+    <Compile Include="DataModel\Custom\EmailTemplate.cs" />
+    <Compile Include="DataModel\Custom\EmailTemplateCollection.cs" />
+    <Compile Include="DataModel\Custom\EmailTemplateQuery.cs" />
+    <Compile Include="DataModel\Custom\Order.cs" />
+    <Compile Include="DataModel\Custom\OrderCollection.cs" />
+    <Compile Include="DataModel\Custom\OrderCoupon.cs" />
+    <Compile Include="DataModel\Custom\OrderCouponCollection.cs" />
+    <Compile Include="DataModel\Custom\OrderCouponQuery.cs" />
+    <Compile Include="DataModel\Custom\OrderItem.cs" />
+    <Compile Include="DataModel\Custom\OrderItemCollection.cs" />
+    <Compile Include="DataModel\Custom\OrderItemQuery.cs" />
+    <Compile Include="DataModel\Custom\OrderQuery.cs" />
+    <Compile Include="DataModel\Custom\OrderStatus.cs" />
+    <Compile Include="DataModel\Custom\OrderStatusCollection.cs" />
+    <Compile Include="DataModel\Custom\OrderStatusQuery.cs" />
+    <Compile Include="DataModel\Custom\PaymentProvider.cs" />
+    <Compile Include="DataModel\Custom\PaymentProviderCollection.cs" />
+    <Compile Include="DataModel\Custom\PaymentProviderQuery.cs" />
+    <Compile Include="DataModel\Custom\PaymentStatus.cs" />
+    <Compile Include="DataModel\Custom\PaymentStatusCollection.cs" />
+    <Compile Include="DataModel\Custom\PaymentStatusQuery.cs" />
+    <Compile Include="DataModel\Custom\PaymentTransaction.cs" />
+    <Compile Include="DataModel\Custom\PaymentTransactionCollection.cs" />
+    <Compile Include="DataModel\Custom\PaymentTransactionQuery.cs" />
+    <Compile Include="DataModel\Custom\Product.cs" />
+    <Compile Include="DataModel\Custom\ProductCategory.cs" />
+    <Compile Include="DataModel\Custom\ProductCategoryCollection.cs" />
+    <Compile Include="DataModel\Custom\ProductCategoryQuery.cs" />
+    <Compile Include="DataModel\Custom\ProductCollection.cs" />
+    <Compile Include="DataModel\Custom\ProductDescriptor.cs" />
+    <Compile Include="DataModel\Custom\ProductDescriptorCollection.cs" />
+    <Compile Include="DataModel\Custom\ProductDescriptorQuery.cs" />
+    <Compile Include="DataModel\Custom\ProductField.cs" />
+    <Compile Include="DataModel\Custom\ProductFieldChoice.cs" />
+    <Compile Include="DataModel\Custom\ProductFieldChoiceCollection.cs" />
+    <Compile Include="DataModel\Custom\ProductFieldChoiceQuery.cs" />
+    <Compile Include="DataModel\Custom\ProductFieldCollection.cs" />
+    <Compile Include="DataModel\Custom\ProductFieldQuery.cs" />
+    <Compile Include="DataModel\Custom\ProductPhoto.cs" />
+    <Compile Include="DataModel\Custom\ProductPhotoCollection.cs" />
+    <Compile Include="DataModel\Custom\ProductPhotoQuery.cs" />
+    <Compile Include="DataModel\Custom\ProductQuantityPrice.cs" />
+    <Compile Include="DataModel\Custom\ProductQuantityPriceCollection.cs" />
+    <Compile Include="DataModel\Custom\ProductQuantityPriceQuery.cs" />
+    <Compile Include="DataModel\Custom\ProductQuery.cs" />
+    <Compile Include="DataModel\Custom\RelatedProduct.cs" />
+    <Compile Include="DataModel\Custom\RelatedProductCollection.cs" />
+    <Compile Include="DataModel\Custom\RelatedProductQuery.cs" />
+    <Compile Include="DataModel\Custom\ShippingLog.cs" />
+    <Compile Include="DataModel\Custom\ShippingLogCollection.cs" />
+    <Compile Include="DataModel\Custom\ShippingLogQuery.cs" />
+    <Compile Include="DataModel\Custom\ShippingService.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceCollection.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceQuery.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceRate.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceRateCollection.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceRateQuery.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceRateType.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceRateTypeCollection.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceRateTypeQuery.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceSetting.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceSettingCollection.cs" />
+    <Compile Include="DataModel\Custom\ShippingServiceSettingQuery.cs" />
+    <Compile Include="DataModel\Custom\Store.cs" />
+    <Compile Include="DataModel\Custom\StoreCollection.cs" />
+    <Compile Include="DataModel\Custom\StoreEmailTemplate.cs" />
+    <Compile Include="DataModel\Custom\StoreEmailTemplateCollection.cs" />
+    <Compile Include="DataModel\Custom\StoreEmailTemplateQuery.cs" />
+    <Compile Include="DataModel\Custom\StorePaymentProvider.cs" />
+    <Compile Include="DataModel\Custom\StorePaymentProviderCollection.cs" />
+    <Compile Include="DataModel\Custom\StorePaymentProviderQuery.cs" />
+    <Compile Include="DataModel\Custom\StorePaymentProviderSetting.cs" />
+    <Compile Include="DataModel\Custom\StorePaymentProviderSettingCollection.cs" />
+    <Compile Include="DataModel\Custom\StorePaymentProviderSettingQuery.cs" />
+    <Compile Include="DataModel\Custom\StoreQuery.cs" />
+    <Compile Include="DataModel\Custom\StoreSetting.cs" />
+    <Compile Include="DataModel\Custom\StoreSettingCollection.cs" />
+    <Compile Include="DataModel\Custom\StoreSettingQuery.cs" />
+    <Compile Include="DataModel\Custom\TaxRegion.cs" />
+    <Compile Include="DataModel\Custom\TaxRegionCollection.cs" />
+    <Compile Include="DataModel\Custom\TaxRegionQuery.cs" />
+    <Compile Include="DataModel\Custom\vCartItemProductInfo.cs" />
+    <Compile Include="DataModel\Custom\vCartItemProductInfoCollection.cs" />
+    <Compile Include="DataModel\Custom\vCartItemProductInfoQuery.cs" />
+    <Compile Include="DataModel\Custom\vMainProductPhoto.cs" />
+    <Compile Include="DataModel\Custom\vMainProductPhotoCollection.cs" />
+    <Compile Include="DataModel\Custom\vMainProductPhotoQuery.cs" />
+    <Compile Include="DataModel\Custom\vProductsSoldCounts.cs" />
+    <Compile Include="DataModel\Custom\vProductsSoldCountsCollection.cs" />
+    <Compile Include="DataModel\Custom\vProductsSoldCountsQuery.cs" />
+    <Compile Include="DataModel\Custom\vShippingServiceRates.cs" />
+    <Compile Include="DataModel\Custom\vShippingServiceRatesCollection.cs" />
+    <Compile Include="DataModel\Custom\vShippingServiceRatesQuery.cs" />
+    <Compile Include="DataModel\Custom\vStoreEmailTemplate.cs" />
+    <Compile Include="DataModel\Custom\vStoreEmailTemplateCollection.cs" />
+    <Compile Include="DataModel\Custom\vStoreEmailTemplateQuery.cs" />
+    <Compile Include="DataModel\DataModel.cs" />
+    <Compile Include="DataModel\Generated\Cart.cs" />
+    <Compile Include="DataModel\Generated\CartItem.cs" />
+    <Compile Include="DataModel\Generated\Category.cs" />
+    <Compile Include="DataModel\Generated\Coupon.cs" />
+    <Compile Include="DataModel\Generated\Currency.cs" />
+    <Compile Include="DataModel\Generated\DeliveryMethod.cs" />
+    <Compile Include="DataModel\Generated\Discount.cs" />
+    <Compile Include="DataModel\Generated\EmailTemplate.cs" />
+    <Compile Include="DataModel\Generated\Order.cs" />
+    <Compile Include="DataModel\Generated\OrderCoupon.cs" />
+    <Compile Include="DataModel\Generated\OrderItem.cs" />
+    <Compile Include="DataModel\Generated\OrderStatus.cs" />
+    <Compile Include="DataModel\Generated\PaymentProvider.cs" />
+    <Compile Include="DataModel\Generated\PaymentStatus.cs" />
+    <Compile Include="DataModel\Generated\PaymentTransaction.cs" />
+    <Compile Include="DataModel\Generated\Product.cs" />
+    <Compile Include="DataModel\Generated\ProductCategory.cs" />
+    <Compile Include="DataModel\Generated\ProductDescriptor.cs" />
+    <Compile Include="DataModel\Generated\ProductField.cs" />
+    <Compile Include="DataModel\Generated\ProductFieldChoice.cs" />
+    <Compile Include="DataModel\Generated\ProductPhoto.cs" />
+    <Compile Include="DataModel\Generated\ProductQuantityPrice.cs" />
+    <Compile Include="DataModel\Generated\RelatedProduct.cs" />
+    <Compile Include="DataModel\Generated\ShippingLog.cs" />
+    <Compile Include="DataModel\Generated\ShippingService.cs" />
+    <Compile Include="DataModel\Generated\ShippingServiceRate.cs" />
+    <Compile Include="DataModel\Generated\ShippingServiceRateType.cs" />
+    <Compile Include="DataModel\Generated\ShippingServiceSetting.cs" />
+    <Compile Include="DataModel\Generated\Store.cs" />
+    <Compile Include="DataModel\Generated\StoreEmailTemplate.cs" />
+    <Compile Include="DataModel\Generated\StorePaymentProvider.cs" />
+    <Compile Include="DataModel\Generated\StorePaymentProviderSetting.cs" />
+    <Compile Include="DataModel\Generated\StoreSetting.cs" />
+    <Compile Include="DataModel\Generated\TaxRegion.cs" />
+    <Compile Include="DataModel\Generated\vCartItemProductInfo.cs" />
+    <Compile Include="DataModel\Generated\vMainProductPhoto.cs" />
+    <Compile Include="DataModel\Generated\vProductsSoldCounts.cs" />
+    <Compile Include="DataModel\Generated\vShippingServiceRates.cs" />
+    <Compile Include="DataModel\Generated\vStoreEmailTemplate.cs" />
+    <Compile Include="Core\ProductSortByField.cs" />
+    <Compile Include="Core\Helpers\DnnHelper.cs" />
+    <Compile Include="Core\EmailController.cs" />
+    <Compile Include="Handlers\DropDownHandler.ashx.cs">
+      <DependentUpon>DropDownHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\PrintOrder.aspx.cs">
+      <DependentUpon>PrintOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\PrintOrder.aspx.designer.cs">
+      <DependentUpon>PrintOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\PrintShippingLabels.aspx.cs">
+      <DependentUpon>PrintShippingLabels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\PrintShippingLabels.aspx.designer.cs">
+      <DependentUpon>PrintShippingLabels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shipping\Contact.cs" />
+    <Compile Include="Shipping\EzAccountServerUrls.cs" />
+    <Compile Include="Shipping\EzShippingService.cs" />
+    <Compile Include="Shipping\IContact.cs" />
+    <Compile Include="Shipping\IPostalAddress.cs" />
+    <Compile Include="Shipping\IShipmentLabel.cs" />
+    <Compile Include="Shipping\IShipmentPackageDetail.cs" />
+    <Compile Include="Shipping\IShippingRate.cs" />
+    <Compile Include="Shipping\IShippingService.cs" />
+    <Compile Include="Modules\Admin\Admin.ascx.cs">
+      <DependentUpon>Admin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\Admin.ascx.designer.cs">
+      <DependentUpon>Admin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\AdminHome.ascx.cs">
+      <DependentUpon>AdminHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\AdminHome.ascx.designer.cs">
+      <DependentUpon>AdminHome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\AjaxHandler.ashx.cs">
+      <DependentUpon>AjaxHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\BulkPrintShippingLabels.aspx.cs">
+      <DependentUpon>BulkPrintShippingLabels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\BulkPrintShippingLabels.aspx.designer.cs">
+      <DependentUpon>BulkPrintShippingLabels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\CatalogSettings.ascx.cs">
+      <DependentUpon>CatalogSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\CatalogSettings.ascx.designer.cs">
+      <DependentUpon>CatalogSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Categories.ascx.cs">
+      <DependentUpon>Categories.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\Categories.ascx.designer.cs">
+      <DependentUpon>Categories.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Coupons.ascx.cs">
+      <DependentUpon>Coupons.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\Coupons.ascx.designer.cs">
+      <DependentUpon>Coupons.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Discounts.ascx.cs">
+      <DependentUpon>Discounts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\Discounts.ascx.designer.cs">
+      <DependentUpon>Discounts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\EditCategory.ascx.cs">
+      <DependentUpon>EditCategory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\EditCategory.ascx.designer.cs">
+      <DependentUpon>EditCategory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\EditCoupon.ascx.cs">
+      <DependentUpon>EditCoupon.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\EditCoupon.ascx.designer.cs">
+      <DependentUpon>EditCoupon.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\EditDiscount.ascx.cs">
+      <DependentUpon>EditDiscount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\EditDiscount.ascx.designer.cs">
+      <DependentUpon>EditDiscount.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\EditEmailTemplate.ascx.cs">
+      <DependentUpon>EditEmailTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\EditEmailTemplate.ascx.designer.cs">
+      <DependentUpon>EditEmailTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\EditProduct.ascx.cs">
+      <DependentUpon>EditProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\EditProduct.ascx.designer.cs">
+      <DependentUpon>EditProduct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\EditProductField.ascx.cs">
+      <DependentUpon>EditProductField.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\EditProductField.ascx.designer.cs">
+      <DependentUpon>EditProductField.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\EmailTemplates.ascx.cs">
+      <DependentUpon>EmailTemplates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\EmailTemplates.ascx.designer.cs">
+      <DependentUpon>EmailTemplates.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Orders.ascx.cs">
+      <DependentUpon>Orders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\Orders.ascx.designer.cs">
+      <DependentUpon>Orders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\PaymentMethods.ascx.cs">
+      <DependentUpon>PaymentMethods.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\PaymentMethods.ascx.designer.cs">
+      <DependentUpon>PaymentMethods.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\ProductExport.ascx.cs">
+      <DependentUpon>ProductExport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\ProductExport.ascx.designer.cs">
+      <DependentUpon>ProductExport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\ProductImport.ascx.cs">
+      <DependentUpon>ProductImport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\ProductImport.ascx.designer.cs">
+      <DependentUpon>ProductImport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Products.ascx.cs">
+      <DependentUpon>Products.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\Products.ascx.designer.cs">
+      <DependentUpon>Products.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Reports\CustomerList.ashx.cs">
+      <DependentUpon>CustomerList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Reports\OrderList.ashx.cs">
+      <DependentUpon>OrderList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\SendCustomerEmail.ascx.cs">
+      <DependentUpon>SendCustomerEmail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\SendCustomerEmail.ascx.designer.cs">
+      <DependentUpon>SendCustomerEmail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\Shipping.ascx.cs">
+      <DependentUpon>Shipping.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\Shipping.ascx.designer.cs">
+      <DependentUpon>Shipping.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\StoreSettings.ascx.cs">
+      <DependentUpon>StoreSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\StoreSettings.ascx.designer.cs">
+      <DependentUpon>StoreSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Enums.cs" />
+    <Compile Include="Modules\Admin\TaxRegions.ascx.cs">
+      <DependentUpon>TaxRegions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\TaxRegions.ascx.designer.cs">
+      <DependentUpon>TaxRegions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\ViewOrder.ascx.cs">
+      <DependentUpon>ViewOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Admin\ViewOrder.ascx.designer.cs">
+      <DependentUpon>ViewOrder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Cart\MiniCart.ascx.cs">
+      <DependentUpon>MiniCart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cart\MiniCart.ascx.designer.cs">
+      <DependentUpon>MiniCart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Catalog\CatalogCategory.ascx.cs">
+      <DependentUpon>CatalogCategory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Catalog\CatalogCategory.ascx.designer.cs">
+      <DependentUpon>CatalogCategory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Catalog\CatalogCategoryMenu.ascx.cs">
+      <DependentUpon>CatalogCategoryMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Catalog\CatalogCategoryMenu.ascx.designer.cs">
+      <DependentUpon>CatalogCategoryMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Catalog\PhotoPopup.aspx.cs">
+      <DependentUpon>PhotoPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Catalog\PhotoPopup.aspx.designer.cs">
+      <DependentUpon>PhotoPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutBilling.ascx.cs">
+      <DependentUpon>CheckoutBilling.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutBilling.ascx.designer.cs">
+      <DependentUpon>CheckoutBilling.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutComplete.ascx.cs">
+      <DependentUpon>CheckoutComplete.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutComplete.ascx.designer.cs">
+      <DependentUpon>CheckoutComplete.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutPayment.ascx.cs">
+      <DependentUpon>CheckoutPayment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutPayment.ascx.designer.cs">
+      <DependentUpon>CheckoutPayment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutReview.ascx.cs">
+      <DependentUpon>CheckoutReview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutReview.ascx.designer.cs">
+      <DependentUpon>CheckoutReview.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutShipping.ascx.cs">
+      <DependentUpon>CheckoutShipping.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutShipping.ascx.designer.cs">
+      <DependentUpon>CheckoutShipping.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutShippingMethod.ascx.cs">
+      <DependentUpon>CheckoutShippingMethod.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Checkout\CheckoutShippingMethod.ascx.designer.cs">
+      <DependentUpon>CheckoutShippingMethod.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Checkout\LoginPrompt.ascx.cs">
+      <DependentUpon>LoginPrompt.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Checkout\LoginPrompt.ascx.designer.cs">
+      <DependentUpon>LoginPrompt.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\PaymentProviders\PaymentProviderFactory.ascx.cs" />
+    <Compile Include="Modules\Featured\FeaturedProducts.ascx.cs">
+      <DependentUpon>FeaturedProducts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Featured\FeaturedProducts.ascx.designer.cs">
+      <DependentUpon>FeaturedProducts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Featured\FeaturedSettings.cs" />
+    <Compile Include="Modules\Featured\Settings.ascx.cs">
+      <DependentUpon>Settings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Featured\Settings.ascx.designer.cs">
+      <DependentUpon>Settings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MainDispatch.ascx.cs">
+      <DependentUpon>MainDispatch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MainDispatch.ascx.designer.cs">
+      <DependentUpon>MainDispatch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Catalog\CatalogProduct.ascx.cs">
+      <DependentUpon>CatalogProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Catalog\CatalogProduct.ascx.designer.cs">
+      <DependentUpon>CatalogProduct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MyOrders\Dispatch.ascx.cs">
+      <DependentUpon>Dispatch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MyOrders\Dispatch.ascx.designer.cs">
+      <DependentUpon>Dispatch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MyOrders\MyOrders.ascx.cs">
+      <DependentUpon>MyOrders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MyOrders\MyOrders.ascx.designer.cs">
+      <DependentUpon>MyOrders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MyOrders\ViewOrder.ascx.cs">
+      <DependentUpon>ViewOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MyOrders\ViewOrder.ascx.designer.cs">
+      <DependentUpon>ViewOrder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PayPal\PayPalIpnHandler.aspx.cs">
+      <DependentUpon>PayPalIpnHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayPal\PayPalIpnHandler.aspx.designer.cs">
+      <DependentUpon>PayPalIpnHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayPal\PayPalStandardPostCart.aspx.cs">
+      <DependentUpon>PayPalStandardPostCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayPal\PayPalStandardPostCart.aspx.designer.cs">
+      <DependentUpon>PayPalStandardPostCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ImageResizeHandler.ashx.cs">
+      <DependentUpon>ImageResizeHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\UploadifyHandler.ashx.cs">
+      <DependentUpon>UploadifyHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\SlugService.ashx.cs">
+      <DependentUpon>SlugService.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Cart\Cart.ascx.cs">
+      <DependentUpon>Cart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Cart\Cart.ascx.designer.cs">
+      <DependentUpon>Cart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Base\StoreModuleBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shipping\CustomTablesShippingService.cs" />
+    <Compile Include="Shipping\FedExShippingService.cs" />
+    <Compile Include="Shipping\LabelFileType.cs" />
+    <Compile Include="Shipping\PostalAddress.cs" />
+    <Compile Include="Shipping\ShipmentLabel.cs" />
+    <Compile Include="Shipping\ShipmentLabelRequest.cs" />
+    <Compile Include="Shipping\ShipmentLabelResponse.cs" />
+    <Compile Include="Shipping\ShipmentPackageDetail.cs" />
+    <Compile Include="Shipping\ShippingRate.cs" />
+    <Compile Include="Shipping\ShippingService.cs" />
+    <Compile Include="Shipping\ShippingServiceFactory.cs" />
+    <Compile Include="Shipping\UpsShippingService.cs" />
+    <Compile Include="UserControls\AddressForm.ascx.cs">
+      <DependentUpon>AddressForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddressForm.ascx.designer.cs">
+      <DependentUpon>AddressForm.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\btnArrow.png" />
+    <Content Include="images\fancybox\blank.gif" />
+    <Content Include="images\fancybox\fancybox-x.png" />
+    <Content Include="images\fancybox\fancybox-y.png" />
+    <Content Include="images\fancybox\fancybox.png" />
+    <Content Include="images\fancybox\fancy_close.png" />
+    <Content Include="images\fancybox\fancy_loading.png" />
+    <Content Include="images\fancybox\fancy_nav_left.png" />
+    <Content Include="images\fancybox\fancy_nav_right.png" />
+    <Content Include="images\fancybox\fancy_title_over.png" />
+    <Content Include="images\icons\add.png" />
+    <Content Include="images\icons\application_side_list.png" />
+    <Content Include="images\icons\application_side_list32.png" />
+    <Content Include="images\icons\box_open.png" />
+    <Content Include="images\icons\cog.png" />
+    <Content Include="images\icons\cross.png" />
+    <Content Include="images\icons\delete.png" />
+    <Content Include="images\icons\edit.png" />
+    <Content Include="images\icons\lorry.png" />
+    <Content Include="images\icons\money_dollar.png" />
+    <Content Include="images\icons\tag_green32.png" />
+    <Content Include="images\icons\text_list_bullets32.png" />
+    <Content Include="images\icons\tick.png" />
+    <Content Include="images\photoNext.png" />
+    <Content Include="images\photoPrev.png" />
+    <Content Include="images\photoZoom.png" />
+    <Content Include="js\jquery-ui-1.9.1.custom.min.js" />
+    <Content Include="js\jquery.fancybox-1.3.1.js" />
+    <Content Include="js\jquery.fancybox-1.3.1.min.js" />
+    <Content Include="js\jquery.maskedinput.js" />
+    <Content Include="js\jquery.metadata.js" />
+    <Content Include="js\jquery.watermark.min.js" />
+    <Content Include="Modules\Admin\Admin.ascx" />
+    <Content Include="Modules\Admin\AdminHome.ascx" />
+    <Content Include="Modules\Admin\CatalogSettings.ascx" />
+    <Content Include="Modules\Admin\EditEmailTemplate.ascx" />
+    <Content Include="Modules\Admin\EditProduct.ascx" />
+    <Content Include="Modules\Admin\EmailTemplates.ascx" />
+    <Content Include="Modules\Admin\PrintOrder.aspx" />
+    <Content Include="Modules\Admin\PrintShippingLabels.aspx" />
+    <Content Include="Modules\Admin\Products.ascx" />
+    <Content Include="Modules\Admin\StoreSettings.ascx" />
+    <Content Include="Modules\Cart\Cart.ascx" />
+    <Content Include="module.css" />
+    <Content Include="Modules\Catalog\PhotoPopup.aspx" />
+    <Content Include="Modules\Checkout\CheckoutShippingMethod.ascx" />
+    <Content Include="Modules\Featured\FeaturedProducts.ascx" />
+    <Content Include="Modules\Featured\Settings.ascx" />
+    <Content Include="uploadify\cancel.png" />
+    <Content Include="uploadify\expressInstall.swf" />
+    <Content Include="uploadify\jquery.uploadify.v2.1.0.js" />
+    <Content Include="uploadify\jquery.uploadify.v2.1.0.min.js" />
+    <Content Include="uploadify\swfobject.js" />
+    <Content Include="uploadify\uploadify.allglyphs.swf" />
+    <Content Include="uploadify\uploadify.css" />
+    <Content Include="uploadify\uploadify.swf" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\jquery.ui.css" />
+    <Content Include="images\ajax-loader-bar.gif" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\icons\arrow_out.png" />
+    <Content Include="images\btnAddToCart.png" />
+    <Content Include="images\btnApplyCoupon.png" />
+    <Content Include="images\btnCheckout.png" />
+    <Content Include="images\btnContinue.png" />
+    <Content Include="images\btnContinueToPayPal.png" />
+    <Content Include="images\btnPlaceOrder.png" />
+    <Content Include="images\btnReviewOrder.png" />
+    <Content Include="images\btnUploadPhotos.png" />
+    <Content Include="images\cardLogos.gif" />
+    <Content Include="images\icons\cart.png" />
+    <Content Include="images\icons\control_back.png" />
+    <Content Include="images\icons\control_play.png" />
+    <Content Include="images\fancybox\fancy_closebox.png" />
+    <Content Include="images\fancybox\fancy_left.png" />
+    <Content Include="images\fancybox\fancy_progress.png" />
+    <Content Include="images\fancybox\fancy_right.png" />
+    <Content Include="images\fancybox\fancy_shadow_e.png" />
+    <Content Include="images\fancybox\fancy_shadow_n.png" />
+    <Content Include="images\fancybox\fancy_shadow_ne.png" />
+    <Content Include="images\fancybox\fancy_shadow_nw.png" />
+    <Content Include="images\fancybox\fancy_shadow_s.png" />
+    <Content Include="images\fancybox\fancy_shadow_se.png" />
+    <Content Include="images\fancybox\fancy_shadow_sw.png" />
+    <Content Include="images\fancybox\fancy_shadow_w.png" />
+    <Content Include="images\fancybox\fancy_title_left.png" />
+    <Content Include="images\fancybox\fancy_title_main.png" />
+    <Content Include="images\fancybox\fancy_title_right.png" />
+    <Content Include="images\jqueryTools\tabs\blue.png" />
+    <Content Include="images\icons\magnifier.png" />
+    <Content Include="images\icons\move.png" />
+    <Content Include="images\photoNotFound.png" />
+    <Content Include="images\icons\resultset_next.png" />
+    <Content Include="js\jquery.maxlength.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.popeye-1.0.js" />
+    <Content Include="js\jquery.popeye-1.0.min.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="Modules\Admin\Categories.ascx" />
+    <Content Include="Modules\Admin\Coupons.ascx" />
+    <Content Include="Modules\Admin\EditCategory.ascx" />
+    <Content Include="Modules\Admin\EditCoupon.ascx" />
+    <Content Include="Modules\Admin\Orders.ascx" />
+    <Content Include="Modules\Admin\PaymentMethods.ascx" />
+    <Content Include="Modules\Admin\Shipping.ascx" />
+    <Content Include="Modules\Admin\TaxRegions.ascx" />
+    <Content Include="Modules\Admin\UploadifyHandler.ashx" />
+    <Content Include="Modules\Admin\ViewOrder.ascx" />
+    <Content Include="Modules\Cart\MiniCart.ascx" />
+    <Content Include="Modules\Catalog\CatalogCategory.ascx" />
+    <Content Include="Modules\Catalog\CatalogCategoryMenu.ascx" />
+    <Content Include="Modules\Checkout\CheckoutBilling.ascx" />
+    <Content Include="Modules\Checkout\CheckoutComplete.ascx" />
+    <Content Include="Modules\Checkout\CheckoutPayment.ascx" />
+    <Content Include="Modules\Checkout\CheckoutReview.ascx" />
+    <Content Include="Modules\Checkout\CheckoutShipping.ascx" />
+    <Content Include="Modules\Checkout\LoginPrompt.ascx" />
+    <Content Include="Modules\MainDispatch.ascx" />
+    <Content Include="Modules\Catalog\CatalogProduct.ascx" />
+    <Content Include="PayPal\PayPalIpnHandler.aspx" />
+    <Content Include="PayPal\PayPalStandardPostCart.aspx" />
+    <Content Include="Handlers\ImageResizeHandler.ashx" />
+    <Content Include="uploadify\blankCancel.png" />
+    <Content Include="Handlers\Web.config" />
+    <Content Include="uploadify\btnUploadMorePhotos.png" />
+    <Content Include="Handlers\SlugService.ashx" />
+    <Content Include="UserControls\AddressForm.ascx" />
+    <Content Include="Handlers\DropDownHandler.ashx" />
+    <Content Include="Modules\Admin\AjaxHandler.ashx" />
+    <Content Include="Modules\Admin\Reports\CustomerList.ashx" />
+    <Content Include="Modules\Admin\Reports\OrderList.ashx" />
+    <Content Include="doc\ProductImport-Sample-Create.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc\ProductImport-Sample-Update.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc\ProductImport-Sample-Delete.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="uploadify\check.php" />
+    <None Include="uploadify\uploadify.fla" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Global.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="css\images\ibutton-slider-default.png" />
+    <Content Include="css\jquery.ibutton.css" />
+    <Content Include="css\jquery.popeye.css" />
+    <Content Include="ie6.css" />
+    <Content Include="ie7.css" />
+    <Content Include="css\email.css" />
+    <Content Include="ie8.css" />
+    <Content Include="images\ajax-spinner-white.gif" />
+    <Content Include="images\ajax-spinner.gif" />
+    <Content Include="images\icons\arrow_down.png" />
+    <Content Include="images\icons\arrow_up.png" />
+    <Content Include="images\bgCheckoutBar.png" />
+    <Content Include="images\btnBackToBilling.png" />
+    <Content Include="images\btnBackToPayment.png" />
+    <Content Include="images\btnBackToShipping.png" />
+    <Content Include="images\btnContinueShopping.png" />
+    <Content Include="images\icons\box_down32.png" />
+    <Content Include="images\icons\box_up32.png" />
+    <Content Include="images\icons\cart32.png" />
+    <Content Include="images\icons\chart_bar32.png" />
+    <Content Include="images\icons\chart_pie32.png" />
+    <Content Include="images\icons\cog32.png" />
+    <Content Include="images\icons\creditcards32.png" />
+    <Content Include="images\icons\disk.png" />
+    <Content Include="images\icons\email.png" />
+    <Content Include="images\icons\email32.png" />
+    <Content Include="images\icons\email_edit.png" />
+    <Content Include="images\icons\email_go.png" />
+    <Content Include="images\icons\folder32.png" />
+    <Content Include="images\icons\icon_xml.gif" />
+    <Content Include="images\icons\key32.png" />
+    <Content Include="images\icons\lorry32.png" />
+    <Content Include="images\icons\money32.png" />
+    <Content Include="images\icons\money_dollar32.png" />
+    <Content Include="images\icons\package.png" />
+    <Content Include="images\icons\package32.png" />
+    <Content Include="images\icons\package_add.png" />
+    <Content Include="images\icons\package_go.png" />
+    <Content Include="images\icons\package_go32.png" />
+    <Content Include="images\icons\report32.png" />
+    <Content Include="images\icons\report_disk32.png" />
+    <Content Include="images\icons\report_go32.png" />
+    <Content Include="images\icons\tag_blue32.png" />
+    <Content Include="images\paypal\bnr_paymentsBy_150x60.gif" />
+    <Content Include="css\images\popeye\bg1.png" />
+    <Content Include="css\images\popeye\compact1.png" />
+    <Content Include="css\images\popeye\enlarge1.png" />
+    <Content Include="css\images\popeye\loading1.gif" />
+    <Content Include="css\images\popeye\loading2.gif" />
+    <Content Include="css\images\popeye\loading3.gif" />
+    <Content Include="css\images\popeye\next1.png" />
+    <Content Include="css\images\popeye\prev1.png" />
+    <Content Include="images\tablesorter\asc.gif" />
+    <Content Include="images\tablesorter\bg.gif" />
+    <Content Include="images\tablesorter\desc.gif" />
+    <Content Include="js\AdminCategoriesSortable.js" />
+    <Content Include="js\jquery.blockUI.js" />
+    <Content Include="js\jquery.editable-1.3.3.js" />
+    <Content Include="js\jquery.editable-1.3.3.min.js" />
+    <Content Include="js\jquery.equalHeights.js" />
+    <Content Include="js\jquery.ibutton.min.js" />
+    <Content Include="js\jquery.jtemplates.js" />
+    <Content Include="js\jquery.popeye-1.1.js" />
+    <Content Include="js\jquery.tablesorter.js" />
+    <Content Include="js\jquery.tablesorter.min.js" />
+    <Content Include="Modules\Admin\BulkPrintShippingLabels.aspx" />
+    <Content Include="Modules\Admin\Discounts.ascx" />
+    <Content Include="Modules\Admin\EditDiscount.ascx" />
+    <Content Include="Modules\Admin\EditProductField.ascx" />
+    <Content Include="Modules\Admin\ProductExport.ascx" />
+    <Content Include="Modules\Admin\ProductImport.ascx" />
+    <Content Include="Modules\Admin\SendCustomerEmail.ascx" />
+    <Content Include="Modules\MyOrders\Dispatch.ascx" />
+    <Content Include="Modules\MyOrders\MyOrders.ascx" />
+    <Content Include="Modules\MyOrders\ViewOrder.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProductFiles\" />
+    <Folder Include="ProductPhotos\" />
+    <Folder Include="ShippingLabels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modules\Featured\App_LocalResources\Settings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <ModuleFolder>DNNspot-Store</ModuleFolder>
+    <!--
+    <DNNDirectory>C:\inetpub\wwwroot\DNN514</DNNDirectory>	
+    -->
+	<!--
+    <DNNDirectory>C:\inetpub\wwwroot\DNN7</DNNDirectory>
+	-->
+	
+    <DNNDirectory>C:\inetpub\wwwroot\ACB</DNNDirectory>
+    <StagingDirectory>Y:\ACB</StagingDirectory>
+	
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="AfterBuild" DependsOnTargets="DeployModule">
+  </Target>
+  <Target Name="DeployModule">
+    <!--  
+         We use CreateItem to ensure we pickup dynamic content 
+        that may be generated during the build task -->
+    <CreateItem Include="$(MSBuildProjectDirectory)\$(OutputPath)\*.dll">
+      <Output TaskParameter="Include" ItemName="ModuleAssemblies" />
+    </CreateItem>
+    <CreateItem Include="$(MSBuildProjectDirectory)\$(OutputPath)\*.pdb">
+      <Output TaskParameter="Include" ItemName="ModuleDebug" />
+    </CreateItem>
+    <!-- We copy all the project content files to our website directories. -->
+    <Copy SourceFiles="@(Content)" DestinationFiles="@(Content -> '$(DNNDirectory)\DesktopModules\$(ModuleFolder)\%(Identity)')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ModuleAssemblies);@(ModuleDebug)" DestinationFolder="$(DNNDirectory)\bin" />
+	
+	<!--
+    <Copy SourceFiles="@(Content)" DestinationFiles="@(Content -> '$(StagingDirectory)\DesktopModules\$(ModuleFolder)\%(Identity)')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ModuleAssemblies);@(ModuleDebug)" DestinationFolder="$(StagingDirectory)\bin" />
+	-->
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>2346</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_ConfigurationName="Release" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+</Project>

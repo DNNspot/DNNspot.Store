@@ -1,0 +1,90 @@
+<table cellspacing="0" cellpadding="0" border="0" width="98%" style="width: 98%;">
+    <tr>
+        <td>
+            <h3>Order #{{order.number}} <span style="font-size: 12px;">(placed on {{order.date}})</span></h3>
+            <p>
+                Customer: {{customer.firstname}} {{customer.lastname}} (UserId: {{customer.userid}})
+                <br />
+                Email: {{customer.email}}                
+            </p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" style="width: 100%;">
+                <tr>
+                    <td width="48%" valign="top" class="box" style="width: 48%; border: 1px solid #BEBCB7; vertical-align: top;">
+                        <h4>Billing Information</h4>
+                        <p>
+                            {{customer.firstname}} {{customer.lastname}}
+                            <br />
+                            {{order.billing.address1}} {{order.billing.address2}}
+                            <br />
+                            {{order.billing.city}}, {{order.billing.region}} {{order.billing.postalcode}}
+                            <br />
+                            {{order.billing.countrycode}}
+                            <br />
+                            Telephone: {{order.billing.telephone}}
+                        </p>
+                    </td>
+                    <td width="3%" style="width: 3%;">&nbsp;</td>
+                    <td width="48%" valign="top" class="box" style="width: 48%; border: 1px solid #BEBCB7; vertical-align: top;">
+                        <h4>Payment</h4>
+                        <p>
+                            Credit Card Type: {{order.billing.creditcardtype}}
+                            <br />
+                            Card Number: xxxx-{{order.billing.creditcardlast4}}
+                            <br />
+                            Expiration Date: {{order.billing.creditcardexpiration}}
+                        </p>        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><p>&nbsp;</p></td>
+                </tr>
+                <tr>
+                    <td width="48%" valign="top" class="box" style="width: 48%; border: 1px solid #BEBCB7; vertical-align: top;">
+                        <h4>Shipping Information</h4>
+                        <p>
+                            {{order.shipping.recipientname}}
+                            <br />
+                            {{order.shipping.address1}} {{order.shipping.address2}}
+                            <br />
+                            {{order.shipping.city}}, {{order.shipping.region}} {{order.shipping.postalcode}}
+                            <br />
+                            {{order.shipping.countrycode}}
+                            <br />
+                            Telephone: {{order.shipping.telephone}}
+                        </p>
+                    </td>
+                    <td width="3%" style="width: 3%;">&nbsp;</td>
+                    <td width="48%" valign="top" class="box" style="width: 48%; border: 1px solid #BEBCB7; vertical-align: top;">
+                        <h4>Shipping Method</h4>
+                        <p>
+                            {{order.shipping.option}}
+                        </p>        
+                    </td>
+                </tr>       
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td><p>&nbsp;</p></td>
+    </tr>    
+    <tr>
+        <td>
+            {{order.itemstable}}
+        </td>
+    </tr>    
+    <tr>
+        <td><p>&nbsp;</p></td>
+    </tr>      
+    <tr>
+        <td>
+            <p>
+                <strong>{{store.name}}</strong>
+            </p>
+        </td>
+    </tr>        
+</table>

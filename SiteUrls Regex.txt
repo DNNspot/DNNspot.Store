@@ -1,0 +1,7 @@
+"Friendly Url Settings" Screen in the DNN Host Settings
+
+Match
+    .*?-t(?<tabid>\d+)/(?<cat>[\w-_]*/)*(?<slug>.*)\.aspx
+    
+Replace With
+    ~/Default.aspx?TabId=$1&cat=$2&slug=$3

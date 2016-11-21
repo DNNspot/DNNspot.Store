@@ -1,0 +1,2 @@
+ImportAction,ProductId,Name,Sku,UrlName,Price,Weight,SeoTitle,SeoDescription,SeoKeywords,IsActive,CategoryNames,PhotoFilenames,DigitalFilename,Desc1Name,Desc1Html,Desc2Name,Desc2Html,Desc3Name,Desc3Html,Desc4Name,Desc4Html,Desc5Name,Desc5Html
+U,,Test Product Three - Updated Price,TESTPROD-3,test-product-3,25.75,,,,,,New Category From Update File,,,,,More Details,"more details can go here, this was added from an import file!",,,,,,

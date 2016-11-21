@@ -1,0 +1,27 @@
+<div>
+<span>[Product:Id]</span>
+<h1>[Product:Name]</h1>
+<div>
+[Product:Price]
+</div>
+<div>
+[Product:Photo{Width=150}]
+[Product:Photo{Width=150,Height=50}]
+</div>
+
+<p>
+[Product:Description]
+</p>
+
+[Product:HasPhoto]
+	static text
+[/Product:HasPhoto]
+
+
+[Product:HasPhoto]
+	static text
+	[Product:Photo{Width=150}]	
+	other text
+[/Product:HasPhoto]
+
+</div>

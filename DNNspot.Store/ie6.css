@@ -1,0 +1,100 @@
+﻿.dstore a.adminIconBtn:hover
+{        
+    display: block;
+    float: left;
+    height: 20px;    
+    padding: 6px 7px 0 26px;
+}   
+
+.ppy-stagewrap { background:none; width:250px; }
+
+ol.labelsLeft li {
+	margin:10px 0px;
+}
+
+ol.labelsLeft label {
+	margin:20px 0px 0px 150px;
+}
+
+ol li.activeNode a {
+	text-decoration:none;
+	font-weight:bold;
+	color:#000;
+}
+
+.panes {
+	float:left;
+	clear:both;
+	border:1px solid #999999;
+	padding:2px;
+}
+
+.resultsHeader {
+	float:left;
+	width:100%;
+	clear:both;
+}
+
+
+ul.tabs {
+	border:none;
+}
+
+ul.tabs a{
+	width:134px;
+}
+
+ul.tabs a.current  {
+	background-position:-420px -62px;
+}
+
+.priceSummary span {
+	float:right;
+	width:75px;
+}
+
+.priceSummary {
+	width:236px;
+}
+
+.priceSummary label {
+	width:110px;
+}
+
+#addressDisplay {
+	margin:10px 0px 0px 100px;
+}
+
+.paymentMethods li {
+	list-style:none;
+}
+
+ol.form li {
+	list-style:none;
+}
+
+ol#ccFields li {
+	margin: 5px 0px;
+}
+
+ol#ccFields li label {
+	clear:both;
+	float:left;
+	width:100px;
+}
+
+.tax {
+	clear:both;
+}
+
+.catalogProduct .rightCol { width: 310px; }
+li.addToCart span { float: right; }
+
+/*-------------------------
+    jQuery Popeye
+--------------------------*/
+#ppy2 .ppy-stage { height: 187px; }
+
+#ppy2 .ppy-outer {  }
+
+#ppy2 .ppy-nav a { width: 22px; }

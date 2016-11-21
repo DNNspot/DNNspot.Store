@@ -1,0 +1,4 @@
+ImportAction,Name,Sku,UrlName,Price,Weight,SeoTitle,SeoDescription,SeoKeywords,IsActive,PhotoFilenames,CategoryNames,Desc1Name,Desc1Html,Desc2Name,Desc2Html,Desc3Name,Desc3Html,Desc4Name,Desc4Html,Desc5Name,Desc5Html
+C,Bulkie 1,,bulkie-1,10,,,,,,,,specs,the specs html,,,,,,,,
+C,Bulkie 2,,bulkie-2,12,,,,,,,,different tab name,some other html,,,,,,,,
+C,Bulkie 3,,bulkie-3,13,,,,,,,,ya tab name,third html,,,,,,,,

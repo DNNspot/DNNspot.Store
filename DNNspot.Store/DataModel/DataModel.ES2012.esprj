@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySpacesProject Version="2012.1.0930.0">
+  <Folder Name="Project">
+    <RecordedTemplate Name="Generated - Views">
+      <Template Name="Generated - Classes Master (C#)" Path="{fixup}EntitySpaces\C#\Generated - Classes Master (C#).est" Version="2012.0.0.0" />
+      <Input>
+        <Item Type="System.Boolean" Key="WcfIsRequired" Value="False" />
+        <Item Type="System.Boolean" Key="WcfSupport" Value="False" />
+        <Item Type="System.Boolean" Key="CompactXML" Value="False" />
+        <Item Type="System.Boolean" Key="WcfEmitDefaultValue" Value="True" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreSchema" Value="True" />
+        <Item Type="System.Boolean" Key="LINQtoSQL" Value="False" />
+        <Item Type="System.String" Key="Namespace" Value="DNNspot.Store.DataModel" />
+        <Item Type="(null)" Key="Table" />
+        <Item Type="System.Boolean" Key="DebugVisualizer" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModel" Value="True" />
+        <Item Type="System.Boolean" Key="SupportINotifyChanged" Value="False" />
+        <Item Type="System.String" Key="Database" Value="DNN7" />
+        <Item Type="System.Boolean" Key="TargetMultipleDatabases" Value="False" />
+        <Item Type="System.Boolean" Key="TargetTheCompactFramework" Value="False" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreCatalog" Value="True" />
+        <Item Type="System.Boolean" Key="UseDnnObjectQualifier" Value="True" />
+        <Item Type="System.Boolean" Key="GenerateStrProperties" Value="True" />
+        <Item Type="System.String" Key="ConnectionName" Value="" />
+        <Item Type="System.Boolean" Key="IncludeRowStateInXml" Value="True" />
+        <Item Type="System.String" Key="EntityType" Value="Views" />
+        <Item Type="System.Collections.ArrayList" Key="Entities" Value="dbo.vDNNspot_Store_CartItemProductInfo,dbo.vDNNspot_Store_MainProductPhoto,dbo.vDNNspot_Store_ProductsSoldCounts,dbo.vDNNspot_Store_ShippingRateWeight,dbo.vDNNspot_Store_ShippingServiceRates,dbo.vDNNspot_Store_StoreEmailTemplate" />
+        <Item Type="System.Boolean" Key="GenerateProxyStub" Value="False" />
+        <Item Type="System.Boolean" Key="SerializableQueries" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalDataContracts" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalRiaServicesSupport" Value="False" />
+        <Item Type="System.String" Key="WcfDataContract" Value="http://tempuri.org/" />
+        <Item Type="System.Boolean" Key="DebuggerDisplay" Value="True" />
+        <Item Type="System.String" Key="OutputPath" Value="{fixup\generated\}" />
+        <Item Type="System.Boolean" Key="WcfOrder" Value="True" />
+        <Item Type="System.Boolean" Key="UseCustomBaseClass" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateSingleFile" Value="True" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModelSelectedTablesOnly" Value="True" />
+      </Input>
+      <esSettings>
+        <Driver>SQL</Driver>
+        <ConnectionString>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;User ID=matt;Initial Catalog=Localhost;Data Source=MATT-PC\SQL08</ConnectionString>
+        <TemplatePath>{fixup}</TemplatePath>
+        <OutputPath>{fixup}</OutputPath>
+        <UIAssemblyPath>{fixup}</UIAssemblyPath>
+        <CompilerAssemblyPath>{fixup}</CompilerAssemblyPath>
+        <LanguageMappingFile>{fixup}</LanguageMappingFile>
+        <UserMetadataFile>{fixup}</UserMetadataFile>
+        <AbstractPrefix>es</AbstractPrefix>
+        <EntitySuffix />
+        <CollectionSuffix>Collection</CollectionSuffix>
+        <QuerySuffix>Query</QuerySuffix>
+        <MetadataSuffix>Metadata</MetadataSuffix>
+        <ProxyStubSuffix>ProxyStub</ProxyStubSuffix>
+        <PrefixWithSchema>false</PrefixWithSchema>
+        <ProcPrefix>proc_</ProcPrefix>
+        <ProcInsert>Insert</ProcInsert>
+        <ProcUpdate>Update</ProcUpdate>
+        <ProcDelete>Delete</ProcDelete>
+        <ProcLoadAll>LoadAll</ProcLoadAll>
+        <ProcLoadByPK>LoadByPrimaryKey</ProcLoadByPK>
+        <ProcSuffix />
+        <ProcVerbFirst>false</ProcVerbFirst>
+        <OnePrefix />
+        <OneSeparator>By</OneSeparator>
+        <OneSuffix />
+        <ManyPrefix />
+        <ManySeparator>By</ManySeparator>
+        <ManySuffix>Collection</ManySuffix>
+        <SelfOnly>false</SelfOnly>
+        <SwapNames>false</SwapNames>
+        <UseAssociativeName>false</UseAssociativeName>
+        <UseUpToPrefix>true</UseUpToPrefix>
+        <PreserveUnderscores>false</PreserveUnderscores>
+        <UseRawNames>false</UseRawNames>
+        <UseNullableTypesAlways>true</UseNullableTypesAlways>
+        <TurnOffDateTimeInClassHeaders>false</TurnOffDateTimeInClassHeaders>
+        <DefaultTemplateDoubleClickAction>Execute</DefaultTemplateDoubleClickAction>
+        <LicenseProxyEnable>false</LicenseProxyEnable>
+        <LicenseProxyUrl />
+        <LicenseProxyUserName />
+        <LicenseProxyPassword />
+        <LicenseProxyDomainName />
+        <DriverInfoCollection>
+          <esSettingsDriverInfo>
+            <Driver>SQL</Driver>
+            <ConnectionString>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;User ID=matt;Initial Catalog=Localhost;Data Source=MATT-PC\SQL08</ConnectionString>
+            <DateAdded>
+              <IsEnabled>false</IsEnabled>
+              <ColumnName />
+              <Type>ClientSide</Type>
+              <ClientType>UtcNow</ClientType>
+              <ServerSideText />
+            </DateAdded>
+            <DateModified>
+              <IsEnabled>false</IsEnabled>
+              <ColumnName />
+              <Type>ClientSide</Type>
+              <ClientType>UtcNow</ClientType>
+              <ServerSideText />
+            </DateModified>
+            <AddedBy>
+              <IsEnabled>false</IsEnabled>
+              <UseEventHandler>false</UseEventHandler>
+              <ColumnName />
+              <ServerSideText />
+            </AddedBy>
+            <ModifiedBy>
+              <IsEnabled>false</IsEnabled>
+              <UseEventHandler>false</UseEventHandler>
+              <ColumnName />
+              <ServerSideText />
+            </ModifiedBy>
+            <ConcurrencyColumnEnabled>false</ConcurrencyColumnEnabled>
+            <ConcurrencyColumn />
+          </esSettingsDriverInfo>
+        </DriverInfoCollection>
+      </esSettings>
+    </RecordedTemplate>
+    <RecordedTemplate Name="Custom - Classes Master (C#)">
+      <Template Name="Custom - Classes Master (C#)" Path="{fixup}EntitySpaces\C#\Custom - Classes Master (C#).est" Version="2012.0.0.0" />
+      <Input>
+        <Item Type="System.Collections.ArrayList" Key="Entities" Value="dbo.vDNNspot_Store_CartItemProductInfo,dbo.vDNNspot_Store_MainProductPhoto,dbo.vDNNspot_Store_ProductsSoldCounts,dbo.vDNNspot_Store_ShippingRateWeight,dbo.vDNNspot_Store_ShippingServiceRates,dbo.vDNNspot_Store_StoreEmailTemplate" />
+        <Item Type="System.String" Key="Database" Value="DNN7" />
+        <Item Type="System.String" Key="Namespace" Value="DNNspot.Store.DataModel" />
+        <Item Type="(null)" Key="Table" />
+        <Item Type="System.String" Key="OutputPath" Value="{fixup\custom\}" />
+        <Item Type="System.String" Key="EntityType" Value="Views" />
+      </Input>
+      <esSettings>
+        <Driver>SQL</Driver>
+        <ConnectionString>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;User ID=matt;Initial Catalog=Localhost;Data Source=MATT-PC\SQL08</ConnectionString>
+        <TemplatePath>{fixup}</TemplatePath>
+        <OutputPath>{fixup}</OutputPath>
+        <UIAssemblyPath>{fixup}</UIAssemblyPath>
+        <CompilerAssemblyPath>{fixup}</CompilerAssemblyPath>
+        <LanguageMappingFile>{fixup}</LanguageMappingFile>
+        <UserMetadataFile>{fixup}</UserMetadataFile>
+        <AbstractPrefix>es</AbstractPrefix>
+        <EntitySuffix />
+        <CollectionSuffix>Collection</CollectionSuffix>
+        <QuerySuffix>Query</QuerySuffix>
+        <MetadataSuffix>Metadata</MetadataSuffix>
+        <ProxyStubSuffix>ProxyStub</ProxyStubSuffix>
+        <PrefixWithSchema>false</PrefixWithSchema>
+        <ProcPrefix>proc_</ProcPrefix>
+        <ProcInsert>Insert</ProcInsert>
+        <ProcUpdate>Update</ProcUpdate>
+        <ProcDelete>Delete</ProcDelete>
+        <ProcLoadAll>LoadAll</ProcLoadAll>
+        <ProcLoadByPK>LoadByPrimaryKey</ProcLoadByPK>
+        <ProcSuffix />
+        <ProcVerbFirst>false</ProcVerbFirst>
+        <OnePrefix />
+        <OneSeparator>By</OneSeparator>
+        <OneSuffix />
+        <ManyPrefix />
+        <ManySeparator>By</ManySeparator>
+        <ManySuffix>Collection</ManySuffix>
+        <SelfOnly>false</SelfOnly>
+        <SwapNames>false</SwapNames>
+        <UseAssociativeName>false</UseAssociativeName>
+        <UseUpToPrefix>true</UseUpToPrefix>
+        <PreserveUnderscores>false</PreserveUnderscores>
+        <UseRawNames>false</UseRawNames>
+        <UseNullableTypesAlways>true</UseNullableTypesAlways>
+        <TurnOffDateTimeInClassHeaders>false</TurnOffDateTimeInClassHeaders>
+        <DefaultTemplateDoubleClickAction>Execute</DefaultTemplateDoubleClickAction>
+        <LicenseProxyEnable>false</LicenseProxyEnable>
+        <LicenseProxyUrl />
+        <LicenseProxyUserName />
+        <LicenseProxyPassword />
+        <LicenseProxyDomainName />
+        <DriverInfoCollection>
+          <esSettingsDriverInfo>
+            <Driver>SQL</Driver>
+            <ConnectionString>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;User ID=matt;Initial Catalog=Localhost;Data Source=MATT-PC\SQL08</ConnectionString>
+            <DateAdded>
+              <IsEnabled>false</IsEnabled>
+              <ColumnName />
+              <Type>ClientSide</Type>
+              <ClientType>UtcNow</ClientType>
+              <ServerSideText />
+            </DateAdded>
+            <DateModified>
+              <IsEnabled>false</IsEnabled>
+              <ColumnName />
+              <Type>ClientSide</Type>
+              <ClientType>UtcNow</ClientType>
+              <ServerSideText />
+            </DateModified>
+            <AddedBy>
+              <IsEnabled>false</IsEnabled>
+              <UseEventHandler>false</UseEventHandler>
+              <ColumnName />
+              <ServerSideText />
+            </AddedBy>
+            <ModifiedBy>
+              <IsEnabled>false</IsEnabled>
+              <UseEventHandler>false</UseEventHandler>
+              <ColumnName />
+              <ServerSideText />
+            </ModifiedBy>
+            <ConcurrencyColumnEnabled>false</ConcurrencyColumnEnabled>
+            <ConcurrencyColumn />
+          </esSettingsDriverInfo>
+        </DriverInfoCollection>
+      </esSettings>
+    </RecordedTemplate>
+    <RecordedTemplate Name="Generated - Tables">
+      <Template Name="Generated - Classes Master (C#)" Path="{fixup}EntitySpaces\C#\Generated - Classes Master (C#).est" Version="2012.0.0.0" />
+      <Input>
+        <Item Type="System.Boolean" Key="DebuggerDisplay" Value="True" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModel" Value="True" />
+        <Item Type="System.Boolean" Key="UseCustomBaseClass" Value="False" />
+        <Item Type="System.Boolean" Key="UseDnnObjectQualifier" Value="True" />
+        <Item Type="System.Boolean" Key="SupportINotifyChanged" Value="False" />
+        <Item Type="System.String" Key="WcfDataContract" Value="http://tempuri.org/" />
+        <Item Type="System.Boolean" Key="LINQtoSQL" Value="True" />
+        <Item Type="System.String" Key="EntityType" Value="Tables" />
+        <Item Type="System.Boolean" Key="CompactXML" Value="False" />
+        <Item Type="System.Boolean" Key="TargetTheCompactFramework" Value="False" />
+        <Item Type="System.Boolean" Key="IncludeRowStateInXml" Value="True" />
+        <Item Type="System.Boolean" Key="WcfEmitDefaultValue" Value="True" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreSchema" Value="True" />
+        <Item Type="System.Boolean" Key="DebugVisualizer" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalDataContracts" Value="False" />
+        <Item Type="System.String" Key="Database" Value="DNN7" />
+        <Item Type="System.Boolean" Key="GenerateStrProperties" Value="True" />
+        <Item Type="EntitySpaces.MetadataEngine.Sql.SqlTable" Key="Table" Value="EntitySpaces.MetadataEngine.Sql.SqlTable" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalRiaServicesSupport" Value="False" />
+        <Item Type="EntitySpaces.MetadataEngine.esPluginSource" Key="Source" Value="EntitySpaces.MetadataEngine.esPluginSource" />
+        <Item Type="System.Boolean" Key="WcfIsRequired" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateSingleFile" Value="True" />
+        <Item Type="System.Boolean" Key="TargetMultipleDatabases" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateProxyStub" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModelSelectedTablesOnly" Value="True" />
+        <Item Type="System.Boolean" Key="WcfOrder" Value="True" />
+        <Item Type="System.String" Key="ConnectionName" Value="" />
+        <Item Type="System.Boolean" Key="SerializableQueries" Value="False" />
+        <Item Type="EntitySpaces.MetadataEngine.Sql.SqlColumns" Key="Columns" Value="EntitySpaces.MetadataEngine.Sql.SqlColumns" />
+        <Item Type="System.String" Key="OutputPath" Value="{fixup\generated\}" />
+        <Item Type="System.String" Key="Namespace" Value="DNNspot.Store.DataModel" />
+        <Item Type="(null)" Key="View" />
+        <Item Type="System.Boolean" Key="WcfSupport" Value="False" />
+        <Item Type="System.Collections.ArrayList" Key="Entities" Value="dbo.DNNspot_Store_Cart,dbo.DNNspot_Store_CartItem,dbo.DNNspot_Store_Category,dbo.DNNspot_Store_Coupon,dbo.DNNspot_Store_Currency,dbo.DNNspot_Store_DeliveryMethod,dbo.DNNspot_Store_Discount,dbo.DNNspot_Store_EmailTemplate,dbo.DNNspot_Store_Order,dbo.DNNspot_Store_OrderCoupon,dbo.DNNspot_Store_OrderItem,dbo.DNNspot_Store_OrderStatus,dbo.DNNspot_Store_PaymentProvider,dbo.DNNspot_Store_PaymentStatus,dbo.DNNspot_Store_PaymentTransaction,dbo.DNNspot_Store_Product,dbo.DNNspot_Store_ProductCategory,dbo.DNNspot_Store_ProductDescriptor,dbo.DNNspot_Store_ProductField,dbo.DNNspot_Store_ProductFieldChoice,dbo.DNNspot_Store_ProductPhoto,dbo.DNNspot_Store_ProductQuantityPrice,dbo.DNNspot_Store_RelatedProduct,dbo.DNNspot_Store_ShippingLog,dbo.DNNspot_Store_ShippingService,dbo.DNNspot_Store_ShippingServiceRate,dbo.DNNspot_Store_ShippingServiceRateType,dbo.DNNspot_Store_ShippingServiceSetting,dbo.DNNspot_Store_Store,dbo.DNNspot_Store_StoreEmailTemplate,dbo.DNNspot_Store_StorePaymentProvider,dbo.DNNspot_Store_StorePaymentProviderSetting,dbo.DNNspot_Store_StoreSetting,dbo.DNNspot_Store_TaxRegion" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreCatalog" Value="True" />
+      </Input>
+      <esSettings>
+        <Driver>SQL</Driver>
+        <ConnectionString>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;User ID=matt;Initial Catalog=Localhost;Data Source=MATT-PC\SQL08</ConnectionString>
+        <TemplatePath>{fixup}</TemplatePath>
+        <OutputPath>{fixup}</OutputPath>
+        <UIAssemblyPath>{fixup}</UIAssemblyPath>
+        <CompilerAssemblyPath>{fixup}</CompilerAssemblyPath>
+        <LanguageMappingFile>{fixup}</LanguageMappingFile>
+        <UserMetadataFile>{fixup}</UserMetadataFile>
+        <AbstractPrefix>es</AbstractPrefix>
+        <EntitySuffix />
+        <CollectionSuffix>Collection</CollectionSuffix>
+        <QuerySuffix>Query</QuerySuffix>
+        <MetadataSuffix>Metadata</MetadataSuffix>
+        <ProxyStubSuffix>ProxyStub</ProxyStubSuffix>
+        <PrefixWithSchema>false</PrefixWithSchema>
+        <ProcPrefix>proc_</ProcPrefix>
+        <ProcInsert>Insert</ProcInsert>
+        <ProcUpdate>Update</ProcUpdate>
+        <ProcDelete>Delete</ProcDelete>
+        <ProcLoadAll>LoadAll</ProcLoadAll>
+        <ProcLoadByPK>LoadByPrimaryKey</ProcLoadByPK>
+        <ProcSuffix />
+        <ProcVerbFirst>false</ProcVerbFirst>
+        <OnePrefix />
+        <OneSeparator>By</OneSeparator>
+        <OneSuffix />
+        <ManyPrefix />
+        <ManySeparator>By</ManySeparator>
+        <ManySuffix>Collection</ManySuffix>
+        <SelfOnly>false</SelfOnly>
+        <SwapNames>false</SwapNames>
+        <UseAssociativeName>true</UseAssociativeName>
+        <UseUpToPrefix>true</UseUpToPrefix>
+        <PreserveUnderscores>false</PreserveUnderscores>
+        <UseRawNames>false</UseRawNames>
+        <UseNullableTypesAlways>true</UseNullableTypesAlways>
+        <TurnOffDateTimeInClassHeaders>true</TurnOffDateTimeInClassHeaders>
+        <DefaultTemplateDoubleClickAction>Execute</DefaultTemplateDoubleClickAction>
+        <LicenseProxyEnable>false</LicenseProxyEnable>
+        <LicenseProxyUrl />
+        <LicenseProxyUserName />
+        <LicenseProxyPassword />
+        <LicenseProxyDomainName />
+        <DriverInfoCollection>
+          <esSettingsDriverInfo>
+            <Driver>SQL</Driver>
+            <ConnectionString>Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;User ID=matt;Initial Catalog=Localhost;Data Source=MATT-PC\SQL08</ConnectionString>
+            <DateAdded>
+              <IsEnabled>false</IsEnabled>
+              <ColumnName />
+              <Type>ClientSide</Type>
+              <ClientType>UtcNow</ClientType>
+              <ServerSideText />
+            </DateAdded>
+            <DateModified>
+              <IsEnabled>false</IsEnabled>
+              <ColumnName />
+              <Type>ClientSide</Type>
+              <ClientType>UtcNow</ClientType>
+              <ServerSideText />
+            </DateModified>
+            <AddedBy>
+              <IsEnabled>false</IsEnabled>
+              <UseEventHandler>false</UseEventHandler>
+              <ColumnName />
+              <ServerSideText />
+            </AddedBy>
+            <ModifiedBy>
+              <IsEnabled>false</IsEnabled>
+              <UseEventHandler>false</UseEventHandler>
+              <ColumnName />
+              <ServerSideText />
+            </ModifiedBy>
+            <ConcurrencyColumnEnabled>false</ConcurrencyColumnEnabled>
+            <ConcurrencyColumn />
+          </esSettingsDriverInfo>
+        </DriverInfoCollection>
+      </esSettings>
+    </RecordedTemplate>
+  </Folder>
+</EntitySpacesProject>

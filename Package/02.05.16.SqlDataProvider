@@ -1,0 +1,31 @@
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_RelatedProduct](
+	[ProductId] [int] NOT NULL,
+	[RelatedProductId] [int] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_RelatedProduct_1] PRIMARY KEY CLUSTERED 
+(
+	[ProductId] ASC,
+	[RelatedProductId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_RelatedProduct]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_RelatedProduct] CHECK CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product]
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_RelatedProduct]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product1] FOREIGN KEY([RelatedProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_RelatedProduct] CHECK CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product1]
+GO

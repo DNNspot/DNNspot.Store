@@ -1,0 +1,5 @@
+--------------------------
+-- ALTER EXISTING TABLES
+--------------------------
+IF  EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Order]') AND name = N'IX_DNNspot_Store_Order')
+ALTER TABLE [{objectQualifier}DNNspot_Store_Order] DROP CONSTRAINT [IX_DNNspot_Store_Order]

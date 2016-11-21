@@ -1,0 +1,20 @@
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+ADD [Length] [decimal](10,8) NULL
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+ADD [Width] [decimal](10,8) NULL
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+ADD [Height] [decimal](10,8) NULL
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]
+ADD [Length] [decimal](10,8) NULL
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]
+ADD [Width] [decimal](10,8) NULL
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]
+ADD [Height] [decimal](10,8) NULL
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order]
+ADD [ShippingServiceType] [varchar](150) NULL

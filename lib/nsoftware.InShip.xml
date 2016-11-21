@@ -1,0 +1,3095 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nsoftware.InShip</name>
+    </assembly>
+    <members>
+        <member name="M:nsoftware.core.CFedExAddress.Do_Reset">
+            METHODS
+        </member>
+        <member name="M:nsoftware.core.CFedExRates.ValidateRequest">
+            internal methods
+        </member>
+        <member name="M:nsoftware.core.CFedExShip.AppendSmartPost(nsoftware.core.DynStrXML)">
+            internal methods
+        </member>
+        <member name="M:nsoftware.core.CFedExTrack.Do_Reset">
+            METHODS
+        </member>
+        <member name="M:nsoftware.core.CUPSAddress.Do_Reset">
+            Exposed Methods
+        </member>
+        <member name="F:nsoftware.core.CUPSAddress.xmlp1">
+            the followings are applicable when AddressInfo is used with ShippingTime to find the list of From/ToCandidates
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.PT_DAILYPICKUP">
+            pickup type
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.CC_WHOLESALE">
+            customer type
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.PACKAGING_TYPE_NONE">
+            packaging type
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.CODTS_CASH">
+            cod type on shipment level
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.CODTP_ANY_CHECK">
+            cod type on package level
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.PAYOR_TYPE_SENDER">
+            payor type
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.NOTIFY_FLAG_SHIPMENT">
+            notification type
+        </member>
+        <member name="F:nsoftware.core.CUPSHelper.ET_DOMESTIC">
+            commodity: export type
+        </member>
+        <member name="M:nsoftware.core.CUPSTrack.Do_Reset">
+            METHODS
+        </member>
+        <member name="T:nsoftware.InShip.EzaddressErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzaddressNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzaddressSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzaddressSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezaddress.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezaddress.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezaddress.ValidateAddress">
+            <summary>Returns corrected and standardized address information.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezaddress.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezaddress.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezaddress.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezaddress.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.Account">
+            <summary>Login information for the specified Provider.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.Address">
+            <summary>Identifies the address to be validated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.Matches">
+            <summary>Collection of address candidates that meet the search criteria.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.Provider">
+            <summary>Which provider to use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezaddress.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzratesErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzratesNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzratesSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzratesSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezrates.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezrates.GetRates">
+            <summary>Returns rate information for a specified or all available services.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezrates.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezrates.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezrates.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezrates.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezrates.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.Account">
+            <summary>Login information for the specified Provider.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.Services">
+            <summary>Collection of available services returned for the shipment being rated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.Provider">
+            <summary>Which provider to use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.RequestedService">
+            <summary>Service type for which the shipping rate is requested.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezrates.TotalWeight">
+            <summary>Total shipment's weight.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzshipErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzshipNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzshipSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EzshipSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezship.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezship.GetShipmentLabels">
+            <summary>Generates a shipping label for all packages in the shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Ezship.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezship.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezship.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezship.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Ezship.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.Account">
+            <summary>Login information for the specified Provider.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.Payor">
+            <summary>Identifies the payor of transportation charges for the requested shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.RecipientContact">
+            <summary>Identifies the recipient's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.SenderContact">
+            <summary>Identifies the sender's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.LabelImageType">
+            <summary>Type of image or printer commands the label is to be formatted in.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.MasterTrackingNumber">
+            <summary>Tracking number assigned to the whole MPS shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.Provider">
+            <summary>Which provider to use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.ServiceType">
+            <summary>Identifies the domestic service to use in a ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.ShipDate">
+            <summary>Date package will be mailed.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Ezship.TotalNetCharge">
+            <summary>The total net charge applied to the whole shipment (specific to the AccountNumber ).</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EztrackErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EztrackNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EztrackSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.EztrackSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Eztrack.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Eztrack.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Eztrack.TrackShipment(System.String)">
+            <summary>Returns tracking data for requested idValue of IdentifierType type.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Eztrack.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Eztrack.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Eztrack.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Eztrack.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.Account">
+            <summary>Login information for the specified Provider.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.RecipientAddress">
+            <summary>Identifies the recipient's address  to which the shipment is destined.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.SenderAddress">
+            <summary>Identifies the sender's address from which the shipment is originating.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.TrackEvents">
+            <summary>Collection of tracking details for all scanning events that occur during the shipping process of the package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.IdentifierType">
+            <summary>Type of shipment identifier by which the shipment is to be tracked.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.PackageCount">
+            <summary>The number of packages returned for a given tracking number or any other shipment identifier.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.PackageIndex">
+            <summary>The package index in a shipment being tracked.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.PackageReferences">
+            <summary>References (other than tracking number) assigned to the package at PackageIndex by either  shipper or customer.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.PackageSignedBy">
+            <summary>Signature of person who signed for package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.PackageTrackingNumber">
+            <summary>Package's tracking number corresponding to the PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.PackageWeight">
+            <summary>Weight of the package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.Provider">
+            <summary>Which provider to use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.ShipDate">
+            <summary>The date on which the package was tendered.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.ShipDateEnd">
+            <summary>End of ship date range used to narrow search.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.ShipDateStart">
+            <summary>Start of ship date range used to narrow search.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.ShipperAccountNumber">
+            <summary>Account number associated with shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Eztrack.TotalWeight">
+            <summary>Total shipment weight.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexaddressErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexaddressNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexaddressSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexaddressSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexaddress.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexaddress.FindLocations">
+            <summary>Finds FedEx location(s) based on the input data.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexaddress.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexaddress.ValidateAddress">
+            <summary>Returns corrected and standardized address information.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexaddress.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexaddress.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexaddress.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexaddress.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Address">
+            <summary>Identifies the address to be validated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.FedExAccount">
+            <summary>Login information for FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Locations">
+            <summary>Collection of location matches in the FedEx server response.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Matches">
+            <summary>Collection of address candidates that meet the search criteria.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Company">
+            <summary>Name of the company that resides at the address to be validated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Phone">
+            <summary>Phone number for which nearby FedEx locations are to be found.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexaddress.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexratesErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexratesNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexratesSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexratesSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexrates.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexrates.GetRates">
+            <summary>Returns rate information for a specified or all available FedEx services.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexrates.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexrates.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexrates.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexrates.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexrates.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.FedExAccount">
+            <summary>Login information for FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.Packages">
+            <summary>Collection of packages contained in the shipment being rated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.Services">
+            <summary>Collection of available services returned for the shipment being rated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.CODTotalAmount">
+            <summary>The total amount to be collected.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.CODType">
+            <summary>COD type.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.DropoffType">
+            <summary>Identifies the method by which the package is to be tendered to FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.HomeDeliveryDate">
+            <summary>Date for Ground Home Delivery service.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.HomeDeliveryPhone">
+            <summary>The phone number of the delivery location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.HomeDeliveryType">
+            <summary>The type of Home Delivery Premium service being requested.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.InsuredValue">
+            <summary>The total amount of insurance requested for the shipment being rated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.RateType">
+            <summary>Indicates the type of rates to be returned.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.RequestedService">
+            <summary>Service type for which the shipping rate is requested.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.ShipDate">
+            <summary>The date on which the package will be shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexrates.TotalWeight">
+            <summary>The total weight of all the pieces in this shipment.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.CancelPackage(System.String)">
+            <summary>Cancels a single package shipment by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.CancelPickup(System.String,System.String)">
+            <summary>Cancels a scheduled Carrier Pickup request.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.CancelShipment(System.String)">
+            <summary>Cancels a multi-package (MPS) shipment by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.CloseGroundShipments">
+            <summary>Closes out all FedEx Ground shipments made for the day or generates reports for the last 3 days' close requests.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.GetPackageLabel(System.Int32)">
+            <summary>Generates a shipping label for the specified package.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.GetShipmentLabels">
+            <summary>Generates a shipping label for all packages in the shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.PickupAvailability(System.String)">
+            <summary>Checks the availability of the courier dispatch service for the given address.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexship.SchedulePickup(System.String)">
+            <summary>Schedules a courier pickup and provides the user a confirmation number for the scheduled pickup.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexship.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexship.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexship.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexship.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.CloseRequest">
+            <summary>Identifies the close request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.FedExAccount">
+            <summary>Login information for FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.HoldAtLocation">
+            <summary>Identifies the FedEx location where you want to have your shipment held for pickup.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Notify">
+            <summary>Collection of recipients to get notified.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Payor">
+            <summary>Identifies the payor of transportation charges for the requested shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.RecipientContact">
+            <summary>Identifies the recipient's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.SenderContact">
+            <summary>Identifies the sender's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.CODTotalAmount">
+            <summary>The total amount to be collected.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.CODType">
+            <summary>COD type.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.CompanyCloseTime">
+            <summary>The time your company closes.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.DeliveryDate">
+            <summary>Date on which shipment is expected to be delivered.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.DropoffType">
+            <summary>Identifies the method by which the package is to be tendered to FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.HazMatCertificateB">
+            <summary>Image of a Hazardous Materials certification report.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.HazMatCertificate">
+            <summary>Image of a Hazardous Materials certification report.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.HoldAtLocationPhone">
+            <summary>Phone number of the FedEx location where the shipment will be hold at.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.HomeDeliveryDate">
+            <summary>Date for Ground Home Delivery service.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.HomeDeliveryPhone">
+            <summary>The phone number of the delivery location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.HomeDeliveryType">
+            <summary>The type of Home Delivery Premium service being requested.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.InsuredValue">
+            <summary>Total insured amount.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.LabelImageType">
+            <summary>Type of image or printer commands the label is to be formatted in.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Location">
+            <summary>The FedEx location identifier that received the express dispatch request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.ManifestB">
+            <summary>Image of the manifest for FedEx Ground shipment activity.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Manifest">
+            <summary>Image of the manifest for FedEx Ground shipment activity.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.MasterTrackingNumber">
+            <summary>Tracking number assigned to the whole MPS shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.MultiweightReportB">
+            <summary>Image of a multiweight report.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.MultiweightReport">
+            <summary>Image of a multiweight report.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.PackageLocation">
+            <summary>The location of pickup.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.ServiceType">
+            <summary>Identifies the FedEx domestic service to use in a ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.ShipDate">
+            <summary>The date on which the package was tendered to FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.TotalNetCharge">
+            <summary>The total net charge applied to the whole shipment (specific to the AccountNumber ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.TotalWeight">
+            <summary>Total shipment weight.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexship.TransitTime">
+            <summary>Expected number of days in transit from pickup to delivery.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipintlErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipintlNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipintlSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedexshipintlSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexshipintl.CancelPackage(System.String)">
+            <summary>Cancels a single package shipment by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexshipintl.CancelShipment(System.String)">
+            <summary>Cancels a multi-package (MPS) shipment by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexshipintl.CloseGroundShipments">
+            <summary>Closes out all FedEx Ground shipments made for the day or generates reports for the last 3 days' close requests.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexshipintl.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexshipintl.GetPackageLabel(System.Int32)">
+            <summary>Generates a shipping label for the specified package.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexshipintl.GetShipmentLabels">
+            <summary>Generates a shipping label for all packages in the shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedexshipintl.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexshipintl.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexshipintl.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexshipintl.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedexshipintl.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.BrokerAddress">
+            <summary>Identifies the broker's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.BrokerContact">
+            <summary>Identifies the broker's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.CloseRequest">
+            <summary>Identifies the close request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.CommercialInvoice">
+            <summary>Contains the collection of commercial Invoice (CI) details.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.Commodities">
+            <summary>Collection of commodity line items.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.DutiesPayor">
+            <summary>Identifies how payment of duties for the shipment will be made.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.FedExAccount">
+            <summary>Login information for FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.HoldAtLocation">
+            <summary>Identifies the FedEx location where you want to have your shipment held for pickup.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.Payor">
+            <summary>Identifies the payor of transportation charges for the requested shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.RecipientContact">
+            <summary>Identifies the recipient's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.SenderContact">
+            <summary>Identifies the sender's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.BrokerType">
+            <summary>Identifies the type of brokerage.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.DeliveryDate">
+            <summary>Date on which shipment is expected to be delivered.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.DropoffType">
+            <summary>Identifies the method by which the package is to be tendered to FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.HoldAtLocationPhone">
+            <summary>Phone number of the FedEx location where the shipment will be hold at.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.InsuredValue">
+            <summary>Total insured amount.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.LabelImageType">
+            <summary>Type of image or printer commands the label is to be formatted in.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.MasterTrackingNumber">
+            <summary>Tracking number assigned to the whole MPS shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.ServiceType">
+            <summary>Identifies the FedEx international service to use in a ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.ShipDate">
+            <summary>The date on which the package was tendered to FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.TotalCustomsValue">
+            <summary>Total customs value for the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.TotalNetCharge">
+            <summary>The total net charge applied to the whole shipment (specific to the AccountNumber ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.TotalWeight">
+            <summary>Total shipment weight.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedexshipintl.TransitTime">
+            <summary>Expected number of days in transit from pickup to delivery.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedextrackErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedextrackNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedextrackSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.FedextrackSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedextrack.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedextrack.FaxProofOfDelivery(System.String)">
+            <summary>Request Signature Proof of Delivery (SPOD) for a specified trackingNumber.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedextrack.GetProofOfDelivery(System.String)">
+            <summary>Request Signature Proof of Delivery (SPOD) for a specified trackingNumber.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedextrack.RequestEmailNotification(System.String)">
+            <summary>Request email notification for a specified trackingNumber to a specified Recipients list.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedextrack.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedextrack.SaveProofOfDelivery(System.String,System.String)">
+            <summary>Request Signature Proof of Delivery (SPOD) for a specified trackingNumber.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Fedextrack.TrackShipment(System.String)">
+            <summary>Returns tracking data for requested idValue of IdentifierType type.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedextrack.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedextrack.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedextrack.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Fedextrack.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.FedExAccount">
+            <summary>Login information for FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.Notify">
+            <summary>Collection of recipients to get notified.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.RecipientAddress">
+            <summary>Identifies the recipient's address  to which the shipment is destined.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.SenderContact">
+            <summary>Identifies the sender that requests an email notification or SPOD (via fax).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.TrackEvents">
+            <summary>Collection of tracking details for all scanning events that occur during the shipping process of the package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.CarrierCodeDescription">
+            <summary>FedEx carrier code description used for shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.EstimatedPickupDate">
+            <summary>Estimated package pickup date for shipments that haven't been picked up yet.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.IdentifierType">
+            <summary>Type of shipment identifier by which the shipment is to be tracked.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageCount">
+            <summary>The number of packages returned for a given tracking number or any other shipment identifier.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageDeliveryDate">
+            <summary>Actual date when the package at PackageIndex was delivered at destination (if applicable).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageDeliveryEstimate">
+            <summary>Projected delivery date for the package at PackageIndex based on the ship date, service and destination address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageDeliveryLocation">
+            <summary>Relative location at which package at PackageIndex was left (if package delivered).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageDeliveryStatus">
+            <summary>Delivery status description of the package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageIndex">
+            <summary>The package index in a shipment being tracked.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackagePackagingType">
+            <summary>Description of packaging type of the package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageReferences">
+            <summary>References (other than tracking number) assigned to the package at PackageIndex by either shipper or customer.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageServiceTypeDescription">
+            <summary>String describing the service type used to ship the package at PackageIndex being tracked.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageSignedBy">
+            <summary>Signature of person who signed for package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageTrackingNumber">
+            <summary>Tracking number for the package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.PackageWeight">
+            <summary>Weight of the package at PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.ShipDate">
+            <summary>The date on which the package was tendered to FedEx.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.ShipDateEnd">
+            <summary>End of ship date range used to narrow search.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.ShipDateStart">
+            <summary>Start of ship date range used to narrow search.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.ShipperAccountNumber">
+            <summary>Account number associated with shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Fedextrack.TotalWeight">
+            <summary>Total shipment weight.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsaddressErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsaddressNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsaddressSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsaddressSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsaddress.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsaddress.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsaddress.ValidateAddress">
+            <summary>Returns corrected and standardized address information.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsaddress.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsaddress.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsaddress.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsaddress.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.Address">
+            <summary>Identifies the address to be validated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.Matches">
+            <summary>Collection of address candidates that meet the search criteria.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.UPSAccount">
+            <summary>Login information for UPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.Aggregate">
+            <summary>String representing the list of address candidates (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsaddress.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsratesErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsratesNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsratesSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsratesSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsrates.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsrates.GetRates">
+            <summary>Returns rate information for a specified or all available UPS RequestedService s.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsrates.GetShippingTime">
+            <summary>Provides the average estimated time to ship a package from an origin to a destination address.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsrates.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsrates.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsrates.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsrates.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsrates.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.AccountAddress">
+            <summary>Identifies the UPS account holder's address, if different from the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.Packages">
+            <summary>Collection of packages contained in the shipment being rated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.SenderAddress">
+            <summary>Identifies the sender's address from which the shipment is originating.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.Services">
+            <summary>Collection of available services returned.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.UPSAccount">
+            <summary>Login information for UPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.CODTotalAmount">
+            <summary>The total amount to be collected on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.CODType">
+            <summary>The code that indicates the type of funds that will be used for the COD payment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.CustomerType">
+            <summary>Customer classification code.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.Disclaimer">
+            <summary>Disclaimer text.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.DutyType">
+            <summary>Auto duty type applicable for requests outside the US.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.PackageServiceIndex">
+            <summary>The service index in the list of available services returned.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.PickupType">
+            <summary>Pickup type used for the shipment that rate is requested for.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.RecipientCandidateAggregate">
+            <summary>String representing the list of destination address candidates (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.RequestedService">
+            <summary>Service type for which the shipping rate is requested.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.SenderCandidateAggregate">
+            <summary>String representing the list of origin address candidates (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.ShipDate">
+            <summary>The date the user requests UPS to pickup the package from the origin.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by UPS on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.TotalValue">
+            <summary>Monetary value of shipment contents.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsrates.TotalWeight">
+            <summary>Total shipment's weight.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsship.CancelPackage(System.String,System.String)">
+            <summary>Cancels a single package by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsship.CancelShipment(System.String)">
+            <summary>Cancels an entire multi-package (MPS) shipment by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsship.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsship.GetShipmentLabels">
+            <summary>Generates a shipping label using one of domestic UPS services.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsship.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsship.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsship.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsship.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsship.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.AccountAddress">
+            <summary>Identifies the UPS AccountNumber holder's address, if different from the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.AccountContact">
+            <summary>Identifies the UPS AccountNumber holder's contact info if different from SenderContact.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.Notify">
+            <summary>Collection of e-mail notifications to be sent.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.Payor">
+            <summary>Identifies the payor of transportation charges for the requested shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.RecipientContact">
+            <summary>Identifies the recipient's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.SenderContact">
+            <summary>Identifies the sender's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.UPSAccount">
+            <summary>Login information for UPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.LabelImageType">
+            <summary>Type of image or printer commands the shipping label is to be formatted in.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.MasterTrackingNumber">
+            <summary>Tracking number assigned to the whole MPS shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.ServiceType">
+            <summary>Identifies the UPS service type (applicable to US domestic shipments) to use in a ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by UPS on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.ShipmentVoidStatus">
+            <summary>Status description of shipment void request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.TotalBaseCharge">
+            <summary>The total base charge (transportation charges) applied to the whole shipment (specific to the AccountNumber ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.TotalNetCharge">
+            <summary>The total net charge (transport charges + options charges) applied to the whole shipment (specific  to the AccountNumber ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsship.TotalSurcharges">
+            <summary>The total surcharges (on all options) applied to the whole shipment (specific to the AccountNumber ).</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipintlErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipintlNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipintlSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpsshipintlSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsshipintl.CancelPackage(System.String,System.String)">
+            <summary>Cancels a single package by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsshipintl.CancelShipment(System.String)">
+            <summary>Cancels an entire multi-package (MPS) shipment by deleting it from the shipping log.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsshipintl.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsshipintl.GetShipmentLabels">
+            <summary>Generates a shipping label.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upsshipintl.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsshipintl.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsshipintl.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsshipintl.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upsshipintl.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.AccountAddress">
+            <summary>Identifies the UPS AccountNumber holder's address, if different from the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.AccountContact">
+            <summary>Identifies the UPS AccountNumber holder's contact info if different from SenderContact.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.CommercialInvoice">
+            <summary>Contains specific details on Commercial Invoice (when this form is requested).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.Commodities">
+            <summary>Collection of commodity line items.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.DutiesPayor">
+            <summary>Identifies the payor of duty and tax charges for the requested shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.Notify">
+            <summary>Collection of e-mail notifications to be sent.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.Payor">
+            <summary>Identifies the payor of transportation charges for the requested shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.RecipientContact">
+            <summary>Identifies the recipient's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SED">
+            <summary>Contains specific details on SED (when this form is requested).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SenderContact">
+            <summary>Identifies the sender's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SoldToAddress">
+            <summary>Identifies the address of the party who imports and pays any duties due on the current shipment, or the end-user of the goods.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SoldToContact">
+            <summary>Identifies the contact info of the party who imports and pays any duties due on the current shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.UPSAccount">
+            <summary>Login information for UPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.CODReportB">
+            <summary>Image of a COD Turn In Page.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.CODReport">
+            <summary>Image of a COD Turn In Page.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.CODReportFile">
+            <summary>Filename and location to save the CODReport to.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.CODTotalAmount">
+            <summary>The total amount to be collected on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.CODType">
+            <summary>The code that indicates the type of funds that will be used for the COD payment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.FormTypes">
+            <summary>Contains the collection of types for international forms that can associate an international shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.InternationalFormsB">
+            <summary>Image of the international forms.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.InternationalForms">
+            <summary>Image of the international forms.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.InternationalFormsFile">
+            <summary>Filename and location to save the InternationalForms to.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.LabelImageType">
+            <summary>Type of image or printer commands the shipping label is to be formatted in.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.MasterTrackingNumber">
+            <summary>Tracking number assigned to the whole MPS shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.NAFTABlanketPeriod">
+            <summary>Contains specific details on NAFTA CO (when this form is requested).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.NAFTAPreferenceCriteria">
+            <summary>Preference Criteria for NAFTA Certificate of Origin documents.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.NAFTAProducerInfo">
+            <summary>Producer information for NAFTA Certificate of Origin documents.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.ServiceType">
+            <summary>Identifies the UPS service type (applicable to international shipments) to use in a ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.ShipmentDescription">
+            <summary>A textual description of goods for the whole shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.ShipmentReference">
+            <summary>Customer-defined number (that may or may not be unique) used to identify the whole shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by UPS on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.ShipmentVoidStatus">
+            <summary>Status description of shipment void request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.TotalBaseCharge">
+            <summary>The total base charge (transportation charges) applied to the whole shipment (specific to the AccountNumber ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.TotalCustomsValue">
+            <summary>Total customs value for the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.TotalNetCharge">
+            <summary>The total net charge (transport charges + options charges) applied to the whole shipment (specific  to the AccountNumber ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upsshipintl.TotalSurcharges">
+            <summary>The total surcharges (on all options) applied to the whole shipment (specific to the AccountNumber ).</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpstrackErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpstrackNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpstrackSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UpstrackSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upstrack.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upstrack.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Upstrack.TrackShipment(System.String)">
+            <summary>Returns tracking data for requested idValue of IdentifierType type.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upstrack.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upstrack.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upstrack.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Upstrack.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.SenderAddress">
+            <summary>Identifies the sender's address from which the shipment is originating.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.TrackEvents">
+            <summary>Collection of tracking details for all scanning events that occur during the shipping process (corresponding to the PackageIndex ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.UPSAccount">
+            <summary>Login information for UPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.IdentifierType">
+            <summary>Type of shipment identifier by which the shipment is to be tracked.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.MasterTrackingNumber">
+            <summary>UPS-assigned tracking number assigned to the whole shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.PackageCount">
+            <summary>The number of packages returned for a given shipment id or reference number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.PackageIndex">
+            <summary>The package index in a shipment returned for a given shipment id or reference number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.PackageMessage">
+            <summary>Message describing the shipping status in more details corresponding to the PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.PackageReferences">
+            <summary>References (other than tracking number) assigned to the package at PackageIndex by either shipper or customer.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.PackageSignedBy">
+            <summary>Name of the person signing for package delivery (if applicable) corresponding to the PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.PackageTrackingNumber">
+            <summary>Package's tracking number corresponding to the PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.PackageWeight">
+            <summary>Package's weight corresponding to the PackageIndex.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ScheduledDeliveryDate">
+            <summary>Date shipment was originally scheduled for delivery.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ScheduledDeliveryTime">
+            <summary>Time shipment was originally scheduled for delivery.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ServiceTypeDescription">
+            <summary>Description of a UPS service used to ship the package or shipment being tracked.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ShipDate">
+            <summary>The date on which the package was tendered to UPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ShipDateEnd">
+            <summary>End of pickup date range used to narrow down the search.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ShipDateStart">
+            <summary>Start of pickup date range used to narrow down the search.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ShipmentReference">
+            <summary>Customer-defined number (that may or may not be unique) used to identify the whole shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.ShipperAccountNumber">
+            <summary>Account number associated with shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Upstrack.TotalWeight">
+            <summary>Shipment's total weight.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsaddressErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsaddressNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsaddressSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsaddressSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsaddress.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsaddress.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsaddress.ValidateAddress">
+            <summary>Returns corrected and standardized address information.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsaddress.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsaddress.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsaddress.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsaddress.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.Address">
+            <summary>Identifies the address to be validated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.Matches">
+            <summary>Collection of address candidates that meet the search criteria.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.USPSAccount">
+            <summary>Login information for USPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.Company">
+            <summary>The name of the Firm/Company.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.Notes">
+            <summary>Message returned when multiple addresses found.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsaddress.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsratesErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsratesNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsratesSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsratesSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsrates.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsrates.GetRates">
+            <summary>Calculates postage rates to ship a package via the RequestedService.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsrates.GetShippingTime">
+            <summary>Returns the estimated time to ship a package from ZipCode to ZipCode.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsrates.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsrates.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsrates.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsrates.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsrates.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.SenderAddress">
+            <summary>Identifies the sender's address from which the shipment is originating.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Services">
+            <summary>Collection of all mail services available, as returned by USPS Server.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.USPSAccount">
+            <summary>Login information for USPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.AreasServed">
+            <summary>Areas where the PackagingType service is available when shipped to CountryCode.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.CustomsForms">
+            <summary>Customs forms required to mail to CountryCode.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Days">
+            <summary>Estimated time for delivery.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.ExpressMailInfo">
+            <summary>Express Mail information when shipping to CountryCode.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Machinable">
+            <summary>Indicates if the package being shipped is classified as machinable.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Observations">
+            <summary>Additional mailing information based on country of destination.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.PostageProvider">
+            <summary>The postage provider to use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.PostalZone">
+            <summary>Indicates the number of postal rate zones between the origin and destination zip codes.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Prohibitions">
+            <summary>List of items prohibited from mailing to the destination country.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.RequestedService">
+            <summary>Service type for which the shipping rate is requested.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Restrictions">
+            <summary>Restrictions on items being shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by USPS on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsrates.TotalValue">
+            <summary>Total value of the items inside the package.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.CancelPickup(System.String)">
+            <summary>Cancels a scheduled Carrier Pickup request.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.ChangePickup(System.String)">
+            <summary>Changes requested data in your original Pickup Schedule request and schedules a new pickup.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.GetPackageLabel">
+            <summary>Generates a shipping label for the first package in the shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.GetTrackingNumber">
+            <summary>Generates a Delivery Confirmation Number or a Signature Confirmation Number that can be applied to user-generated labels.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.PickupAvailability">
+            <summary>Checks the availability of a Carrier Pickup service for the given address.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.PickupInquiry(System.String)">
+            <summary>Retrieves the data submitted in your original SchedulePickup request.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsship.SchedulePickup">
+            <summary>Schedules a Carrier Pickup and provides the user a confirmation number for the scheduled pickup.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsship.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsship.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsship.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsship.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.Notify">
+            <summary>Collection of e-mail notifications to be sent.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.PermitIssuingPOAddress">
+            <summary>Address of the Post Office that issued the permit.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.PostageDueAddress">
+            <summary>Address of the Postage Due Unit (on the delivery address).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.RecipientContact">
+            <summary>Identifies the recipient's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.SenderContact">
+            <summary>Identifies the sender's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.USPSAccount">
+            <summary>Login information for USPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.AddressServiceRequest">
+            <summary>Indicates if an address service request is made.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.BarcodeNumber">
+            <summary>Postnet Barcode number associated with label's barcode.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CountExpress">
+            <summary>The number of Express Mail packages to be picked up.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CountInternational">
+            <summary>The number of International Mail packages to be picked up.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CountOther">
+            <summary>The number of packages to be picked up for a service type other than Priority/Express/International Mail.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CountPriority">
+            <summary>The number of Priority Mail packages to be picked up.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CustomerId">
+            <summary>User-assigned number for internal use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CustomerReceiptB">
+            <summary>Image of the Customer Online Record.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CustomerReceipt">
+            <summary>Image of the Customer Online Record.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.CustomerReceiptFile">
+            <summary>Filename for CustomerReceipt (optional).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.InsuranceCost">
+            <summary>Insurance fee for the package being shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.LabelImageType">
+            <summary>Type of label image.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.LabelOption">
+            <summary>Indicates type of label the USPS Server will return.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.MailingLocation">
+            <summary>Postal Office Zip Code where the item will be mailed (if different from ZipCode ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.PackageLocation">
+            <summary>The location of pickup.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.PermitNumber">
+            <summary>Permit number to print Postage Due labels.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.PostageProvider">
+            <summary>The postage provider to use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.PostalZone">
+            <summary>Indicates the number of postal rate zones between the origin and destination zip codes.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.RMABarcode">
+            <summary>Indicates whether to print the RMANumber as a barcode on the label.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.RMANumber">
+            <summary>Return Materials Authorization number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.SeparateReceipt">
+            <summary>Indicates whether you want the shipping label and Customer Online Label  Record be printed on two separate pages.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.ServiceType">
+            <summary>Identifies the USPS service type (applicable to US domestic shipments) to use in a ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.ShipDate">
+            <summary>Date package will be mailed.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by USPS on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.StandardizeAddress">
+            <summary>Checks the delivery address against the USPS Address Matching System.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.TotalWeight">
+            <summary>The estimated weight for the package to be picked up.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsship.TransactionId">
+            <summary>The transaction Id.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipintlErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipintlNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipintlSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspsshipintlSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsshipintl.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsshipintl.GetFormCN22">
+            <summary>Retrieves Customs Form CN 22 providing customs barcode number,  regulations, prohibitions, observations, restrictions, and image files of the customs  forms required to ship to the destination country.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsshipintl.GetFormCP72">
+            <summary>Retrieves Customs Form CP 72 providing customs barcode number,  regulations, prohibitions, observations, restrictions, and image files of the customs  forms required to ship to the destination country.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsshipintl.GetPackageLabel">
+            <summary>Generates a shipping label for the first package in the shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspsshipintl.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsshipintl.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsshipintl.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsshipintl.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspsshipintl.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Commodities">
+            <summary>Items being shipped inside this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Packages">
+            <summary>Collection of packages contained in the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.RecipientAddress">
+            <summary>Identifies the recipient's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.RecipientContact">
+            <summary>Identifies the recipient's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SenderAddress">
+            <summary>Identifies the sender's address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SenderContact">
+            <summary>Identifies the sender's contact info.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.USPSAccount">
+            <summary>Login information for USPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.BarcodeNumber">
+            <summary>Barcode number required by Customs Service.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.CertificateNumber">
+            <summary>Certificate number (if known or included in the package).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Comments">
+            <summary>Comments on the package being shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Contents">
+            <summary>Description of items being shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.CountryOfOrigin">
+            <summary>Country where the goods originated.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.CustomerId">
+            <summary>User-assigned number for internal use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.CustomsFormFile">
+            <summary>Filename where the customs form required to mail to destination country can be saved to (optional).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.CustomsFormInstructionsB">
+            <summary>Image of customs form instructions.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.CustomsFormInstructions">
+            <summary>Image of customs form instructions.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.CustomsFormInstructionsFile">
+            <summary>Filename and location to save the CustomsFormInstructions to.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.DeliveryType">
+            <summary>Sender's selection of the type of delivery.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.HSTariffNumber">
+            <summary>HS Tariff Number that applies to the entire contents of the package being shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.ImageLayout">
+            <summary>Determines how the labels will be formatted for printing.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.IndemnityCoverage">
+            <summary>Indicates the indemnity coverage for the package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.InsurancePolicy">
+            <summary>Insurance number, if known.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.InvoiceNumber">
+            <summary>Invoice number if known or included in the package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.LabelImageType">
+            <summary>Type of label image.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.LicenseNumber">
+            <summary>Import License number if known, or included in package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.MailingLocation">
+            <summary>Postal Office Zip Code where the item will be mailed (if different from ZipCode ).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.NonDeliveryOption">
+            <summary>Indicates what to do with the package in case it is undeliverable.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Notes">
+            <summary>Additional information returned by the USPS Server.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Observations">
+            <summary>Additional mailing information based on country of destination.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.PostageProvider">
+            <summary>The postage provider to use.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Prohibitions">
+            <summary>List of items prohibited from mailing to the destination country.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.RecipientCustomsReference">
+            <summary>Corresponds to the person's Customs Reference field that appears on the shipping label.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Regulations">
+            <summary>Additional regulations for shipping to the destination country.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.RequiredCustomsForms">
+            <summary>Customs forms required to mail packages to destination country.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Restrictions">
+            <summary>Restrictions on items being shipped based on country of destination.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SDRInsuredValue">
+            <summary>Insurance amount, if known.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SDRValue">
+            <summary>Special Drawing Right calculated on TotalValue.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.SenderCustomsReference">
+            <summary>Corresponds to the person's Customs Reference field that appears on the shipping label.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.ServiceType">
+            <summary>The mail service type when shipping to the CountryCode.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.ShipDate">
+            <summary>Date package will be mailed.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.ShipmentSpecialServices">
+            <summary>Contains the collection of special services offered by USPS on shipment level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.TotalValue">
+            <summary>Total value of all items being shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspsshipintl.TransactionId">
+            <summary>The transaction Id.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspstrackErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspstrackNotificationEventArgs">
+            <summary>Event arguments for the Notification event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspstrackSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.InShip.UspstrackSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspstrack.Config(System.String)">
+            <summary>Sets or retrieves a configuration setting.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspstrack.Reset">
+            <summary>Resets the internal state of the component and all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Uspstrack.TrackShipment(System.String)">
+            <summary>Returns tracking data for requested TrackingNumber.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.RuntimeLicense">
+            <summary>Runtime license key (derived from the development license, if any).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspstrack.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspstrack.OnNotification">
+            <summary>Notification returned by the server upon successful request (if applicable).</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspstrack.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.InShip.Uspstrack.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.Firewall">
+            <summary>A set of properties related to firewall access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.Proxy">
+            <summary>A set of properties related to proxy access.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.SSLCert">
+            <summary>The certificate to be used during SSL negotiation.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.TrackEvents">
+            <summary>The tracking events returned for a given TrackingNumber.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.USPSAccount">
+            <summary>Login information for USPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.PackageSignedBy">
+            <summary>Signature of person who signed for package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.RequestType">
+            <summary>The type of tracking request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Uspstrack.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.EzAccount.#ctor">
+            <summary>Represents the details of a shipper account.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.EzAccount.AccessKey">
+            <summary>An identifier required to connect to UPS.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.EzAccount.AccountNumber">
+            <summary>The shipper's account number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.EzAccount.DeveloperKey">
+            <summary>Identifying part of the authentication key used for the sender's identity.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.EzAccount.MeterNumber">
+            <summary>Meter number to use for submitting requests to the FedEx Server .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.EzAccount.Password">
+            <summary>Password for logging in to the Server .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.EzAccount.Server">
+            <summary>URL for the server where the requests are sent.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.EzAccount.UserId">
+            <summary>User ID for logging in to the Server .</summary>
+        </member>
+        <member name="M:nsoftware.InShip.AddressDetail.#ctor">
+            <summary>Represents the address details of a sender or recipient.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.AddressDetail.Address1">
+            <summary>Street name.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.AddressDetail.Address2">
+            <summary>A specific detail on the address (such as bulding, suite, appartment, floor number etc.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.AddressDetail.AddressFlags">
+            <summary>Various flags that denote information about the address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.AddressDetail.City">
+            <summary>Name of city, town, etc.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.AddressDetail.CountryCode">
+            <summary>Country code.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.AddressDetail.State">
+            <summary>State or province code.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.AddressDetail.ZipCode">
+            <summary>Postal code.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Firewall.#ctor">
+            <summary>The firewall the component will connect through.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Firewall.AutoDetect">
+            <summary>This property tells the component whether or not to automatically detect and use firewall system settings, if available.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Firewall.FirewallType">
+            <summary>This property determines the type of firewall to connect through.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Firewall.Host">
+            <summary>This property contains the name or IP address of firewall (optional).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Firewall.Password">
+            <summary>This property contains a password if authentication is to be used when connecting through the firewall.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Firewall.Port">
+            <summary>This property contains the TCP port for the firewall Host .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Firewall.User">
+            <summary>This property contains a user name if authentication is to be used connecting through a firewall.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.MatchDetail.#ctor">
+            <summary>Indicates the details of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.Address1">
+            <summary>Address line 1 of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.Address2">
+            <summary>Address line 2 of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.ChangeType">
+            <summary>Changes made to the Address (during validation process) compared to this address candidate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.City">
+            <summary>City name of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.Company">
+            <summary>Name of the company that resides at an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.CountryCode">
+            <summary>Country code of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.Quality">
+            <summary>Quality factor an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.ResidentialStatus">
+            <summary>Residential status of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.State">
+            <summary>State or province code of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.MatchDetail.ZipCode">
+            <summary>Postal Code of an address candidate in the list of matches (if any).</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Proxy.#ctor">
+            <summary>The proxy the component will connect to.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Proxy.#ctor(System.String,System.Int32)">
+            <summary>The proxy the component will connect to.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Proxy.#ctor(System.String,System.Int32,System.String,System.String)">
+            <summary>The proxy the component will connect to.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Proxy.AuthScheme">
+            <summary>This property is used to tell the component which  type of authorization to perform when connecting to the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Proxy.AutoDetect">
+            <summary>This property tells the component whether or not to automatically detect and use proxy system settings, if available.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Proxy.Password">
+            <summary>This property contains a password if authentication is to be used for the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Proxy.Port">
+            <summary>This property contains the TCP port for the proxy Server (default 80).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Proxy.Server">
+            <summary>If a proxy Server is given, then the HTTP request is sent to the proxy instead of the server otherwise specified.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Proxy.SSL">
+            <summary>This property determines when to use SSL for the connection to the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Proxy.User">
+            <summary>This property contains a user name, if authentication is to be used for the proxy.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Certificate.#ctor">
+            <summary>The digital certificate being used.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Certificate.#ctor(System.String)">
+            <summary>The digital certificate being used.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Certificate.#ctor(System.Byte[])">
+            <summary>The digital certificate being used.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Certificate.#ctor(nsoftware.InShip.CertStoreTypes,System.String,System.String,System.String)">
+            <summary>The digital certificate being used.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Certificate.#ctor(nsoftware.InShip.CertStoreTypes,System.String,System.String,System.Byte[])">
+            <summary>The digital certificate being used.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Certificate.#ctor(nsoftware.InShip.CertStoreTypes,System.Byte[],System.String,System.String)">
+            <summary>The digital certificate being used.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.Certificate.#ctor(nsoftware.InShip.CertStoreTypes,System.Byte[],System.String,System.Byte[])">
+            <summary>The digital certificate being used.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.EffectiveDate">
+            <summary>The date which this certificate becomes valid.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.EncodedB">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.Encoded">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.ExpirationDate">
+            <summary>The date the certificate expires.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.ExtendedKeyUsage">
+            <summary>A comma-delimited list of extended key usage identifiers.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.Issuer">
+            <summary>The issuer of the certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.PrivateKey">
+            <summary>The private key of the certificate (if available).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.PrivateKeyAvailable">
+            <summary>Shows whether a PrivateKey is available for the  selected certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.PrivateKeyContainer">
+            <summary>The name of the PrivateKey container for the  certificate (if available).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.PublicKey">
+            <summary>The public key of the certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.PublicKeyAlgorithm">
+            <summary>Textual description of the public key algorithm of the  certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.PublicKeyLength">
+            <summary>The length of the certificate public key (in bits).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.SerialNumber">
+            <summary>The serial number of the certificate encoded as a  string.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.SignatureAlgorithm">
+            <summary>Textual description of the signature algorithm of the  certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.StoreB">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.Store">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.StorePassword">
+            <summary>If the certificate store is of a type that requires  a password, this property is used to specify that  password in order to open the certificate store.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.StoreType">
+            <summary>The type of certificate store for this certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.Subject">
+            <summary>The subject of the certificate used for client authentication.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.SubjectAltNames">
+            <summary>A comma-separted lists of alternative subject names of the certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.ThumbprintMD5">
+            <summary>MD5 hash of the certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.ThumbprintSHA1">
+            <summary>SHA1 hash of the certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.Usage">
+            <summary>Textual description of UsageFlags .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.UsageFlags">
+            <summary>Flags that show intended use for the certificate.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.Certificate.Version">
+            <summary>The certificate's version number.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.Int32,System.String)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Int32,System.Int32)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Boolean,System.Int32)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.Boolean,System.Int32,System.String,System.String)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PackageDetail.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>Represents a single package contained in shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.BaseCharge">
+            <summary>Base charge applicable to this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.CODAmount">
+            <summary>The COD monetary value for the package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.CODFile">
+            <summary>Filename and location to save the CODLabel of this package to.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.CODLabelB">
+            <summary>Image of the COD return label for this package retrieved by FedEx Server upon a successful COD ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.CODLabel">
+            <summary>Image of the COD return label for this package retrieved by FedEx Server upon a successful COD ship request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.CODType">
+            <summary>The code that indicates the type of funds that will be used for the COD payment for this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.DangerousGoodsAccessible">
+            <summary>Identifies whether or not the dangerous goods being shipped are required to be accessible during delivery.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Description">
+            <summary>For FedEx, this is the description that appears in the email to identify this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Girth">
+            <summary>Measurement around the widest part of the package, perpendicular to the Length .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Height">
+            <summary>The height of the package to be shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Id">
+            <summary>An 8-digit Unique Parcel Identification Number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.InsuredValue">
+            <summary>Amount of insurance requested for this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Length">
+            <summary>The length of the package to be shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.NetCharge">
+            <summary>Net charge applicable to this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.PackagingType">
+            <summary>The packaging type of the package being rated and/or shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.RatingAggregate">
+            <summary>Rating aggregate applicable to this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Reference">
+            <summary>Indicates the package reference type and value, that associates this package (assigned by the customer).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.ReturnReceiptB">
+            <summary>Image of the receipt for a return shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.ReturnReceipt">
+            <summary>Image of the receipt for a return shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.ReturnReceiptFile">
+            <summary>Filename and location to save the ReturnReceipt of this package to.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.ShippingLabelB">
+            <summary>Image of the shipping label for this package return by the Server upon a successful ship response.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.ShippingLabel">
+            <summary>Image of the shipping label for this package return by the Server upon a successful ship response.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.ShippingLabelFile">
+            <summary>Filename and location to save the ShippingLabel of this package to.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.SignatureType">
+            <summary>Specifies one of the Delivery Signature Options requested for this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Size">
+            <summary>Size of the package being mailed.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.SpecialServices">
+            <summary>Contains the collection of special services offered on the package level.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.TotalDiscount">
+            <summary>Total discount applicable to this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.TotalSurcharges">
+            <summary>Total surcharges applicable to this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.TrackingNumber">
+            <summary>Tracking number assigned to this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Weight">
+            <summary>Weight of this package.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PackageDetail.Width">
+            <summary>The width of the package to be shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.AccountBaseCharge">
+            <summary>Transportation charges before surcharges and discounts applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.AccountNetCharge">
+            <summary>Net charge amount applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.AccountTotalDiscount">
+            <summary>Total discount amount applied to the shipment for a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.AccountTotalSurcharge">
+            <summary>Total surcharge amount for all additional services applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.Aggregate">
+            <summary>Aggregate of details and rates for the ServiceType in the list of available services.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.BusinessDays">
+            <summary>Number of business days from origin to destination location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.Commitments">
+            <summary>Service commitments for the PackagingType when shipping to CountryCode .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.CustomerCenterCutoff">
+            <summary>Time the UPS Customer Service Center closes.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.DelayDays">
+            <summary>Number of days the shipment is delayed in customs.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.DeliveryDate">
+            <summary>This indiates the shipment delivery date for the ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.DeliveryDay">
+            <summary>Indicates the day of the week the shipment can be delivered when using the ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.DeliveryTime">
+            <summary>Scheduled local delivery time.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.EffectiveNetDiscount">
+            <summary>Indicates the net discount applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.GuaranteedDescription">
+            <summary>Textual description of a guaranteed delivery for a UPS service type in the list of available services  returned.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.Holidays">
+            <summary>Number of national holidays during transit.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.IndemnityCoverage">
+            <summary>Indicates the indemnity coverage available for this service.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.InsuranceComment">
+            <summary>Explains why no InsuranceCost was returned in the response.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.InsuranceCost">
+            <summary>Insurance fee.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ListBaseCharge">
+            <summary>Transportation charges before surcharges and discounts applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ListNetCharge">
+            <summary>Net charge amount applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ListTotalDiscount">
+            <summary>Total discount amount applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ListTotalSurcharge">
+            <summary>Total surcharge amount for all additional services applied to a ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.MaxDimensions">
+            <summary>Maximum dimensions of a package allowed when sending to the CountryCode .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.MaxWeight">
+            <summary>Maximum weight of package allowed when sending to the CountryCode .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.PackagingType">
+            <summary>The mail service type when shipping to CountryCode .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.RateScale">
+            <summary>Applicable rate scale for the ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.RateZone">
+            <summary>Applicable rate zone for the ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.RestDays">
+            <summary>Number of days the shipment is in rest due to non-business days.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ServiceType">
+            <summary>Indicates the service type in the list of available services returned.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ServiceTypeDescription">
+            <summary>Indicates the textual description of a service type in the list of available services returned.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ShipDate">
+            <summary>Date UPS picks up the package from the origin.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.ShipTime">
+            <summary>Time UPS picks up the package from the origin.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.SignatureType">
+            <summary>Indicates the textual description of the delivery signature services option required by FedEx for the ServiceType .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ServiceDetail.TransitTime">
+            <summary>Expected number of days in transit from pickup to delivery for the ServiceType .</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PayorDetail.#ctor">
+            <summary>Represents the payor details responsible for payment.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.PayorDetail.#ctor(System.Int32,System.String,System.String)">
+            <summary>Represents the payor details responsible for payment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PayorDetail.AccountNumber">
+            <summary>The account number of the party responsible for payment (shipping charges, or duties and taxes).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PayorDetail.CountryCode">
+            <summary>The country code for the payor of the shipment, or duties and taxes.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PayorDetail.PayorType">
+            <summary>Method of payment for shipment, or duties and taxes.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.PayorDetail.ZipCode">
+            <summary>Payor's postal code (if applicable).</summary>
+        </member>
+        <member name="M:nsoftware.InShip.ContactDetail.#ctor">
+            <summary>Represents the contact information.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.ContactDetail.#ctor(System.String,System.String,System.String)">
+            <summary>Represents the contact information.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.ContactDetail.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>Represents the contact information.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.ContactDetail.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>Represents the contact information.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ContactDetail.Company">
+            <summary>Identifies the contact person's company name.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ContactDetail.Email">
+            <summary>Identifies the contact person's email address.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ContactDetail.Fax">
+            <summary>Recipient's fax number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ContactDetail.FirstName">
+            <summary>Sender's first name.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ContactDetail.LastName">
+            <summary>Person's last name.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ContactDetail.MiddleInitial">
+            <summary>Middle initial.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.ContactDetail.Phone">
+            <summary>Identifies the contact person's phone number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Address1">
+            <summary>Line 1 in the location address where a tracking event occurred (by package).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Address2">
+            <summary>Line 2 in the location address where a tracking event occurred (by package).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.City">
+            <summary>Name of the city where the tracking event occurred.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Company">
+            <summary>Company name if delivered to a company for a given TrackingNumber .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.CountryCode">
+            <summary>Country code where the tracking event happened.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Date">
+            <summary>Date the tracking event happened.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Exception">
+            <summary>The most recent status exception for the tracking event.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Location">
+            <summary>Location description where a tracking event occurred.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Other">
+            <summary>Other information about the tracking event.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.State">
+            <summary>State or province code where the tracking event occurred.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Status">
+            <summary>Literal description of the tracking event.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.Time">
+            <summary>Time the tracking event occurred.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.TrackDetail.ZipCode">
+            <summary>Postal code where the tracking event happened.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.FedExAccount.#ctor">
+            <summary>Represents the details of a FedEx account.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.FedExAccount.AccountNumber">
+            <summary>Account number for logging in to the FedEx Server .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.FedExAccount.DeveloperKey">
+            <summary>Identifying part of the authentication key used for the sender's identity.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.FedExAccount.MeterNumber">
+            <summary>Meter number to use for submitting requests to the FedEx Server .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.FedExAccount.Password">
+            <summary>Secret part of authentication key used for the sender's identity.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.FedExAccount.Server">
+            <summary>URL for the FedEx Server where the requests are sent.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.City">
+            <summary>City name of a FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.Description">
+            <summary>A textual description of the type of business at this FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.Distance">
+            <summary>Distance of this FedEx location from the point indicated by the search criteria.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.HoursSaturday">
+            <summary>Saturday hours of operation for this FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.HoursWeekday">
+            <summary>Weekday hours of operation for this FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.Id">
+            <summary>Business identifier that can be used by IRV attendant to look directions to this FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.LastExpressSaturday">
+            <summary>The time of day on Saturdays by which FedEx Express packages must be dropped off at this location for shipment that day.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.LastExpressWeekday">
+            <summary>The time of day on weekdays by which FedEx Express packages must be dropped off at this location for shipment that day.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.LastGroundSaturday">
+            <summary>The time of day on Saturdays by which FedEx Ground packages must be dropped off at this location for shipment that day.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.LastGroundWeekday">
+            <summary>The time of day on weekdays by which FedEx Ground packages must be dropped off at this location for shipment that day.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.Name">
+            <summary>The name of the business at this FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.ServiceFlags">
+            <summary>This specifies what type of services this FedEx location provides.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.State">
+            <summary>State or province code of this FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.StreetAddress">
+            <summary>Street address or intersection of this FedEx location.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.LocationDetail.ZipCode">
+            <summary>Postal Code of this FedEx location.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CloseDetail.#ctor">
+            <summary>Represents the details of a Close request.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CloseDetail.#ctor(System.String,System.String)">
+            <summary>Represents the details of a Close request.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CloseDetail.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>Represents the details of a Close request.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CloseDetail.#ctor(System.String,System.String,System.Int32,System.String)">
+            <summary>Represents the details of a Close request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CloseDetail.Date">
+            <summary>Identifies the date up to which the unclosed FedEx Ground shipments are to be closed.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CloseDetail.ReportFile">
+            <summary>File name of the report to be saved and/or printed by customer.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CloseDetail.ReportType">
+            <summary>Indicates what type of report(s) from the last 3 days are to be returned in a report-only close operation  request.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CloseDetail.Time">
+            <summary>Identifies the time up to which the unclosed FedEx Ground shipments are to be closed.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CloseDetail.TrackingNumber">
+            <summary>Shipment Ground tracking number.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.NotifyDetail.#ctor">
+            <summary>Represents a single recipient to be notified via email.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.NotifyDetail.#ctor(System.Int32,System.String,System.String)">
+            <summary>Represents a single recipient to be notified via email.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.NotifyDetail.#ctor(System.Int32,System.String)">
+            <summary>Represents a single recipient to be notified via email.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.NotifyDetail.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>Represents a single recipient to be notified via email.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.NotifyDetail.#ctor(System.String,System.String)">
+            <summary>Represents a single recipient to be notified via email.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.NotifyDetail.Aggregate">
+            <summary>This can be used to set the entire aggregate xml for the recipient to be notified.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.NotifyDetail.Email">
+            <summary>Email address of the recipient to be notified.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.NotifyDetail.Fax">
+            <summary>Fax number of the recipient that is going to receive the Signature Proof of Delivery via fax.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.NotifyDetail.Message">
+            <summary>User defined text that will be included in the email to be sent to Email .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.NotifyDetail.Name">
+            <summary>The name associated with the notication.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.NotifyDetail.NotificationFlags">
+            <summary>Identifies the type of notification requested.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.NotifyDetail.RecipientType">
+            <summary>Identifies the set of valid email notification recipient types.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommercialInvoiceDetail.#ctor">
+            <summary>Represents the commercial invoice (CI) information.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommercialInvoiceDetail.#ctor(System.String,System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>Represents the commercial invoice (CI) information.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommercialInvoiceDetail.Comments">
+            <summary>Commercial Invoice comments to be uploaded to customs.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommercialInvoiceDetail.Date">
+            <summary>Date when the Invoice is created.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommercialInvoiceDetail.FreightCharge">
+            <summary>Cost to transport the shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommercialInvoiceDetail.Insurance">
+            <summary>The amount the shipper or receiver pays to cover the cost of replacing the shipment if it is lost or damaged.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommercialInvoiceDetail.Number">
+            <summary>Customer's assigned invoice number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommercialInvoiceDetail.Purpose">
+            <summary>Reason to export the current international shipment Required for dutiable international express or ground shipment.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommercialInvoiceDetail.Terms">
+            <summary>Indicates the rights to the seller from the buyer.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommodityDetail.#ctor">
+            <summary>Represents a single commodity line item.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommodityDetail.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.Int32,System.Int32)">
+            <summary>Represents a single commodity line item.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommodityDetail.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.Int32)">
+            <summary>Represents a single commodity line item.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommodityDetail.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>Represents a single commodity line item.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommodityDetail.#ctor(System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>Represents a single commodity line item.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommodityDetail.#ctor(System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>Represents a single commodity line item.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.CommodityDetail.#ctor(System.String,System.String,System.String)">
+            <summary>Represents a single commodity line item.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.Description">
+            <summary>Complete and accurate description of this commodity line item.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.ExportType">
+            <summary>Indicates the export type.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.HarmonizedCode">
+            <summary>Unique code representing this commodity line item (for imports only).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.Manufacturer">
+            <summary>Country code where the contents of this commodity line were produced, manufactured or grown in their final form.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.NumberOfPieces">
+            <summary>The total number of packages, cartons, or containers for the commodity line item.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.Quantity">
+            <summary>Number of units contained in this commodity line item measured in units specified by the QuantityUnit .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.QuantityUnit">
+            <summary>Unit of measure used to express the Quantity of this commodity line item.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.ScheduleBCode">
+            <summary>A unique 10-digit commodity classification code for the item being exported.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.UnitPrice">
+            <summary>Value of each QuantityUnit in Quantity of this commodity line item.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.Value">
+            <summary>The value of an individual item being shipped.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.CommodityDetail.Weight">
+            <summary>The shipping weight of this commodity line item, including containers, for each commodity with a separate  Harmonized Tariff Code.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.UPSAccount.#ctor">
+            <summary>Represents the details of a UPS account.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.UPSAccount.AccessKey">
+            <summary>An identifier required to connect to a UPS server.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.UPSAccount.AccountNumber">
+            <summary>The shipper's UPS account number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.UPSAccount.Password">
+            <summary>Password to use for logging in to a UPS Server .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.UPSAccount.Server">
+            <summary>URL for the UPS server where the requests are sent.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.UPSAccount.UserId">
+            <summary>User ID for logging in to UPS.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.SEDDetail.#ctor">
+            <summary>Represents specific information of Shipper's Export Declaration (SED).</summary>
+        </member>
+        <member name="M:nsoftware.InShip.SEDDetail.#ctor(System.Boolean,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>Represents specific information of Shipper's Export Declaration (SED).</summary>
+        </member>
+        <member name="M:nsoftware.InShip.SEDDetail.#ctor(System.Boolean,System.String,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>Represents specific information of Shipper's Export Declaration (SED).</summary>
+        </member>
+        <member name="M:nsoftware.InShip.SEDDetail.#ctor(System.Boolean,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.String)">
+            <summary>Represents specific information of Shipper's Export Declaration (SED).</summary>
+        </member>
+        <member name="M:nsoftware.InShip.SEDDetail.#ctor(System.Boolean,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>Represents specific information of Shipper's Export Declaration (SED).</summary>
+        </member>
+        <member name="M:nsoftware.InShip.SEDDetail.#ctor(System.Boolean,System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>Represents specific information of Shipper's Export Declaration (SED).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.ECCNNumber">
+            <summary>Export Control Classification Number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.EntryNumber">
+            <summary>The Import Entry Number when the export transaction is used as proof of export for  import transactions (examples: In Bond, Temporary Import Bond or Drawbacks).</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.ExceptionCode">
+            <summary>License exception code.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.FiledByUPS">
+            <summary>Indicates whether  or not UPS will file SED on shipper's behalf.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.InBondCode">
+            <summary>Indicates whether the shipment is being transported under bond.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.LicenseDate">
+            <summary>License date.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.LicenseNumber">
+            <summary>The license number that authorizes ship product.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.PointOfOrigin">
+            <summary>Indicates the state or zone number from where the exports are leaving.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.ShipperTaxId">
+            <summary>Shipper's Tax Identification Number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.SEDDetail.TransportType">
+            <summary>Indicates the type of transport by which the goods are exported.</summary>
+        </member>
+        <member name="M:nsoftware.InShip.USPSAccount.#ctor">
+            <summary>Represents the details of a USPS account.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.USPSAccount.AccountNumber">
+            <summary>The shipper's Endicia account number.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.USPSAccount.Password">
+            <summary>Password to use for logging in to the USPS Server .</summary>
+        </member>
+        <member name="P:nsoftware.InShip.USPSAccount.Server">
+            <summary>URL for the USPS server where the requests are sent.</summary>
+        </member>
+        <member name="P:nsoftware.InShip.USPSAccount.UserId">
+            <summary>User ID for logging in to the USPS Server .</summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1372 @@
+/********** TABLES **********/
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus](
+	[Id] [smallint] NOT NULL,
+	[Name] [nvarchar](150) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_PaymentStatus] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider](
+	[Id] [smallint] NOT NULL,
+	[Name] [nvarchar](150) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_PaymentProcessor] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_OrderStatus]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderStatus](
+	[Id] [smallint] NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_OrderStatus] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate](
+	[Id] [smallint] NOT NULL,
+	[NameKey] [varchar](75) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[DefaultSubject] [nvarchar](300) NOT NULL,
+	[DefaultBody] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_EmailTemplate] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_DNNspot_Store_EmailTemplate] ON {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate] 
+(
+	[NameKey] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_DeliveryMethod]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_DeliveryMethod](
+	[Id] [smallint] NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_DeliveryMethod] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Store](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[PortalId] [int] NOT NULL,
+	[Name] [varchar](300) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[CreatedByUserId] [int] NULL,
+ CONSTRAINT [PK_DNNspot_Store_Store] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_TaxRegion]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_TaxRegion](
+	[StoreId] [int] NOT NULL,
+	[CountryCode] [nvarchar](2) NOT NULL,
+	[Region] [nvarchar](150) NOT NULL,
+	[TaxRate] [decimal](10, 6) NULL,
+ CONSTRAINT [PK_DNNspot_Store_RegionTax] PRIMARY KEY CLUSTERED 
+(
+	[StoreId] ASC,
+	[CountryCode] ASC,
+	[Region] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_StoreSetting]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreSetting](
+	[StoreId] [int] NOT NULL,
+	[Name] [varchar](300) NOT NULL,
+	[Value] [nvarchar](2000) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_StoreSetting] PRIMARY KEY CLUSTERED 
+(
+	[StoreId] ASC,
+	[Name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting](
+	[StoreId] [int] NOT NULL,
+	[PaymentProviderId] [smallint] NOT NULL,
+	[Name] [varchar](500) NOT NULL,
+	[Value] [nvarchar](1000) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_StorePaymentProcessorSetting] PRIMARY KEY CLUSTERED 
+(
+	[StoreId] ASC,
+	[PaymentProviderId] ASC,
+	[Name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProvider]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProvider](
+	[StoreId] [int] NOT NULL,
+	[PaymentProviderId] [smallint] NOT NULL,
+	[IsEnabled] [bit] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_StorePaymentProcessor] PRIMARY KEY CLUSTERED 
+(
+	[StoreId] ASC,
+	[PaymentProviderId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_StoreEmailTemplate]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreEmailTemplate](
+	[StoreId] [int] NOT NULL,
+	[EmailTemplateId] [smallint] NOT NULL,
+	[SubjectTemplate] [nvarchar](300) NOT NULL,
+	[BodyTemplate] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_StoreEmailTemplate] PRIMARY KEY CLUSTERED 
+(
+	[StoreId] ASC,
+	[EmailTemplateId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingMethod]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingMethod](
+	[Id] [smallint] IDENTITY(1,1) NOT NULL,
+	[StoreId] [int] NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ShippingOption] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_DNNspot_Store_ShippingMethod] UNIQUE NONCLUSTERED 
+(
+	[StoreId] ASC,
+	[Name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_Cart]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Cart](
+	[Id] [uniqueidentifier] NOT NULL,
+	[StoreId] [int] NOT NULL,
+	[UserId] [int] NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[CreatedByIP] [varchar](15) NOT NULL,
+	[ModifiedOn] [datetime] NOT NULL,
+	[ModifiedByIP] [varchar](15) NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_Cart] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[StoreId] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[Code] [nvarchar](50) NOT NULL,
+	[DescriptionForCustomer] [nvarchar](250) NOT NULL,
+	[IsCombinable] [bit] NOT NULL,
+	[ValidFromDate] [datetime] NULL,
+	[ValidToDate] [datetime] NULL,
+	[DiscountType] [varchar](50) NOT NULL,
+	[MinOrderAmount] [money] NULL,
+	[MaxUsesPerUser] [int] NULL,
+	[MaxUsesLifetime] [int] NULL,
+	[MaxDiscountAmountPerOrder] [money] NULL,
+	[AppliesToProductIds] [varchar](1000) NOT NULL,
+	[AppliesToShippingIds] [varchar](1000) NOT NULL,
+	[PercentOff] [decimal](10, 2) NULL,
+	[AmountOff] [money] NULL,
+ CONSTRAINT [PK_DNNspot_Store_Coupon] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_DNNspot_Store_Coupon] ON {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] 
+(
+	[StoreId] ASC,
+	[Code] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_Category]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[StoreId] [int] NOT NULL,
+	[ParentId] [int] NULL,
+	[NestingLevel] [smallint] NOT NULL,
+	[IsDisplayed] [bit] NOT NULL,
+	[Slug] [varchar](50) NOT NULL,
+	[Name] [nvarchar](150) NOT NULL,
+	[Title] [nvarchar](150) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[SeoTitle] [varchar](300) NOT NULL,
+	[SeoDescription] [varchar](500) NOT NULL,
+	[SeoKeywords] [varchar](500) NOT NULL,
+	[SortOrder] [smallint] NOT NULL,
+	[IsSystemCategory] [bit] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_Category] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_DNNspot_Store_Category] UNIQUE NONCLUSTERED 
+(
+	[StoreId] ASC,
+	[Slug] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_Product]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[StoreId] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[Slug] [varchar](50) NOT NULL,
+	[Name] [nvarchar](250) NOT NULL,
+	[Sku] [nvarchar](50) NOT NULL,
+	[SpecialNotes] [nvarchar](500) NOT NULL,
+	[Price] [money] NOT NULL,
+	[Weight] [decimal](10, 4) NOT NULL,
+	[DeliveryMethodId] [smallint] NULL,
+	[ShippingAdditionalFeePerItem] [money] NOT NULL,
+	[QuantityWidget] [varchar](50) NOT NULL,
+	[QuantityOptions] [varchar](2000) NOT NULL,
+	[InventoryIsEnabled] [bit] NOT NULL,
+	[InventoryAllowNegativeStockLevel] [bit] NOT NULL,
+	[InventoryQtyInStock] [int] NULL,
+	[InventoryQtyLowThreshold] [int] NULL,
+	[DigitalFileDisplayName] [nvarchar](250) NOT NULL,
+	[DigitalFilename] [nvarchar](500) NOT NULL,
+	[SeoTitle] [varchar](300) NOT NULL,
+	[SeoDescription] [varchar](500) NOT NULL,
+	[SeoKeywords] [varchar](500) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[ModifiedOn] [datetime] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_Product] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_DNNspot_Store_Product_UniqueStoreIdAndName] UNIQUE NONCLUSTERED 
+(
+	[StoreId] ASC,
+	[Name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_DNNspot_Store_Product_UniqueStoreIdAndSlug] UNIQUE NONCLUSTERED 
+(
+	[StoreId] ASC,
+	[Slug] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_Order]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[StoreId] [int] NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+	[UserId] [int] NULL,
+	[OrderNumber] [nvarchar](150) NOT NULL,
+	[OrderStatusId] [smallint] NOT NULL,
+	[PaymentStatusId] [smallint] NOT NULL,
+	[CustomerFirstName] [nvarchar](150) NOT NULL,
+	[CustomerLastName] [nvarchar](150) NOT NULL,
+	[CustomerEmail] [nvarchar](400) NOT NULL,
+	[BillAddress1] [nvarchar](150) NOT NULL,
+	[BillAddress2] [nvarchar](150) NOT NULL,
+	[BillCity] [nvarchar](150) NOT NULL,
+	[BillRegion] [nvarchar](150) NOT NULL,
+	[BillPostalCode] [nvarchar](20) NOT NULL,
+	[BillCountryCode] [nvarchar](2) NOT NULL,
+	[BillTelephone] [nvarchar](30) NOT NULL,
+	[ShipRecipientName] [nvarchar](150) NOT NULL,
+	[ShipRecipientBusinessName] [nvarchar](150) NOT NULL,
+	[ShipAddress1] [nvarchar](150) NOT NULL,
+	[ShipAddress2] [nvarchar](150) NOT NULL,
+	[ShipCity] [nvarchar](150) NOT NULL,
+	[ShipRegion] [nvarchar](150) NOT NULL,
+	[ShipPostalCode] [nvarchar](50) NOT NULL,
+	[ShipCountryCode] [nvarchar](2) NOT NULL,
+	[ShipTelephone] [nvarchar](30) NOT NULL,
+	[CreditCardType] [varchar](50) NOT NULL,
+	[CreditCardNumberLast4] [varchar](4) NOT NULL,
+	[CreditCardNumberEncrypted] [nvarchar](500) NOT NULL,
+	[CreditCardExpiration] [varchar](10) NOT NULL,
+	[CreditCardNameOnCard] [nvarchar](150) NOT NULL,
+	[ShippingOption] [nvarchar](50) NOT NULL,
+	[SubTotal] [money] NOT NULL,
+	[ShippingCost] [money] NOT NULL,
+	[DiscountAmount] [money] NOT NULL,
+	[TaxAmount] [money] NOT NULL,
+	[Total] [money] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[CreatedByIP] [varchar](15) NOT NULL,
+	[CreatedFromCartId] [uniqueidentifier] NULL,
+	[ModifiedOn] [datetime] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_Order] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_DNNspot_Store_Order] UNIQUE NONCLUSTERED 
+(
+	[CreatedFromCartId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[WidgetType] [varchar](50) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Label] [nvarchar](100) NOT NULL,
+	[IsRequired] [bit] NOT NULL,
+	[PriceAdjustment] [money] NULL,
+	[WeightAdjustment] [decimal](10, 4) NULL,
+	[SortOrder] [smallint] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ProductAttribute] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ProductDescriptor]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductDescriptor](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[Name] [nvarchar](75) NOT NULL,
+	[Text] [nvarchar](max) NOT NULL,
+	[SortOrder] [smallint] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ProductDescriptor] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ProductCategory]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductCategory](
+	[ProductId] [int] NOT NULL,
+	[CategoryId] [int] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ProductCategory] PRIMARY KEY CLUSTERED 
+(
+	[ProductId] ASC,
+	[CategoryId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction](
+	[Id] [uniqueidentifier] NOT NULL,
+	[OrderId] [int] NULL,
+	[PaymentProviderId] [smallint] NOT NULL,
+	[GatewayUrl] [nvarchar](2000) NOT NULL,
+	[GatewayTransactionId] [nvarchar](100) NOT NULL,
+	[GatewayResponse] [nvarchar](2000) NOT NULL,
+	[GatewayDebugResponse] [nvarchar](max) NOT NULL,
+	[GatewayError] [nvarchar](1000) NOT NULL,
+	[Amount] [money] NULL,
+	[CreatedOn] [datetime] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_PaymentTransaction] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OrderId] [int] NOT NULL,
+	[ProductId] [int] NULL,
+	[Name] [nvarchar](150) NOT NULL,
+	[Sku] [nvarchar](150) NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[ProductFieldData] [nvarchar](max) NOT NULL,
+	[DigitalFileDisplayName] [nvarchar](250) NOT NULL,
+	[DigitalFilename] [nvarchar](500) NOT NULL,
+	[WeightTotal] [decimal](10, 4) NOT NULL,
+	[PriceTotal] [money] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_OrderItem] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_OrderCoupon]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderCoupon](
+	[OrderId] [int] NOT NULL,
+	[CouponCode] [nvarchar](50) NOT NULL,
+	[DiscountAmount] [money] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_OrderCoupon] PRIMARY KEY CLUSTERED 
+(
+	[OrderId] ASC,
+	[CouponCode] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CartId] [uniqueidentifier] NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[ProductFieldData] [nvarchar](max) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[ModifiedOn] [datetime] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_CartItems] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View {databaseOwner}[{objectQualifier}vDNNspot_Store_StoreEmailTemplate]    Script Date: 01/19/2010 23:12:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW {databaseOwner}[{objectQualifier}vDNNspot_Store_StoreEmailTemplate]
+AS
+SELECT
+email.NameKey
+,email.[Description]
+,storeEmail.*
+FROM {databaseOwner}{objectQualifier}DNNspot_Store_StoreEmailTemplate storeEmail
+INNER JOIN {databaseOwner}{objectQualifier}DNNspot_Store_EmailTemplate email ON storeEmail.EmailTemplateId = email.Id
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingRate_Weight]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingRate_Weight](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ShippingMethodId] [smallint] NOT NULL,
+	[MinRange] [decimal](14, 4) NULL,
+	[MaxRange] [decimal](14, 4) NULL,
+	[ShippingCost] [money] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ShippingRate_Weight] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_DNNspot_Store_ShippingRate_Weight] UNIQUE NONCLUSTERED 
+(
+	[ShippingMethodId] ASC,
+	[MinRange] ASC,
+	[MaxRange] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ProductQuantityPrice]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductQuantityPrice](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[Min] [int] NOT NULL,
+	[Max] [int] NOT NULL,
+	[PricePerItem] [money] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ProductQuantityPrice] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ProductPhoto]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductPhoto](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[DisplayName] [nvarchar](250) NOT NULL,
+	[Filename] [nvarchar](500) NOT NULL,
+	[SortOrder] [smallint] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ProductPhoto] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_ProductFieldChoice]    Script Date: 01/19/2010 23:12:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductFieldChoice](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProductFieldId] [int] NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[PriceAdjustment] [money] NULL,
+	[WeightAdjustment] [decimal](10, 4) NULL,
+	[SortOrder] [smallint] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ProductAttributeOption] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View {databaseOwner}[{objectQualifier}vDNNspot_Store_ShippingRateWeight]    Script Date: 01/19/2010 23:12:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW {databaseOwner}[{objectQualifier}vDNNspot_Store_ShippingRateWeight]
+AS
+SELECT
+method.StoreId
+,method.Id as ShippingMethodId
+,method.Name as ShippingMethodName
+,rate.Id as ShippingRateWeightId
+,rate.MinRange
+,rate.MaxRange
+,rate.ShippingCost
+FROM {databaseOwner}{objectQualifier}DNNspot_Store_ShippingMethod method
+INNER JOIN {databaseOwner}{objectQualifier}DNNspot_Store_ShippingRate_Weight rate ON method.Id = rate.ShippingMethodId
+GO
+/****** Object:  View {databaseOwner}[{objectQualifier}vDNNspot_Store_ProductsSoldCounts]    Script Date: 01/19/2010 23:12:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW {databaseOwner}[{objectQualifier}vDNNspot_Store_ProductsSoldCounts]
+AS
+SELECT
+ProductId
+,COUNT(ProductId) as NumSold
+FROM {databaseOwner}{objectQualifier}DNNspot_Store_OrderItem oi
+GROUP BY ProductId
+GO
+/****** Object:  View {databaseOwner}[{objectQualifier}vDNNspot_Store_MainProductPhoto]    Script Date: 01/19/2010 23:12:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW {databaseOwner}[{objectQualifier}vDNNspot_Store_MainProductPhoto]
+AS
+WITH NumberedProductPhotos
+AS
+(
+SELECT
+photo.ProductId
+,photo.Filename
+,photo.SortOrder
+,ROW_NUMBER() OVER (PARTITION BY photo.ProductId ORDER BY photo.SortOrder ASC) AS PhotoNumber
+FROM {databaseOwner}{objectQualifier}DNNspot_Store_Product p
+INNER JOIN {databaseOwner}{objectQualifier}DNNspot_Store_ProductPhoto photo ON p.Id = photo.ProductId
+)
+SELECT ProductId, [Filename] as MainPhotoFilename FROM NumberedProductPhotos WHERE PhotoNumber = 1
+GO
+/****** Object:  View {databaseOwner}[{objectQualifier}vDNNspot_Store_CartItemProductInfo]    Script Date: 01/19/2010 23:12:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW {databaseOwner}[{objectQualifier}vDNNspot_Store_CartItemProductInfo]
+AS
+SELECT
+ci.*
+,mainPhoto.MainPhotoFilename
+,p.Name as ProductName
+,p.Slug as ProductSlug
+,p.Price as ProductItemPrice
+,p.[Weight] as ProductWeight
+,p.ShippingAdditionalFeePerItem as ProductShippingAdditionalFeePerItem
+FROM {databaseOwner}{objectQualifier}DNNspot_Store_CartItem ci
+INNER JOIN {databaseOwner}{objectQualifier}DNNspot_Store_Product p ON ci.ProductId = p.Id
+LEFT JOIN {databaseOwner}{objectQualifier}vDNNspot_Store_MainProductPhoto mainPhoto ON p.Id = mainPhoto.ProductId
+GO
+/****** Object:  Default [DF_DNNspot_Store_Cart_CreatedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Cart] ADD  CONSTRAINT [DF_DNNspot_Store_Cart_CreatedOn]  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Cart_CreatedByIP]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Cart] ADD  CONSTRAINT [DF_DNNspot_Store_Cart_CreatedByIP]  DEFAULT ('') FOR [CreatedByIP]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Cart_ModifiedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Cart] ADD  CONSTRAINT [DF_DNNspot_Store_Cart_ModifiedOn]  DEFAULT (getdate()) FOR [ModifiedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Cart_ModifiedByIP]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Cart] ADD  CONSTRAINT [DF_DNNspot_Store_Cart_ModifiedByIP]  DEFAULT ('') FOR [ModifiedByIP]
+GO
+/****** Object:  Default [DF_DNNspot_Store_CartItems_Attributes]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem] ADD  CONSTRAINT [DF_DNNspot_Store_CartItems_Attributes]  DEFAULT ('') FOR [ProductFieldData]
+GO
+/****** Object:  Default [DF_DNNspot_Store_CartItem_CreatedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem] ADD  CONSTRAINT [DF_DNNspot_Store_CartItem_CreatedOn]  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_CartItem_ModifiedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem] ADD  CONSTRAINT [DF_DNNspot_Store_CartItem_ModifiedOn]  DEFAULT (getdate()) FOR [ModifiedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_NestingLevel]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_NestingLevel]  DEFAULT ((0)) FOR [NestingLevel]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_IsFilter]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_IsFilter]  DEFAULT ((1)) FOR [IsDisplayed]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_Slug]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_Slug]  DEFAULT ('') FOR [Slug]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_Description]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_Description]  DEFAULT ('') FOR [Description]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_SeoTitle]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_SeoTitle]  DEFAULT ('') FOR [SeoTitle]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_SeoDescription]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_SeoDescription]  DEFAULT ('') FOR [SeoDescription]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_SeoKeywords]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_SeoKeywords]  DEFAULT ('') FOR [SeoKeywords]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_SortOrder]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_SortOrder]  DEFAULT ((1)) FOR [SortOrder]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Category_IsSystemCategory]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ADD  CONSTRAINT [DF_DNNspot_Store_Category_IsSystemCategory]  DEFAULT ((0)) FOR [IsSystemCategory]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_IsActive]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_IsActive]  DEFAULT ((1)) FOR [IsActive]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_Description]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_Description]  DEFAULT ('') FOR [DescriptionForCustomer]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_IsCombinable]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_IsCombinable]  DEFAULT ((1)) FOR [IsCombinable]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_AppliesTo]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_AppliesTo]  DEFAULT ('') FOR [DiscountType]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_MinPurchaseAmount]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_MinPurchaseAmount]  DEFAULT ((0)) FOR [MinOrderAmount]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_AppliesToProductIds]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_AppliesToProductIds]  DEFAULT ('') FOR [AppliesToProductIds]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_AppliesToShippingIds]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_AppliesToShippingIds]  DEFAULT ('') FOR [AppliesToShippingIds]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_PercentOff]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_PercentOff]  DEFAULT ((0)) FOR [PercentOff]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Coupon_AmountOff]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD  CONSTRAINT [DF_DNNspot_Store_Coupon_AmountOff]  DEFAULT ((0)) FOR [AmountOff]
+GO
+/****** Object:  Default [DF_DNNspot_Store_EmailTemplate_DefaultSubject]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate] ADD  CONSTRAINT [DF_DNNspot_Store_EmailTemplate_DefaultSubject]  DEFAULT ('') FOR [DefaultSubject]
+GO
+/****** Object:  Default [DF_DNNspot_Store_EmailTemplate_DefaultTemplate]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate] ADD  CONSTRAINT [DF_DNNspot_Store_EmailTemplate_DefaultTemplate]  DEFAULT ('') FOR [DefaultBody]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_IsDeleted]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_OrderNumber]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_OrderNumber]  DEFAULT ('') FOR [OrderNumber]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_OrderStatus]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_OrderStatus]  DEFAULT ('') FOR [OrderStatusId]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_PaymentStatus]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_PaymentStatus]  DEFAULT ('') FOR [PaymentStatusId]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CustomerEmail]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CustomerEmail]  DEFAULT ('') FOR [CustomerEmail]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_Address1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_Address1]  DEFAULT ('') FOR [BillAddress1]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_Address2]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_Address2]  DEFAULT ('') FOR [BillAddress2]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_City]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_City]  DEFAULT ('') FOR [BillCity]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_StateOrRegion]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_StateOrRegion]  DEFAULT ('') FOR [BillRegion]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_ZipOrPostalCode]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_ZipOrPostalCode]  DEFAULT ('') FOR [BillPostalCode]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CountryCode]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CountryCode]  DEFAULT ('') FOR [BillCountryCode]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_BillTelephone]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_BillTelephone]  DEFAULT ('') FOR [BillTelephone]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_ShipToName]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_ShipToName]  DEFAULT ('') FOR [ShipRecipientName]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_ShipRecipientName2]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_ShipRecipientName2]  DEFAULT ('') FOR [ShipRecipientBusinessName]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_Address1_1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_Address1_1]  DEFAULT ('') FOR [ShipAddress1]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_Address2_1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_Address2_1]  DEFAULT ('') FOR [ShipAddress2]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_City_1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_City_1]  DEFAULT ('') FOR [ShipCity]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_StateOrRegion_1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_StateOrRegion_1]  DEFAULT ('') FOR [ShipRegion]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_ZipOrPostalCode_1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_ZipOrPostalCode_1]  DEFAULT ('') FOR [ShipPostalCode]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CountryCode_1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CountryCode_1]  DEFAULT ('') FOR [ShipCountryCode]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_ShipTelephone]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_ShipTelephone]  DEFAULT ('') FOR [ShipTelephone]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CreditCardType]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CreditCardType]  DEFAULT ('') FOR [CreditCardType]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CreditCardNumLast4]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CreditCardNumLast4]  DEFAULT ('') FOR [CreditCardNumberLast4]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CreditCardNumberEncrypted]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CreditCardNumberEncrypted]  DEFAULT ('') FOR [CreditCardNumberEncrypted]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CreditCardExpiration]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CreditCardExpiration]  DEFAULT ('') FOR [CreditCardExpiration]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CreditCardNameOnCard]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CreditCardNameOnCard]  DEFAULT ('') FOR [CreditCardNameOnCard]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_ShippingOption]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_ShippingOption]  DEFAULT ('') FOR [ShippingOption]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_DiscountAmount]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_DiscountAmount]  DEFAULT ((0)) FOR [DiscountAmount]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_Tax]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_Tax]  DEFAULT ((0)) FOR [TaxAmount]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CreatedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CreatedOn]  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_CreatedByIP]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_CreatedByIP]  DEFAULT ('') FOR [CreatedByIP]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Order_ModifiedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ADD  CONSTRAINT [DF_DNNspot_Store_Order_ModifiedOn]  DEFAULT (getdate()) FOR [ModifiedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_OrderItem_Attributes]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem] ADD  CONSTRAINT [DF_DNNspot_Store_OrderItem_Attributes]  DEFAULT ('') FOR [ProductFieldData]
+GO
+/****** Object:  Default [DF_DNNspot_Store_OrderItem_DigitalFileDisplayName]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem] ADD  CONSTRAINT [DF_DNNspot_Store_OrderItem_DigitalFileDisplayName]  DEFAULT ('') FOR [DigitalFileDisplayName]
+GO
+/****** Object:  Default [DF_DNNspot_Store_OrderItem_DigitalFile]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem] ADD  CONSTRAINT [DF_DNNspot_Store_OrderItem_DigitalFile]  DEFAULT ('') FOR [DigitalFilename]
+GO
+/****** Object:  Default [DF_DNNspot_Store_OrderItem_WeightTotal]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem] ADD  CONSTRAINT [DF_DNNspot_Store_OrderItem_WeightTotal]  DEFAULT ((0)) FOR [WeightTotal]
+GO
+/****** Object:  Default [DF_DNNspot_Store_PaymentTransaction_Id]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] ADD  CONSTRAINT [DF_DNNspot_Store_PaymentTransaction_Id]  DEFAULT (newid()) FOR [Id]
+GO
+/****** Object:  Default [DF_DNNspot_Store_PaymentTransaction_GatewayUrl]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] ADD  CONSTRAINT [DF_DNNspot_Store_PaymentTransaction_GatewayUrl]  DEFAULT ('') FOR [GatewayUrl]
+GO
+/****** Object:  Default [DF_DNNspot_Store_PaymentTransaction_GatewayTransactionId]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] ADD  CONSTRAINT [DF_DNNspot_Store_PaymentTransaction_GatewayTransactionId]  DEFAULT ('') FOR [GatewayTransactionId]
+GO
+/****** Object:  Default [DF_DNNspot_Store_PaymentTransaction_GatewayResponse_1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] ADD  CONSTRAINT [DF_DNNspot_Store_PaymentTransaction_GatewayResponse_1]  DEFAULT ('') FOR [GatewayResponse]
+GO
+/****** Object:  Default [DF_DNNspot_Store_PaymentTransaction_GatewayResponse]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] ADD  CONSTRAINT [DF_DNNspot_Store_PaymentTransaction_GatewayResponse]  DEFAULT ('') FOR [GatewayDebugResponse]
+GO
+/****** Object:  Default [DF_DNNspot_Store_PaymentTransaction_GatewayErrors]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] ADD  CONSTRAINT [DF_DNNspot_Store_PaymentTransaction_GatewayErrors]  DEFAULT ('') FOR [GatewayError]
+GO
+/****** Object:  Default [DF_DNNspot_Store_PaymentTransaction_CreatedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] ADD  CONSTRAINT [DF_DNNspot_Store_PaymentTransaction_CreatedOn]  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_IsActive]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_IsActive]  DEFAULT ((1)) FOR [IsActive]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_Sku]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_Sku]  DEFAULT ('') FOR [Sku]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_ShortDescription]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_ShortDescription]  DEFAULT ('') FOR [SpecialNotes]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_Weight]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_Weight]  DEFAULT ((0)) FOR [Weight]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_DeliveryMethodId]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_DeliveryMethodId]  DEFAULT ((1)) FOR [DeliveryMethodId]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_ShippingCost]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_ShippingCost]  DEFAULT ((0)) FOR [ShippingAdditionalFeePerItem]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_QuantityType]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_QuantityType]  DEFAULT ('textbox') FOR [QuantityWidget]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_QuantityOptions]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_QuantityOptions]  DEFAULT ('') FOR [QuantityOptions]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_IsInventoryEnabled]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_IsInventoryEnabled]  DEFAULT ((0)) FOR [InventoryIsEnabled]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_AllowNegativeInventory]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_AllowNegativeInventory]  DEFAULT ((0)) FOR [InventoryAllowNegativeStockLevel]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_DigitalFileDisplayName]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_DigitalFileDisplayName]  DEFAULT ('') FOR [DigitalFileDisplayName]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_DigitalFile]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_DigitalFile]  DEFAULT ('') FOR [DigitalFilename]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_SeoTitle]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_SeoTitle]  DEFAULT ('') FOR [SeoTitle]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_SeoDescription]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_SeoDescription]  DEFAULT ('') FOR [SeoDescription]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_SeoKeywords]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_SeoKeywords]  DEFAULT ('') FOR [SeoKeywords]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_CreatedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_CreatedOn]  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Product_ModifiedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ADD  CONSTRAINT [DF_DNNspot_Store_Product_ModifiedOn]  DEFAULT (getdate()) FOR [ModifiedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductDescriptor_Text]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductDescriptor] ADD  CONSTRAINT [DF_DNNspot_Store_ProductDescriptor_Text]  DEFAULT ('') FOR [Text]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductDescriptor_SortOrder]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductDescriptor] ADD  CONSTRAINT [DF_DNNspot_Store_ProductDescriptor_SortOrder]  DEFAULT ((99)) FOR [SortOrder]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductField_IsRequired]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField] ADD  CONSTRAINT [DF_DNNspot_Store_ProductField_IsRequired]  DEFAULT ((0)) FOR [IsRequired]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductField_PriceAdjustment]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField] ADD  CONSTRAINT [DF_DNNspot_Store_ProductField_PriceAdjustment]  DEFAULT ((0)) FOR [PriceAdjustment]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductField_WeightAdjustment]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField] ADD  CONSTRAINT [DF_DNNspot_Store_ProductField_WeightAdjustment]  DEFAULT ((0)) FOR [WeightAdjustment]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductAttribute_SortOrder]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField] ADD  CONSTRAINT [DF_DNNspot_Store_ProductAttribute_SortOrder]  DEFAULT ((1)) FOR [SortOrder]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductAttributeOption_PriceAdjustment]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductFieldChoice] ADD  CONSTRAINT [DF_DNNspot_Store_ProductAttributeOption_PriceAdjustment]  DEFAULT ((0)) FOR [PriceAdjustment]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductAttributeChoice_WeightAdjustment]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductFieldChoice] ADD  CONSTRAINT [DF_DNNspot_Store_ProductAttributeChoice_WeightAdjustment]  DEFAULT ((0)) FOR [WeightAdjustment]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductAttributeOption_SortOrder]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductFieldChoice] ADD  CONSTRAINT [DF_DNNspot_Store_ProductAttributeOption_SortOrder]  DEFAULT ((1)) FOR [SortOrder]
+GO
+/****** Object:  Default [DF_DNNspot_Store_ProductPhoto_SortOrder]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductPhoto] ADD  CONSTRAINT [DF_DNNspot_Store_ProductPhoto_SortOrder]  DEFAULT ((1)) FOR [SortOrder]
+GO
+/****** Object:  Default [DF_DNNspot_Store_Store_CreatedOn]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ADD  CONSTRAINT [DF_DNNspot_Store_Store_CreatedOn]  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+/****** Object:  Default [DF_DNNspot_Store_StorePaymentProcessor_IsEnabled]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProvider] ADD  CONSTRAINT [DF_DNNspot_Store_StorePaymentProcessor_IsEnabled]  DEFAULT ((0)) FOR [IsEnabled]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Cart_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Cart]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Cart_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Cart] CHECK CONSTRAINT [FK_DNNspot_Store_Cart_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_CartItems_DNNspot_Store_Cart]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_CartItems_DNNspot_Store_Cart] FOREIGN KEY([CartId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Cart] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem] CHECK CONSTRAINT [FK_DNNspot_Store_CartItems_DNNspot_Store_Cart]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_CartItems_DNNspot_Store_Product]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_CartItems_DNNspot_Store_Product] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_CartItem] CHECK CONSTRAINT [FK_DNNspot_Store_CartItems_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Category_DNNspot_Store_Category1]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Category_DNNspot_Store_Category1] FOREIGN KEY([ParentId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] CHECK CONSTRAINT [FK_DNNspot_Store_Category_DNNspot_Store_Category1]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Category_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Category_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Category] CHECK CONSTRAINT [FK_DNNspot_Store_Category_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Coupon_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Coupon_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] CHECK CONSTRAINT [FK_DNNspot_Store_Coupon_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Order_DNNspot_Store_OrderStatus]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_OrderStatus] FOREIGN KEY([OrderStatusId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_OrderStatus] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] CHECK CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_OrderStatus]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Order_DNNspot_Store_PaymentStatus]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_PaymentStatus] FOREIGN KEY([PaymentStatusId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] CHECK CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_PaymentStatus]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Order_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order] CHECK CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_OrderCoupon_DNNspot_Store_Order]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderCoupon]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_OrderCoupon_DNNspot_Store_Order] FOREIGN KEY([OrderId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderCoupon] CHECK CONSTRAINT [FK_DNNspot_Store_OrderCoupon_DNNspot_Store_Order]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_OrderItem_DNNspot_Store_Order]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_OrderItem_DNNspot_Store_Order] FOREIGN KEY([OrderId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem] CHECK CONSTRAINT [FK_DNNspot_Store_OrderItem_DNNspot_Store_Order]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_OrderItem_DNNspot_Store_Product]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_OrderItem_DNNspot_Store_Product] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+ON DELETE SET NULL
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem] CHECK CONSTRAINT [FK_DNNspot_Store_OrderItem_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_Order]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_Order] FOREIGN KEY([OrderId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Order] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] CHECK CONSTRAINT [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_Order]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_PaymentProvider]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_PaymentProvider] FOREIGN KEY([PaymentProviderId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentTransaction] CHECK CONSTRAINT [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_PaymentProvider]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Product_DNNspot_Store_DeliveryMethod]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_Product_DNNspot_Store_DeliveryMethod] FOREIGN KEY([DeliveryMethodId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_DeliveryMethod] ([Id])
+ON DELETE SET NULL
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product] CHECK CONSTRAINT [FK_DNNspot_Store_Product_DNNspot_Store_DeliveryMethod]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Category]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductCategory]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Category] FOREIGN KEY([CategoryId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Category] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductCategory] CHECK CONSTRAINT [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Category]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Product]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductCategory]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Product] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductCategory] CHECK CONSTRAINT [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductDescriptor_DNNspot_Store_Product]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductDescriptor]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ProductDescriptor_DNNspot_Store_Product] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductDescriptor] CHECK CONSTRAINT [FK_DNNspot_Store_ProductDescriptor_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductAttribute_DNNspot_Store_Product]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ProductAttribute_DNNspot_Store_Product] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField] CHECK CONSTRAINT [FK_DNNspot_Store_ProductAttribute_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductAttributeOption_DNNspot_Store_ProductAttribute]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductFieldChoice]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ProductAttributeOption_DNNspot_Store_ProductAttribute] FOREIGN KEY([ProductFieldId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_ProductField] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductFieldChoice] CHECK CONSTRAINT [FK_DNNspot_Store_ProductAttributeOption_DNNspot_Store_ProductAttribute]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductPhoto_DNNspot_Store_Product]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductPhoto]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ProductPhoto_DNNspot_Store_Product] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductPhoto] CHECK CONSTRAINT [FK_DNNspot_Store_ProductPhoto_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductQuantityPrice_DNNspot_Store_ProductQuantityPrice]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductQuantityPrice]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ProductQuantityPrice_DNNspot_Store_ProductQuantityPrice] FOREIGN KEY([ProductId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Product] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ProductQuantityPrice] CHECK CONSTRAINT [FK_DNNspot_Store_ProductQuantityPrice_DNNspot_Store_ProductQuantityPrice]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingOption_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingMethod]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ShippingOption_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingMethod] CHECK CONSTRAINT [FK_DNNspot_Store_ShippingOption_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingRate_Weight]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod] FOREIGN KEY([ShippingMethodId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingMethod] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingRate_Weight] CHECK CONSTRAINT [FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_EmailTemplate]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreEmailTemplate]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_EmailTemplate] FOREIGN KEY([EmailTemplateId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreEmailTemplate] CHECK CONSTRAINT [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_EmailTemplate]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreEmailTemplate]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreEmailTemplate] CHECK CONSTRAINT [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_PaymentProcessor]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProvider]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_PaymentProcessor] FOREIGN KEY([PaymentProviderId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProvider] CHECK CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_PaymentProcessor]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProvider]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProvider] CHECK CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_PaymentProcessor]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_PaymentProcessor] FOREIGN KEY([PaymentProviderId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting] CHECK CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_PaymentProcessor]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting] CHECK CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StoreSetting_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreSetting]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_StoreSetting_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_StoreSetting] CHECK CONSTRAINT [FK_DNNspot_Store_StoreSetting_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_RegionTax_DNNspot_Store_Store]    Script Date: 01/19/2010 23:12:22 ******/
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_TaxRegion]  WITH CHECK ADD  CONSTRAINT [FK_DNNspot_Store_RegionTax_DNNspot_Store_Store] FOREIGN KEY([StoreId])
+REFERENCES {databaseOwner}[{objectQualifier}DNNspot_Store_Store] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_TaxRegion] CHECK CONSTRAINT [FK_DNNspot_Store_RegionTax_DNNspot_Store_Store]
+GO
+
+
+
+/******** DATA INSERTS ********/
+
+/****** Object:  Table {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus]    Script Date: 12/28/2009 10:54:58 ******/
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus] ([Id], [Name]) VALUES (1, N'Completed')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus] ([Id], [Name]) VALUES (20, N'Pending')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus] ([Id], [Name]) VALUES (30, N'Denied')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentStatus] ([Id], [Name]) VALUES (99, N'ProviderError')
+/****** Object:  Table [DNNspot_Store_PaymentProvider]    Script Date: 12/28/2009 10:54:58 ******/
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id], [Name]) VALUES (1, N'OfflinePayment')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id], [Name]) VALUES (20, N'PayPalStandard')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id], [Name]) VALUES (21, N'PayPalDirectPayment')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id], [Name]) VALUES (22, N'PayPalExpressCheckout')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_PaymentProvider] ([Id], [Name]) VALUES (30, N'AuthorizeNetAim')
+/****** Object:  Table [DNNspot_Store_OrderStatus]    Script Date: 12/28/2009 10:54:58 ******/
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_OrderStatus] ([Id], [Name]) VALUES (1, N'Completed')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_OrderStatus] ([Id], [Name]) VALUES (20, N'PaymentPending')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_OrderStatus] ([Id], [Name]) VALUES (99, N'Failed')
+/****** Object:  Table [DNNspot_Store_EmailTemplate]    Script Date: 12/28/2009 10:54:58 ******/
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate] ([Id], [NameKey], [Description], [DefaultSubject], [DefaultBody]) VALUES (10, N'OrderCompleted', N'Email to customer when an order is completed', N'Thank you for your order', N'&lt;table width=&quot;98%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;width: 98%;&quot;&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&lt;strong&gt;Hello {{customer.firstname}} {{customer.lastname}},&lt;/strong&gt;                 &lt;br /&gt;
+            Thank you for your order from {{store.name}}. If you have any questions about your order please contact us at {{store.contactemail}}.                 Your order confirmation is below.&lt;/p&gt;
+            &lt;h3&gt;Your Order #{{order.number}} &lt;span style=&quot;font-size: 12px;&quot;&gt;(placed on {{order.date.monthname}} {{order.date.day}}, {{order.date.year}})&lt;/span&gt;&lt;/h3&gt;
+            &lt;p&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Status:&amp;#160;{{order.status}}&lt;/span&gt;&lt;br /&gt;
+            &amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;width: 100%;&quot;&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Billing Information&lt;/h4&gt;
+                        &lt;p&gt;{{customer.firstname}} {{customer.lastname}}                             &lt;br /&gt;
+                        {{order.billing.address1}} {{order.billing.address2}}                             &lt;br /&gt;
+                        {{order.billing.city}}, {{order.billing.region}} {{order.billing.postalcode}}                             &lt;br /&gt;
+                        {{order.billing.countrycode}}                             &lt;br /&gt;
+                        Telephone: {{order.billing.telephone}}&lt;/p&gt;
+                        &lt;/td&gt;
+                        &lt;td width=&quot;3%&quot; style=&quot;width: 3%;&quot;&gt;&amp;#160;&lt;/td&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Payment ({{order.payment.status}})&lt;/h4&gt;
+                        &lt;p&gt;{{order.payment.summary}}&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td colspan=&quot;3&quot;&gt;
+                        &lt;p&gt;&amp;#160;&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Shipping Information&lt;/h4&gt;
+                        &lt;p&gt;{{order.shipping.recipientname}}                             &lt;br /&gt;
+                        {{order.shipping.address1}} {{order.shipping.address2}}                             &lt;br /&gt;
+                        {{order.shipping.city}}, {{order.shipping.region}} {{order.shipping.postalcode}}                             &lt;br /&gt;
+                        {{order.shipping.countrycode}}                             &lt;br /&gt;
+                        Telephone: {{order.shipping.telephone}}&lt;/p&gt;
+                        &lt;/td&gt;
+                        &lt;td width=&quot;3%&quot; style=&quot;width: 3%;&quot;&gt;&amp;#160;&lt;/td&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Shipping Method&lt;/h4&gt;
+                        &lt;p&gt;{{order.shipping.option}}&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;{{order.itemstable}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;Thanks for your order,             &lt;br /&gt;
+            &lt;strong&gt;{{store.name}}&lt;/strong&gt;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate] ([Id], [NameKey], [Description], [DefaultSubject], [DefaultBody]) VALUES (11, N'OrderCompletedAdmin', N'Email to store owner when order is completed',N'New Order', N'&lt;table width=&quot;98%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;width: 98%;&quot;&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;h3&gt;Order #{{order.number}} &lt;span style=&quot;font-size: 12px;&quot;&gt;(placed on {{order.date}})&lt;/span&gt;&lt;/h3&gt;
+            &lt;p&gt;Status:&amp;#160;{{order.status}}&lt;br /&gt;
+            Customer: {{customer.firstname}} {{customer.lastname}} (UserId: {{customer.userid}})                 &lt;br /&gt;
+            Email: {{customer.email}}&lt;/p&gt;
+            &lt;p&gt;&amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;width: 100%;&quot;&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Billing Information&lt;/h4&gt;
+                        &lt;p&gt;{{customer.firstname}} {{customer.lastname}}                             &lt;br /&gt;
+                        {{order.billing.address1}} {{order.billing.address2}}                             &lt;br /&gt;
+                        {{order.billing.city}}, {{order.billing.region}} {{order.billing.postalcode}}                             &lt;br /&gt;
+                        {{order.billing.countrycode}}                             &lt;br /&gt;
+                        Telephone: {{order.billing.telephone}}&lt;/p&gt;
+                        &lt;/td&gt;
+                        &lt;td width=&quot;3%&quot; style=&quot;width: 3%;&quot;&gt;&amp;#160;&lt;/td&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Payment ({{order.payment.status}})&lt;/h4&gt;
+                        &lt;p&gt;{{order.payment.summary}}&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td colspan=&quot;3&quot;&gt;
+                        &lt;p&gt;&amp;#160;&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Shipping Information&lt;/h4&gt;
+                        &lt;p&gt;{{order.shipping.recipientname}}                             &lt;br /&gt;
+                        {{order.shipping.address1}} {{order.shipping.address2}}                             &lt;br /&gt;
+                        {{order.shipping.city}}, {{order.shipping.region}} {{order.shipping.postalcode}}                             &lt;br /&gt;
+                        {{order.shipping.countrycode}}                             &lt;br /&gt;
+                        Telephone: {{order.shipping.telephone}}&lt;/p&gt;
+                        &lt;/td&gt;
+                        &lt;td width=&quot;3%&quot; style=&quot;width: 3%;&quot;&gt;&amp;#160;&lt;/td&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Shipping Method&lt;/h4&gt;
+                        &lt;p&gt;{{order.shipping.option}}&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;{{order.itemstable}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&lt;strong&gt;{{store.name}}&lt;/strong&gt;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_EmailTemplate] ([Id], [NameKey], [Description], [DefaultSubject], [DefaultBody]) VALUES (20, N'PaymentCompletedOffline', N'Email to customer when offline payment has been completed (Only applies to Offline/Manual Payments)',N'Payment for your order is complete', N'&lt;p&gt;{{customer.firstname}} {{customer.lastname}},&lt;/p&gt;
+&lt;p&gt;We have successfully processed payment for your Order #{{order.number}}.&lt;/p&gt;
+&lt;p&gt;Order Total:&amp;#160;{{order.total}}&lt;/p&gt;
+&lt;p&gt;This completes your order, Thank You!&lt;/p&gt;
+&lt;p&gt;DNNspot Store&lt;/p&gt;')
+/****** Object:  Table [DNNspot_Store_DeliveryMethod]    Script Date: 12/28/2009 10:54:58 ******/
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_DeliveryMethod] ([Id], [Name]) VALUES (1, N'Shipped')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_DeliveryMethod] ([Id], [Name]) VALUES (2, N'Downloaded')

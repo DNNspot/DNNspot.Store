@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySpacesProject Version="2009.2.1214.0">
+  <Folder Name="DNNspot.Store.DataModel">
+    <RecordedTemplate Name="Generated VIEWS">
+      <Template Name="Generated - Classes Master (C#)" Path="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Templates\EntitySpaces\C#\Generated - Classes Master (C#).est" Version="2009.0.0.0" />
+      <Input>
+        <Item Type="System.Boolean" Key="WcfIsRequired" Value="False" />
+        <Item Type="System.Boolean" Key="WcfSupport" Value="False" />
+        <Item Type="System.Boolean" Key="CompactXML" Value="False" />
+        <Item Type="System.Boolean" Key="TargetTheCompactFramework" Value="False" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreSchema" Value="True" />
+        <Item Type="System.Boolean" Key="LINQtoSQL" Value="True" />
+        <Item Type="System.String" Key="Namespace" Value="DNNspot.Store.DataModel" />
+        <Item Type="System.Boolean" Key="DebugVisualizer" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModel" Value="True" />
+        <Item Type="System.Boolean" Key="SupportINotifyChanged" Value="False" />
+        <Item Type="System.Boolean" Key="TargetMultipleDatabases" Value="False" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreCatalog" Value="True" />
+        <Item Type="System.Boolean" Key="UseDnnObjectQualifier" Value="True" />
+        <Item Type="System.String" Key="ConnectionName" Value="" />
+        <Item Type="System.Boolean" Key="IncludeRowStateInXml" Value="True" />
+        <Item Type="System.String" Key="EntityType" Value="Views" />
+        <Item Type="System.Collections.ArrayList" Key="Entities" Value="vDNNspot_Store_CartItemProductInfo,vDNNspot_Store_MainProductPhoto,vDNNspot_Store_ProductsSoldCounts,vDNNspot_Store_ShippingServiceRates,vDNNspot_Store_StoreEmailTemplate" />
+        <Item Type="System.Boolean" Key="GenerateProxyStub" Value="False" />
+        <Item Type="System.Boolean" Key="SerializableQueries" Value="False" />
+        <Item Type="System.Boolean" Key="WcfEmitDefaultValue" Value="True" />
+        <Item Type="System.Boolean" Key="UseCustomBaseClass" Value="False" />
+        <Item Type="System.String" Key="WcfDataContract" Value="http://tempuri.org/" />
+        <Item Type="System.Boolean" Key="DebuggerDisplay" Value="True" />
+        <Item Type="System.String" Key="OutputPath" Value="C:\Code\WebAscender\DNNspot\Modules\DNNspot-Store\DNNspot.Store\DataModel\Generated" />
+        <Item Type="System.Boolean" Key="WcfOrder" Value="True" />
+        <Item Type="(null)" Key="Table" />
+        <Item Type="System.Boolean" Key="GenerateSingleFile" Value="True" />
+        <Item Type="System.String" Key="Database" Value="Localhost" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModelSelectedTablesOnly" Value="True" />
+      </Input>
+      <Settings>
+        <esSettings Name="esCustom">
+          <esSetting Name="Driver" Value="SQL" />
+          <esSetting Name="ConnectionString" Value="Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=DNNspot_DEV;Data Source=.\SQL08" />
+          <esSetting Name="TemplatePath" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Templates\" />
+          <esSetting Name="OutputPath" Value="C:\Users\Kevin\Documents" />
+          <esSetting Name="UIAssemblyPath" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Bin\UIAddIns\" />
+          <esSetting Name="CompilerAssemblyPath" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Bin\" />
+          <esSetting Name="LanguageMappingFile" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\esLanguages.xml" />
+          <esSetting Name="UserMetadataFile" Value="C:\ProgramData\EntitySpaces\ES2009\esUserData.xml" />
+          <esSetting Name="AbstractPrefix" Value="es" />
+          <esSetting Name="EntitySuffix" Value="" />
+          <esSetting Name="CollectionSuffix" Value="Collection" />
+          <esSetting Name="QuerySuffix" Value="Query" />
+          <esSetting Name="MetadataSuffix" Value="Metadata" />
+          <esSetting Name="ProxyStubSuffix" Value="ProxyStub" />
+          <esSetting Name="ProcPrefix" Value="proc_" />
+          <esSetting Name="ProcSuffix" Value="" />
+          <esSetting Name="ProcInsert" Value="Insert" />
+          <esSetting Name="ProcUpdate" Value="Update" />
+          <esSetting Name="ProcDelete" Value="Delete" />
+          <esSetting Name="ProcLoadAll" Value="LoadAll" />
+          <esSetting Name="ProcLoadByPK" Value="LoadByPrimaryKey" />
+          <esSetting Name="ProcVerbFirst" Value="False" />
+          <esSetting Name="OneToOnePrefix" Value="" />
+          <esSetting Name="OneToOneSeparator" Value="By" />
+          <esSetting Name="OneToOneSuffix" Value="" />
+          <esSetting Name="ManyToManyPrefix" Value="" />
+          <esSetting Name="ManyToManySeparator" Value="By" />
+          <esSetting Name="ManyToManySuffix" Value="Collection" />
+          <esSetting Name="SelfOnly" Value="False" />
+          <esSetting Name="SwapNames" Value="False" />
+          <esSetting Name="UseAssociativeName" Value="False" />
+          <esSetting Name="UseUpToPrefix" Value="True" />
+          <esSetting Name="PreserveUnderscores" Value="False" />
+          <esSetting Name="UseRawNames" Value="False" />
+          <esSetting Name="UseNullableTypesAlways" Value="True" />
+          <esSetting Name="TurnOffDateTimeInClassHeaders" Value="False" />
+          <esSetting Name="DefaultTemplateDoubleClickAction" Value="Execute" />
+        </esSettings>
+      </Settings>
+    </RecordedTemplate>
+    <RecordedTemplate Name="Generated TABLES">
+      <Template Name="Generated - Classes Master (C#)" Path="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Templates\EntitySpaces\C#\Generated - Classes Master (C#).est" Version="2009.0.0.0" />
+      <Input>
+        <Item Type="System.Boolean" Key="WcfIsRequired" Value="False" />
+        <Item Type="System.Boolean" Key="WcfSupport" Value="False" />
+        <Item Type="System.Boolean" Key="CompactXML" Value="False" />
+        <Item Type="System.Boolean" Key="TargetTheCompactFramework" Value="False" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreSchema" Value="True" />
+        <Item Type="System.Boolean" Key="LINQtoSQL" Value="True" />
+        <Item Type="System.String" Key="Namespace" Value="DNNspot.Store.DataModel" />
+        <Item Type="System.Boolean" Key="DebugVisualizer" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModel" Value="True" />
+        <Item Type="System.Boolean" Key="SupportINotifyChanged" Value="False" />
+        <Item Type="System.Boolean" Key="TargetMultipleDatabases" Value="False" />
+        <Item Type="(null)" Key="View" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreCatalog" Value="True" />
+        <Item Type="System.Boolean" Key="UseDnnObjectQualifier" Value="True" />
+        <Item Type="System.String" Key="ConnectionName" Value="" />
+        <Item Type="System.String" Key="Database" Value="Localhost" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModelSelectedTablesOnly" Value="True" />
+        <Item Type="EntitySpaces.MetadataEngine.esPluginSource" Key="Source" Value="EntitySpaces.MetadataEngine.esPluginSource" />
+        <Item Type="System.String" Key="EntityType" Value="Tables" />
+        <Item Type="System.Collections.ArrayList" Key="Entities" Value="DNNspot_Store_Cart,DNNspot_Store_CartItem,DNNspot_Store_Category,DNNspot_Store_Coupon,DNNspot_Store_Currency,DNNspot_Store_DeliveryMethod,DNNspot_Store_Discount,DNNspot_Store_EmailTemplate,DNNspot_Store_Order,DNNspot_Store_OrderCoupon,DNNspot_Store_OrderItem,DNNspot_Store_OrderStatus,DNNspot_Store_PaymentProvider,DNNspot_Store_PaymentStatus,DNNspot_Store_PaymentTransaction,DNNspot_Store_Product,DNNspot_Store_ProductCategory,DNNspot_Store_ProductDescriptor,DNNspot_Store_ProductField,DNNspot_Store_ProductFieldChoice,DNNspot_Store_ProductPhoto,DNNspot_Store_ProductQuantityPrice,DNNspot_Store_RelatedProduct,DNNspot_Store_ShippingService,DNNspot_Store_ShippingServiceRate,DNNspot_Store_ShippingServiceRateType,DNNspot_Store_ShippingServiceSetting,DNNspot_Store_Store,DNNspot_Store_StoreEmailTemplate,DNNspot_Store_StorePaymentProvider,DNNspot_Store_StorePaymentProviderSetting,DNNspot_Store_StoreSetting,DNNspot_Store_TaxRegion" />
+        <Item Type="System.Boolean" Key="GenerateProxyStub" Value="False" />
+        <Item Type="System.Boolean" Key="SerializableQueries" Value="False" />
+        <Item Type="System.Boolean" Key="WcfEmitDefaultValue" Value="False" />
+        <Item Type="System.Boolean" Key="UseCustomBaseClass" Value="False" />
+        <Item Type="System.String" Key="WcfDataContract" Value="http://tempuri.org/" />
+        <Item Type="System.Boolean" Key="DebuggerDisplay" Value="True" />
+        <Item Type="System.String" Key="OutputPath" Value="C:\Code\DNNspot-Store\DNNspot.Store\DataModel\Generated" />
+        <Item Type="System.Boolean" Key="WcfOrder" Value="True" />
+        <Item Type="EntitySpaces.MetadataEngine.Sql.SqlTable" Key="Table" Value="EntitySpaces.MetadataEngine.Sql.SqlTable" />
+        <Item Type="System.Boolean" Key="GenerateSingleFile" Value="True" />
+        <Item Type="System.Boolean" Key="IncludeRowStateInXml" Value="True" />
+        <Item Type="EntitySpaces.MetadataEngine.Sql.SqlColumns" Key="Columns" Value="EntitySpaces.MetadataEngine.Sql.SqlColumns" />
+      </Input>
+      <Settings>
+        <esSettings Name="esCustom">
+          <esSetting Name="Driver" Value="SQL" />
+          <esSetting Name="ConnectionString" Value="Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Localhost;Data Source=.\SQL08" />
+          <esSetting Name="TemplatePath" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Templates\" />
+          <esSetting Name="OutputPath" Value="C:\Users\Kevin\Documents" />
+          <esSetting Name="UIAssemblyPath" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Bin\UIAddIns\" />
+          <esSetting Name="CompilerAssemblyPath" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\Bin\" />
+          <esSetting Name="LanguageMappingFile" Value="C:\Program Files (x86)\EntitySpaces 2009\CodeGeneration\esLanguages.xml" />
+          <esSetting Name="UserMetadataFile" Value="C:\ProgramData\EntitySpaces\ES2009\esUserData.xml" />
+          <esSetting Name="AbstractPrefix" Value="es" />
+          <esSetting Name="EntitySuffix" Value="" />
+          <esSetting Name="CollectionSuffix" Value="Collection" />
+          <esSetting Name="QuerySuffix" Value="Query" />
+          <esSetting Name="MetadataSuffix" Value="Metadata" />
+          <esSetting Name="ProxyStubSuffix" Value="ProxyStub" />
+          <esSetting Name="ProcPrefix" Value="proc_" />
+          <esSetting Name="ProcSuffix" Value="" />
+          <esSetting Name="ProcInsert" Value="Insert" />
+          <esSetting Name="ProcUpdate" Value="Update" />
+          <esSetting Name="ProcDelete" Value="Delete" />
+          <esSetting Name="ProcLoadAll" Value="LoadAll" />
+          <esSetting Name="ProcLoadByPK" Value="LoadByPrimaryKey" />
+          <esSetting Name="ProcVerbFirst" Value="False" />
+          <esSetting Name="OneToOnePrefix" Value="" />
+          <esSetting Name="OneToOneSeparator" Value="By" />
+          <esSetting Name="OneToOneSuffix" Value="" />
+          <esSetting Name="ManyToManyPrefix" Value="" />
+          <esSetting Name="ManyToManySeparator" Value="By" />
+          <esSetting Name="ManyToManySuffix" Value="Collection" />
+          <esSetting Name="SelfOnly" Value="False" />
+          <esSetting Name="SwapNames" Value="False" />
+          <esSetting Name="UseAssociativeName" Value="False" />
+          <esSetting Name="UseUpToPrefix" Value="True" />
+          <esSetting Name="PreserveUnderscores" Value="False" />
+          <esSetting Name="UseRawNames" Value="False" />
+          <esSetting Name="UseNullableTypesAlways" Value="True" />
+          <esSetting Name="TurnOffDateTimeInClassHeaders" Value="False" />
+          <esSetting Name="DefaultTemplateDoubleClickAction" Value="Execute" />
+        </esSettings>
+      </Settings>
+    </RecordedTemplate>
+  </Folder>
+</EntitySpacesProject>

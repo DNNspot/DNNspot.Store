@@ -1,0 +1,24 @@
+Bulk Product Import
+------------------------
+Existing products are searched on 3 fields: UrlName, Name, Sku.
+
+ImportAction
+--------------
+C	Create
+		Creates/inserts a product only if it does not exist
+
+R	Replace/Overwrite
+		Replaces fields if product exists, or creates a new product if not found.
+		ALL matching fields are replaced/overwritten with the values from the CSV file (including empty fields).
+		Existing Product Categories are first DELETED, and then re-added from the CSV file.
+		Existing Product Photos are DELETED, and then re-added from the CSV.
+		
+U	Update
+		Updates fields if product exists, or creates a new product if not found.
+		A field is only updated if the CSV field is non-empty.
+		Existing Product Categories are kept, and new Categories are added from the CSV file.
+		Existing Product Photos are kept, and new Photos are added.
+		
+D	Delete
+		Deletes the product completely, including all product photos, descriptions, variants, etc.
+

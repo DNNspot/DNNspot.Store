@@ -1,0 +1,4 @@
+ImportAction,Name,Sku,UrlName,Price,Weight,SeoTitle,SeoDescription,SeoKeywords,IsActive,PhotoFilenames,CategoryNames,Desc1Name,Desc1Html,Desc2Name,Desc2Html,Desc3Name,Desc3Html,Desc4Name,Desc4Html,Desc5Name,Desc5Html
+C,Product A,PRODUCT-A,product-a,4.99,,,,,y,,"Widgets, Another Category",Description,description goes here,,,,,,,,
+C,Product B,PRODUCT-B,product-b,15.95,,,,,y,,Widgets,Specifications,specification goes here,,,,,,,,
+C,Product C,PRODUCT-C,product-c,250,,,,,y,,Another Category,Description,description goes here,,,,,,,,

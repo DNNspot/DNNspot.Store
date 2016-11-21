@@ -1,0 +1,25 @@
+DECLARE @CorrectSchema varchar(100), @WrongSchema varchar(100), @TableName varchar(100);
+SET @CorrectSchema  = (SELECT TOP 1 TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%DNNspot_Store_Currency')
+SET @WrongSchema = (SELECT TOP 1 TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%DNNspot_Store_ShippingService')
+
+
+DECLARE @TempTableName varchar(500)
+SET @TempTableName= (SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%DNNspot_Store_ShippingService');
+SET @TableName = @WrongSchema + '.' + @TempTableName;
+EXEC sp_changeobjectowner @TableName, @CorrectSchema
+
+SET @TempTableName= (SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%DNNspot_Store_ShippingServiceSetting');
+SET @TableName = @WrongSchema + '.' + @TempTableName;
+EXEC sp_changeobjectowner @TableName, @CorrectSchema
+
+SET @TempTableName= (SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%DNNspot_Store_ShippingServiceRateType');
+SET @TableName = @WrongSchema + '.' + @TempTableName;
+EXEC sp_changeobjectowner @TableName, @CorrectSchema
+
+SET @TempTableName= (SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%DNNspot_Store_ShippingServiceRate');
+SET @TableName = @WrongSchema + '.' + @TempTableName;
+EXEC sp_changeobjectowner @TableName, @CorrectSchema
+
+SET @TempTableName= (SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME like '%DNNspot_Store_Discount');
+SET @TableName = @WrongSchema + '.' + @TempTableName;
+EXEC sp_changeobjectowner @TableName, @CorrectSchema

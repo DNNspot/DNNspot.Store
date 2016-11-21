@@ -1,0 +1,38 @@
+--------------------------
+-- NEW TABLES
+--------------------------
+SET NUMERIC_ROUNDABORT OFF
+GO
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+SET XACT_ABORT ON
+GO
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+GO
+PRINT N'Creating [dbo].[DNNspot_Store_Currency]'
+GO
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Currency]
+(
+[Code] [varchar] (3) NOT NULL,
+[CultureName] [nvarchar] (10) NULL,
+[Description] [varchar] (500)  NOT NULL,
+[Symbol] [nvarchar] (10) NOT NULL,
+[SymbolPosition] [varchar] (20) NOT NULL,
+[GroupSeparator] [nvarchar] (50)  NOT NULL,
+[DecimalSeparator] [nvarchar] (50) NOT NULL
+)
+GO
+PRINT N'Creating primary key [PK_DNNspot_Store_Currency] on [dbo].[DNNspot_Store_Currency]'
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Currency] ADD CONSTRAINT [PK_DNNspot_Store_Currency] PRIMARY KEY CLUSTERED  ([Code])
+GO
+
+--------------------------
+-- NEW DATA
+--------------------------
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_Currency] ([Code], [CultureName], [Description], [Symbol], [SymbolPosition], [GroupSeparator], [DecimalSeparator]) VALUES (N'AUD', N'en-AU', N'Australia, Dollars', N'$', N'prefix', N',', N'.')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_Currency] ([Code], [CultureName], [Description], [Symbol], [SymbolPosition], [GroupSeparator], [DecimalSeparator]) VALUES (N'CAD', N'en-CA', N'Canada, Dollars', N'$', N'prefix', N',', N'.')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_Currency] ([Code], [CultureName], [Description], [Symbol], [SymbolPosition], [GroupSeparator], [DecimalSeparator]) VALUES (N'EUR', NULL, N'Euro', N'&euro;', N'prefix', N',', N'.')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_Currency] ([Code], [CultureName], [Description], [Symbol], [SymbolPosition], [GroupSeparator], [DecimalSeparator]) VALUES (N'GBP', N'en-GB', N'United Kingdom, Pounds', N'&pound;', N'prefix', N',', N'.')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_Currency] ([Code], [CultureName], [Description], [Symbol], [SymbolPosition], [GroupSeparator], [DecimalSeparator]) VALUES (N'SGD', N'en-SG', N'Singapore, Dollars', N'$', N'prefix', N',', N'.')
+INSERT {databaseOwner}[{objectQualifier}DNNspot_Store_Currency] ([Code], [CultureName], [Description], [Symbol], [SymbolPosition], [GroupSeparator], [DecimalSeparator]) VALUES (N'USD', N'en-US', N'United States of America, Dollars', N'$', N'prefix', N',', N'.')

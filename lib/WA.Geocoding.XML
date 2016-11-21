@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WA.Geocoding</name>
+    </assembly>
+    <members>
+        <member name="T:WA.Geocoding.BestResponseStrategy">
+            <summary>
+            Send the request to ALL geocoding services, and choose the "best" response
+            </summary>
+        </member>
+        <member name="P:WA.Geocoding.IGeocodeResponse.GeocodeServiceName">
+            <summary>
+            Name of the geocoding service that generated this response
+            </summary>
+        </member>
+        <member name="T:WA.Geocoding.Yahoo.YahooPlaceFinder">
+            <summary>
+            http://developer.yahoo.com/geo/placefinder/guide/index.html
+            </summary>
+        </member>
+        <member name="T:WA.Geocoding.Yahoo.YahooPlaceFinderResponse">
+            <summary>
+            http://developer.yahoo.com/geo/placefinder/guide/responses.html
+            </summary>
+        </member>
+        <member name="T:WA.Geocoding.Google.GoogleGeocoderV3">
+            <summary>
+            http://code.google.com/apis/maps/documentation/geocoding/
+            </summary>
+        </member>
+        <member name="T:WA.Geocoding.RoundRobinStrategy">
+            <summary>
+            Send the geocode request to one of the available geocoding services in a "round-robin" fashion, in order to distribute the load among multiple available services.
+            If you have 3 services, the 1st request will go to service #1, 2nd request to service #2, 3rd to service #3 and 4th request will go back to service #1.
+            </summary>
+        </member>
+        <member name="T:WA.Geocoding.FailOverStrategy">
+            <summary>
+            Try the first geocoding service provided, if geocoding fails, then try the 2nd service, then 3rd, etc. until we get a "Success" or run out of services
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,71 @@
+
+PRINT N'Dropping foreign keys from [dbo].[DNNspot_Store_Discount]'
+IF EXISTS (SELECT 1 from sys.objects where name = 'FK_DNNspot_Store_Discount_DNNspot_Store_Store')
+BEGIN
+	ALTER TABLE [{objectQualifier}DNNspot_Store_Discount] DROP CONSTRAINT [FK_DNNspot_Store_Discount_DNNspot_Store_Store]
+	PRINT 'Dropped Constraint'
+END	
+IF EXISTS (SELECT 1 from sys.objects where name = 'FK_DNNspot_Store_Discount_Roles')
+BEGIN
+	ALTER TABLE [{objectQualifier}DNNspot_Store_Discount] DROP CONSTRAINT [FK_DNNspot_Store_Discount_Roles]	
+	PRINT 'Dropped Constraint'
+END	
+PRINT N'Dropping constraints from [dbo].[DNNspot_Store_Discount]'
+IF EXISTS (SELECT 1 from sys.objects where name = 'PK_DNNspot_Store_Discount')
+BEGIN
+	ALTER TABLE [{objectQualifier}DNNspot_Store_Discount] DROP CONSTRAINT [PK_DNNspot_Store_Discount]
+	PRINT 'Dropped Constraint'
+END	
+
+PRINT N'Rebuilding [dbo].[DNNspot_Store_Discount]'
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount]') AND type in (N'U'))
+BEGIN
+	DROP TABLE [{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount]
+END
+
+CREATE TABLE [{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount]
+(
+[Id] [int] NOT NULL IDENTITY(1, 1),
+[StoreId] [int] NOT NULL,
+[IsActive] [bit] NOT NULL DEFAULT ((1)),
+[Name] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL DEFAULT (''),
+[DnnRoleId] [int] NULL,
+[DiscountType] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[PercentOff] [decimal] (10, 2) NULL,
+[AmountOff] [money] NULL,
+[IsCombinable] [bit] NOT NULL DEFAULT ((0)),
+[ValidFromDate] [datetime] NULL,
+[ValidToDate] [datetime] NULL,
+[AppliesToProductIds] [varchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL DEFAULT (''),
+[AppliesToCategoryIds] [varchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL DEFAULT ('')
+)
+
+SET IDENTITY_INSERT [{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount] ON
+
+INSERT INTO [{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount]([Id], [StoreId], [DnnRoleId], [DiscountType], [PercentOff], [AmountOff]) SELECT [Id], [StoreId], [DnnRoleId], [DiscountType], [PercentOff], [AmountOff] FROM [{objectQualifier}DNNspot_Store_Discount]
+
+SET IDENTITY_INSERT [{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount] OFF
+
+DECLARE @idVal INT
+SELECT @idVal = IDENT_CURRENT(N'{objectQualifier}DNNspot_Store_Discount')
+DBCC CHECKIDENT([{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount], RESEED, @idVal)
+
+DROP TABLE [{objectQualifier}DNNspot_Store_Discount]
+
+EXEC sp_rename N'[{objectQualifier}tmp_rg_xx_DNNspot_Store_Discount]', N'{objectQualifier}DNNspot_Store_Discount'
+
+PRINT N'Creating primary key [PK_DNNspot_Store_Discount] on [dbo].[DNNspot_Store_Discount]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_Discount] ADD CONSTRAINT [PK_DNNspot_Store_Discount] PRIMARY KEY CLUSTERED  ([Id])
+
+PRINT N'Adding foreign keys to [dbo].[DNNspot_Store_Discount]'
+ALTER TABLE [{objectQualifier}DNNspot_Store_Discount] ADD
+CONSTRAINT [FK_DNNspot_Store_Discount_DNNspot_Store_Store] FOREIGN KEY ([StoreId]) REFERENCES [{objectQualifier}DNNspot_Store_Store] ([Id]) ON DELETE CASCADE,
+CONSTRAINT [FK_DNNspot_Store_Discount_Roles] FOREIGN KEY ([DnnRoleId]) REFERENCES [{objectQualifier}Roles] ([RoleID]) ON DELETE CASCADE
+
+---------------------------------------
+-- FIX: Missing FedExShippingProvider
+---------------------------------------
+INSERT INTO [{objectQualifier}DNNspot_Store_ShippingService](StoreId,ShippingProviderType)
+SELECT Id, 20 FROM [{objectQualifier}DNNspot_Store_Store]
+WHERE NOT EXISTS (SELECT * FROM [{objectQualifier}DNNspot_Store_ShippingService] WHERE ShippingProviderType = 20)

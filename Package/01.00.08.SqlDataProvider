@@ -1,0 +1,287 @@
+/*--------------------------
+  New Tables/Views
+----------------------------*/
+BEGIN TRANSACTION
+SET NUMERIC_ROUNDABORT OFF
+
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
+
+SET XACT_ABORT ON
+
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+
+PRINT N'Creating [{objectQualifier}DNNspot_Store_ShippingService]'
+
+CREATE TABLE [{objectQualifier}DNNspot_Store_ShippingService]
+(
+[Id] [int] NOT NULL IDENTITY(1, 1),
+[StoreId] [int] NOT NULL,
+[ShippingProviderType] [smallint] NOT NULL
+)
+
+PRINT N'Creating primary key [PK_DNNspot_Store_ShippingService] on [{objectQualifier}DNNspot_Store_ShippingService]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingService] ADD CONSTRAINT [PK_DNNspot_Store_ShippingService] PRIMARY KEY CLUSTERED  ([Id])
+
+PRINT N'Creating [{objectQualifier}DNNspot_Store_ShippingServiceSetting]'
+
+CREATE TABLE [{objectQualifier}DNNspot_Store_ShippingServiceSetting]
+(
+[ShippingServiceId] [int] NOT NULL,
+[Name] [varchar] (300) NOT NULL,
+[Value] [nvarchar] (1000) NOT NULL
+)
+
+PRINT N'Creating primary key [PK_DNNspot_Store_ShippingServiceSetting] on [{objectQualifier}DNNspot_Store_ShippingServiceSetting]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceSetting] ADD CONSTRAINT [PK_DNNspot_Store_ShippingServiceSetting] PRIMARY KEY CLUSTERED  ([ShippingServiceId], [Name])
+
+PRINT N'Creating [{objectQualifier}DNNspot_Store_ShippingServiceRateType]'
+
+CREATE TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRateType]
+(
+[Id] [int] NOT NULL IDENTITY(1, 1),
+[ShippingServiceId] [int] NOT NULL,
+[Name] [varchar] (100) NOT NULL,
+[DisplayName] [varchar] (100) NOT NULL,
+[IsEnabled] [bit] NOT NULL CONSTRAINT [DF_DNNspot_Store_ShippingProviderOption_IsEnabled] DEFAULT ((1)),
+[SortOrder] [smallint] NOT NULL CONSTRAINT [DF_DNNspot_Store_ShippingProviderOption_SortOrder] DEFAULT ((99))
+)
+
+PRINT N'Creating primary key [PK_DNNspot_Store_ShippingProviderRateType] on [{objectQualifier}DNNspot_Store_ShippingServiceRateType]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRateType] ADD CONSTRAINT [PK_DNNspot_Store_ShippingProviderRateType] PRIMARY KEY CLUSTERED  ([Id])
+
+PRINT N'Creating [{objectQualifier}DNNspot_Store_ShippingServiceRate]'
+
+CREATE TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRate]
+(
+[Id] [int] NOT NULL IDENTITY(1, 1),
+[RateTypeId] [int] NOT NULL,
+[CountryCode] [nvarchar] (2) NOT NULL CONSTRAINT [DF_DNNspot_Store_ShippingProviderRate_CountryCode] DEFAULT (''),
+[Region] [nvarchar] (150) NOT NULL CONSTRAINT [DF_DNNspot_Store_ShippingProviderRate_Region] DEFAULT (''),
+[WeightMin] [decimal] (14, 4) NULL,
+[WeightMax] [decimal] (14, 4) NULL,
+[Cost] [money] NOT NULL
+)
+
+PRINT N'Creating primary key [PK_DNNspot_Store_ShippingProviderRate] on [{objectQualifier}DNNspot_Store_ShippingServiceRate]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRate] ADD CONSTRAINT [PK_DNNspot_Store_ShippingProviderRate] PRIMARY KEY CLUSTERED  ([Id])
+
+PRINT N'Adding constraints to [{objectQualifier}DNNspot_Store_ShippingService]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingService] ADD CONSTRAINT [IX_DNNspot_Store_ShippingService] UNIQUE NONCLUSTERED  ([StoreId], [ShippingProviderType])
+
+PRINT N'Adding foreign keys to [{objectQualifier}DNNspot_Store_ShippingServiceRateType]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRateType] ADD
+CONSTRAINT [FK_DNNspot_Store_ShippingServiceRateType_DNNspot_Store_ShippingService] FOREIGN KEY ([ShippingServiceId]) REFERENCES [{objectQualifier}DNNspot_Store_ShippingService] ([Id]) ON DELETE CASCADE
+
+PRINT N'Adding foreign keys to [{objectQualifier}DNNspot_Store_ShippingServiceSetting]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceSetting] ADD
+CONSTRAINT [FK_DNNspot_Store_ShippingServiceSetting_DNNspot_Store_ShippingService] FOREIGN KEY ([ShippingServiceId]) REFERENCES [{objectQualifier}DNNspot_Store_ShippingService] ([Id]) ON DELETE CASCADE
+
+PRINT N'Adding foreign keys to [{objectQualifier}DNNspot_Store_ShippingService]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingService] ADD
+CONSTRAINT [FK_DNNspot_Store_ShippingService_DNNspot_Store_Store] FOREIGN KEY ([StoreId]) REFERENCES [{objectQualifier}DNNspot_Store_Store] ([Id]) ON DELETE CASCADE
+
+PRINT N'Adding foreign keys to [{objectQualifier}DNNspot_Store_ShippingServiceRate]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRate] ADD
+CONSTRAINT [FK_DNNspot_Store_ShippingServiceRate_DNNspot_Store_ShippingServiceRateType] FOREIGN KEY ([RateTypeId]) REFERENCES [{objectQualifier}DNNspot_Store_ShippingServiceRateType] ([Id]) ON DELETE CASCADE
+
+COMMIT TRANSACTION
+
+
+PRINT N'Adding view ''vDNNspot_Store_ShippingServiceRates'''
+GO
+CREATE VIEW [{objectQualifier}vDNNspot_Store_ShippingServiceRates]
+AS
+SELECT
+rate.Id as RateId
+,rate.CountryCode as CountryCode
+,rate.Region as Region
+,rate.WeightMin as WeightMin
+,rate.WeightMax as WeightMax
+,rate.Cost as Cost
+,rateType.Id as RateTypeId
+,rateType.Name as RateTypeName
+,rateType.DisplayName as RateTypeDisplayName
+,rateType.IsEnabled as RateTypeIsEnabled
+,rateType.SortOrder as RateTypeSortOrder
+FROM {objectQualifier}DNNspot_Store_ShippingServiceRateType rateType
+INNER JOIN {objectQualifier}DNNspot_Store_ShippingServiceRate rate ON rate.RateTypeId = rateType.Id
+GO
+
+/*--------------------------
+  ALTER Tables / New Columns
+----------------------------*/
+BEGIN TRANSACTION
+/* Add constraint to Store_Catery Table */
+SET NUMERIC_ROUNDABORT OFF
+
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
+
+SET XACT_ABORT ON
+
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+
+PRINT N'Adding constraints to [{objectQualifier}DNNspot_Store_Category]'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_Category] ADD CONSTRAINT [IX_DNNspot_Store_Category_1] UNIQUE NONCLUSTERED  ([StoreId], [Name])
+
+PRINT 'Rename ''AppliesToShippingIds'' Coupon column'
+SET NUMERIC_ROUNDABORT OFF
+
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
+
+SET XACT_ABORT ON
+
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+
+PRINT N'Altering [{objectQualifier}DNNspot_Store_Coupon]'
+
+EXEC sp_rename N'[{objectQualifier}DNNspot_Store_Coupon].[AppliesToShippingIds]', N'AppliesToShippingRateTypes', 'COLUMN'
+
+PRINT 'Rename ''ShippingOption'' column and change type'
+EXEC sp_rename N'[{objectQualifier}DNNspot_Store_Order].[ShippingOption]', N'ShippingServiceOption', 'COLUMN'
+
+ALTER TABLE [{objectQualifier}DNNspot_Store_Order] ALTER COLUMN ShippingServiceOption NVARCHAR(100)
+
+PRINT 'Rename ''ShippingCost'' column'
+EXEC sp_rename N'[{objectQualifier}DNNspot_Store_Order].[ShippingCost]', N'ShippingAmount', 'COLUMN'
+
+PRINT 'Add new ShippingServiceXXX Columns'
+ALTER TABLE [{objectQualifier}DNNspot_Store_Order]
+ADD
+[ShippingServiceProvider] nvarchar(200) NOT NULL default('')
+,[ShippingServicePrice] money NULL
+,[ShippingServiceTrackingNumber] nvarchar(200) NOT NULL default('')
+,[ShippingServiceLabelFile] nvarchar(300) NOT NULL default('')
+
+PRINT 'Drop PaymentProvider.IsEnabled column'
+ALTER TABLE [{objectQualifier}DNNspot_Store_StorePaymentProvider] DROP CONSTRAINT DF_DNNspot_Store_StorePaymentProcessor_IsEnabled
+ALTER TABLE [{objectQualifier}DNNspot_Store_StorePaymentProvider] DROP COLUMN [IsEnabled]
+
+COMMIT TRANSACTION
+
+/*----------------------------------------------
+  Migrate data from old -> new tables/columns
+-----------------------------------------------*/
+BEGIN TRANSACTION
+PRINT 'Create ''CustomShipping'' service for each store'
+INSERT INTO {objectQualifier}DNNspot_Store_ShippingService(StoreId, ShippingProviderType)
+	SELECT Id, 1 FROM {objectQualifier}DNNspot_Store_Store
+PRINT 'Create ''FedExShipping'' service for each store'	
+INSERT INTO {objectQualifier}DNNspot_Store_ShippingService(StoreId, ShippingProviderType)
+	SELECT Id, 20 FROM {objectQualifier}DNNspot_Store_Store	
+
+PRINT 'Enable the ''CustomShipping'' service for each store'
+INSERT INTO {objectQualifier}DNNspot_Store_ShippingServiceSetting(ShippingServiceId, Name, [Value])
+	SELECT Id, 'IsEnabled', 'True' FROM {objectQualifier}DNNspot_Store_ShippingService WHERE ShippingProviderType = 1
+	
+/*--- Checking for some installs that have the 	'Shipping_ProductWeightOption' table ----*/
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Shipping_ProductWeightOption]') AND type in (N'U'))
+BEGIN
+	PRINT 'Migrate ''ProductWeightOption'' rows to ''ShippingServiceRateType'' table'
+	INSERT INTO {objectQualifier}DNNSpot_Store_ShippingServiceRateType(ShippingServiceId, Name, DisplayName, IsEnabled, SortOrder)
+		SELECT shipService.Id, Name, Name as DisplayName, 1 as IsEnabled, SortOrder
+		FROM {objectQualifier}DNNspot_Store_Shipping_ProductWeightOption old
+		INNER JOIN {objectQualifier}DNNspot_Store_ShippingService shipService ON old.StoreId = shipService.StoreId
+
+	PRINT 'Migrate old ''ProductWeightRate'' rows to ''ShippingServiceRate'' table'
+	INSERT INTO {objectQualifier}DNNSpot_Store_ShippingServiceRate(RateTypeID,CountryCode,Region,WeightMin,WeightMax,Cost)
+		SELECT
+			rateTypes.Id		
+			,oldRates.CountryCode
+			,oldRates.Region
+			,oldRates.MinRange as WeightMin
+			,oldRates.MaxRange as WeightMax
+			,oldRates.ShippingCost as Cost
+		FROM {objectQualifier}DNNspot_Store_Shipping_ProductWeightRate oldRates
+		INNER JOIN {objectQualifier}DNNspot_Store_Shipping_ProductWeightOption oldMethods ON oldMethods.Id = oldRates.OptionId
+		INNER JOIN {objectQualifier}DNNspot_Store_ShippingService shipService ON oldMethods.StoreId = shipService.StoreId
+		INNER JOIN {objectQualifier}DNNSpot_Store_ShippingServiceRateType rateTypes ON (rateTypes.ShippingServiceId = shipService.Id AND rateTypes.Name = oldMethods.Name)
+END	
+ELSE IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingMethod]') AND type in (N'U'))
+BEGIN
+	PRINT 'Migrate ''ShippingMethod'' rows to ''ShippingServiceRateType'' table'
+	INSERT INTO {objectQualifier}DNNSpot_Store_ShippingServiceRateType(ShippingServiceId, Name, DisplayName, IsEnabled, SortOrder)
+		SELECT shipService.Id, Name, Name as DisplayName, 1 as IsEnabled, SortOrder
+		FROM {objectQualifier}DNNspot_Store_ShippingMethod old
+		INNER JOIN {objectQualifier}DNNspot_Store_ShippingService shipService ON old.StoreId = shipService.StoreId
+
+	PRINT 'Migrate old ''ShippingRate_Weight'' rows to ''ShippingServiceRate'' table'
+	INSERT INTO {objectQualifier}DNNSpot_Store_ShippingServiceRate(RateTypeID,CountryCode,Region,WeightMin,WeightMax,Cost)
+		SELECT
+			rateTypes.Id		
+			,oldRates.CountryCode
+			,oldRates.Region
+			,oldRates.MinRange as WeightMin
+			,oldRates.MaxRange as WeightMax
+			,oldRates.ShippingCost as Cost
+		FROM {objectQualifier}DNNspot_Store_ShippingRate_Weight oldRates
+		INNER JOIN {objectQualifier}DNNspot_Store_ShippingMethod oldMethods ON oldMethods.Id = oldRates.ShippingMethodId
+		INNER JOIN {objectQualifier}DNNspot_Store_ShippingService shipService ON oldMethods.StoreId = shipService.StoreId
+		INNER JOIN {objectQualifier}DNNSpot_Store_ShippingServiceRateType rateTypes ON (rateTypes.ShippingServiceId = shipService.Id AND rateTypes.Name = oldMethods.Name)
+END
+
+	
+
+
+COMMIT
+
+/*-----------------------------------------------
+	New Data
+------------------------------------------------*/
+PRINT 'Insert ''Deleted'' Order Status if it doesn''t exist'
+IF NOT EXISTS(SELECT * FROM [{objectQualifier}DNNspot_Store_OrderStatus] WHERE Id = 98)
+BEGIN
+  INSERT INTO [{objectQualifier}DNNspot_Store_OrderStatus](Id, [Name]) VALUES(98,'Deleted')
+END
+
+/*----------------------------------------------
+  DROP old Tables/Columns
+-----------------------------------------------*/
+PRINT 'DROP old tables'
+BEGIN TRANSACTION
+
+/****** Object:  ForeignKey [FK_DNNspot_Store_Shippinption_DNNspot_Store_Store]    Script Date: 05/10/2010 23:23:22 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Shippinption_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Shipping_ProductWeightOption]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Shipping_ProductWeightOption] DROP CONSTRAINT [FK_DNNspot_Store_Shippinption_DNNspot_Store_Store]
+
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]    Script Date: 05/10/2010 23:23:22 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Shipping_ProductWeightRate]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Shipping_ProductWeightRate] DROP CONSTRAINT [FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]
+
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Shipping_ProductWeightRate]    Script Date: 05/10/2010 23:23:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Shipping_ProductWeightRate]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Shipping_ProductWeightRate]
+
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Shipping_ProductWeightOption]    Script Date: 05/10/2010 23:23:22 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Shipping_ProductWeightOption]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Shipping_ProductWeightOption]
+
+
+/****** Object:  ForeignKey [FK_DNNspot_Store_Shippinption_DNNspot_Store_Store]    Script Date: 05/10/2010 23:25:03 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Shippinption_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingMethod]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingMethod] DROP CONSTRAINT [FK_DNNspot_Store_Shippinption_DNNspot_Store_Store]
+
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]    Script Date: 05/10/2010 23:25:03 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingRate_Weight]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingRate_Weight] DROP CONSTRAINT [FK_DNNspot_Store_ShippingRate_Weight_DNNspot_Store_ShippingMethod]
+
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingRate_Weight]    Script Date: 05/10/2010 23:25:03 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingRate_Weight]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingRate_Weight]
+
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingMethod]    Script Date: 05/10/2010 23:25:03 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingMethod]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingMethod]
+
+COMMIT
+
+

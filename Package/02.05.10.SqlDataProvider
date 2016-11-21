@@ -1,0 +1,15 @@
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+ADD [ViewPermissions] [varchar](150) NULL Default('-1')
+
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+ADD [CheckoutPermissions] [varchar](150) NULL Default('-1')
+
+GO
+
+UPDATE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+SET [ViewPermissions] = '-1'
+
+UPDATE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+SET [CheckoutPermissions] = '-1'

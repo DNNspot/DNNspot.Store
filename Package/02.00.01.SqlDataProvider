@@ -1,0 +1,37 @@
+--------------------------
+-- ALTER TABLES
+--------------------------
+PRINT N'Dropping constraints from [dbo].[DNNspot_Store_Coupon]'
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] DROP CONSTRAINT [DF_DNNspot_Store_Coupon_AppliesToProductIds]
+GO
+PRINT N'Dropping constraints from [dbo].[DNNspot_Store_Coupon]'
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] DROP CONSTRAINT [DF_DNNspot_Store_Coupon_AppliesToShippingIds]
+GO
+PRINT N'Altering [dbo].[DNNspot_Store_Coupon]'
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ALTER COLUMN [AppliesToProductIds] [varchar] (max) NOT NULL
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ALTER COLUMN [AppliesToShippingRateTypes] [varchar] (max) NOT NULL
+GO
+PRINT N'Adding constraints to [dbo].[DNNspot_Store_Coupon]'
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD CONSTRAINT [DF_DNNspot_Store_Coupon_AppliesToProductIds] DEFAULT ('') FOR [AppliesToProductIds]
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Coupon] ADD CONSTRAINT [DF_DNNspot_Store_Coupon_AppliesToShippingIds] DEFAULT ('') FOR [AppliesToShippingRateTypes]
+GO
+
+---------------------------------------
+-- FIX: Missing FedExShippingProvider
+---------------------------------------
+IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME='{objectQualifier}DNNspot_Store_ShippingService2')
+BEGIN
+	INSERT INTO {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingService](StoreId,ShippingProviderType)
+	SELECT Id, 20 FROM {databaseOwner}[{objectQualifier}DNNspot_Store_Store]
+	WHERE NOT EXISTS (SELECT * FROM {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingService] WHERE ShippingProviderType = 20)	
+END 
+
+-----------------------------------------------------------
+-- MIGRATE: 'SubTotal' Discounts to 'AllProduct' Discounts
+-----------------------------------------------------------
+UPDATE {databaseOwner}[{objectQualifier}DNNspot_Store_Discount] SET DiscountType = 'AllProducts' WHERE DiscountType = 'SubTotal' OR DiscountType = 'SubTotalAndShipping'

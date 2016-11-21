@@ -1,0 +1,345 @@
+
+/****** Object:  ForeignKey [FK_DNNspot_Store_Cart_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[{objectQualifier}DF_Table_1_CreatedOnDate]') AND type = 'D')
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingLog] DROP CONSTRAINT [DF_Table_1_CreatedOnDate]
+GO
+
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_RelatedProduct]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_RelatedProduct] DROP CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product]
+GO
+
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product1]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_RelatedProduct]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_RelatedProduct] DROP CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product1]
+GO
+
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Product] DROP CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product]
+GO
+
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product1]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Product] DROP CONSTRAINT [FK_DNNspot_Store_RelatedProduct_DNNspot_Store_Product1]
+GO
+
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Cart_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Cart]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Cart] DROP CONSTRAINT [FK_DNNspot_Store_Cart_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_CartItems_DNNspot_Store_Cart]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_CartItems_DNNspot_Store_Cart]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_CartItem]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_CartItem] DROP CONSTRAINT [FK_DNNspot_Store_CartItems_DNNspot_Store_Cart]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_CartItems_DNNspot_Store_Product]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_CartItems_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_CartItem]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_CartItem] DROP CONSTRAINT [FK_DNNspot_Store_CartItems_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Category_DNNspot_Store_Category1]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Category_DNNspot_Store_Category1]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Category]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Category] DROP CONSTRAINT [FK_DNNspot_Store_Category_DNNspot_Store_Category1]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Category_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Category_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Category]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Category] DROP CONSTRAINT [FK_DNNspot_Store_Category_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Coupon_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Coupon_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Coupon]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Coupon] DROP CONSTRAINT [FK_DNNspot_Store_Coupon_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Discount_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Discount_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Discount]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Discount] DROP CONSTRAINT [FK_DNNspot_Store_Discount_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Discount_Roles]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Discount_Roles]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Discount]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Discount] DROP CONSTRAINT [FK_DNNspot_Store_Discount_Roles]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Order_DNNspot_Store_OrderStatus]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Order_DNNspot_Store_OrderStatus]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Order]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Order] DROP CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_OrderStatus]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Order_DNNspot_Store_PaymentStatus]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Order_DNNspot_Store_PaymentStatus]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Order]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Order] DROP CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_PaymentStatus]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Order_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Order_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Order]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Order] DROP CONSTRAINT [FK_DNNspot_Store_Order_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_OrderCoupon_DNNspot_Store_Order]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_OrderCoupon_DNNspot_Store_Order]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_OrderCoupon]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_OrderCoupon] DROP CONSTRAINT [FK_DNNspot_Store_OrderCoupon_DNNspot_Store_Order]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_OrderItem_DNNspot_Store_Order]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_OrderItem_DNNspot_Store_Order]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_OrderItem]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_OrderItem] DROP CONSTRAINT [FK_DNNspot_Store_OrderItem_DNNspot_Store_Order]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_OrderItem_DNNspot_Store_Product]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_OrderItem_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_OrderItem]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_OrderItem] DROP CONSTRAINT [FK_DNNspot_Store_OrderItem_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_Order]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_Order]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_PaymentTransaction]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_PaymentTransaction] DROP CONSTRAINT [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_Order]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_PaymentProvider]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_PaymentProvider]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_PaymentTransaction]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_PaymentTransaction] DROP CONSTRAINT [FK_DNNspot_Store_PaymentTransaction_DNNspot_Store_PaymentProvider]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_Product_DNNspot_Store_DeliveryMethod]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_Product_DNNspot_Store_DeliveryMethod]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_Product] DROP CONSTRAINT [FK_DNNspot_Store_Product_DNNspot_Store_DeliveryMethod]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Category]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ProductCategory_DNNspot_Store_Category]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductCategory]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ProductCategory] DROP CONSTRAINT [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Category]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Product]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ProductCategory_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductCategory]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ProductCategory] DROP CONSTRAINT [FK_DNNspot_Store_ProductCategory_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductDescriptor_DNNspot_Store_Product]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ProductDescriptor_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductDescriptor]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ProductDescriptor] DROP CONSTRAINT [FK_DNNspot_Store_ProductDescriptor_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductAttribute_DNNspot_Store_Product]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ProductAttribute_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductField]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ProductField] DROP CONSTRAINT [FK_DNNspot_Store_ProductAttribute_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductAttributeOption_DNNspot_Store_ProductAttribute]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ProductAttributeOption_DNNspot_Store_ProductAttribute]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductFieldChoice]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ProductFieldChoice] DROP CONSTRAINT [FK_DNNspot_Store_ProductAttributeOption_DNNspot_Store_ProductAttribute]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductPhoto_DNNspot_Store_Product]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ProductPhoto_DNNspot_Store_Product]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductPhoto]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ProductPhoto] DROP CONSTRAINT [FK_DNNspot_Store_ProductPhoto_DNNspot_Store_Product]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ProductQuantityPrice_DNNspot_Store_ProductQuantityPrice]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ProductQuantityPrice_DNNspot_Store_ProductQuantityPrice]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductQuantityPrice]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ProductQuantityPrice] DROP CONSTRAINT [FK_DNNspot_Store_ProductQuantityPrice_DNNspot_Store_ProductQuantityPrice]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingService_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ShippingService_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingService]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingService] DROP CONSTRAINT [FK_DNNspot_Store_ShippingService_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingServiceRate_DNNspot_Store_ShippingServiceRateType]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ShippingServiceRate_DNNspot_Store_ShippingServiceRateType]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingServiceRate]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRate] DROP CONSTRAINT [FK_DNNspot_Store_ShippingServiceRate_DNNspot_Store_ShippingServiceRateType]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingServiceRateType_DNNspot_Store_ShippingService]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ShippingServiceRateType_DNNspot_Store_ShippingService]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingServiceRateType]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRateType] DROP CONSTRAINT [FK_DNNspot_Store_ShippingServiceRateType_DNNspot_Store_ShippingService]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_ShippingServiceSetting_DNNspot_Store_ShippingService]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_ShippingServiceSetting_DNNspot_Store_ShippingService]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingServiceSetting]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_ShippingServiceSetting] DROP CONSTRAINT [FK_DNNspot_Store_ShippingServiceSetting_DNNspot_Store_ShippingService]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_EmailTemplate]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_EmailTemplate]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StoreEmailTemplate]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_StoreEmailTemplate] DROP CONSTRAINT [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_EmailTemplate]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StoreEmailTemplate]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_StoreEmailTemplate] DROP CONSTRAINT [FK_DNNspot_Store_StoreEmailTemplate_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_PaymentProcessor]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_PaymentProcessor]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StorePaymentProvider]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_StorePaymentProvider] DROP CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_PaymentProcessor]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StorePaymentProvider]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_StorePaymentProvider] DROP CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessor_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_PaymentProcessor]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_PaymentProcessor]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_StorePaymentProviderSetting] DROP CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_PaymentProcessor]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_StorePaymentProviderSetting] DROP CONSTRAINT [FK_DNNspot_Store_StorePaymentProcessorSetting_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_StoreSetting_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_StoreSetting_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StoreSetting]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_StoreSetting] DROP CONSTRAINT [FK_DNNspot_Store_StoreSetting_DNNspot_Store_Store]
+GO
+/****** Object:  ForeignKey [FK_DNNspot_Store_RegionTax_DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[{objectQualifier}FK_DNNspot_Store_RegionTax_DNNspot_Store_Store]') AND parent_object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_TaxRegion]'))
+ALTER TABLE [{objectQualifier}DNNspot_Store_TaxRegion] DROP CONSTRAINT [FK_DNNspot_Store_RegionTax_DNNspot_Store_Store]
+GO
+
+/****** Object:  View [{objectQualifier}vDNNspot_Store_ShippingRateWeight]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[{objectQualifier}vDNNspot_Store_ShippingRateWeight]'))
+DROP VIEW [{objectQualifier}vDNNspot_Store_ShippingRateWeight]
+GO
+
+/****** Object:  View [{objectQualifier}vDNNspot_Store_CartItemProductInfo]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[{objectQualifier}vDNNspot_Store_CartItemProductInfo]'))
+DROP VIEW [{objectQualifier}vDNNspot_Store_CartItemProductInfo]
+GO
+/****** Object:  View [{objectQualifier}vDNNspot_Store_ShippingServiceRates]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[{objectQualifier}vDNNspot_Store_ShippingServiceRates]'))
+DROP VIEW [{objectQualifier}vDNNspot_Store_ShippingServiceRates]
+GO
+/****** Object:  View [{objectQualifier}vDNNspot_Store_MainProductPhoto]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[{objectQualifier}vDNNspot_Store_MainProductPhoto]'))
+DROP VIEW [{objectQualifier}vDNNspot_Store_MainProductPhoto]
+GO
+/****** Object:  View [{objectQualifier}vDNNspot_Store_ProductsSoldCounts]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[{objectQualifier}vDNNspot_Store_ProductsSoldCounts]'))
+DROP VIEW [{objectQualifier}vDNNspot_Store_ProductsSoldCounts]
+GO
+
+
+
+/****** DROP TABLES ******/
+
+
+
+
+/****** Object:  Table [dbo].[DNNspot_Store_RelatedProduct]    Script Date: 11/02/2012 11:22:01 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_RelatedProduct]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_RelatedProduct]
+GO
+
+/****** Object:  Table [dbo].[DNNspot_Store_ShippingLog]    Script Date: 11/02/2012 11:53:29 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingLog]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingLog]
+GO
+
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingRate_Weight]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingRate_Weight]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingRate_Weight]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingMethod]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingMethod]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingMethod]
+GO
+
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Discount]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Discount]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Discount]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingServiceRate]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingServiceRate]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRate]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ProductFieldChoice]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductFieldChoice]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ProductFieldChoice]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ProductPhoto]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductPhoto]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ProductPhoto]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ProductQuantityPrice]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductQuantityPrice]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ProductQuantityPrice]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingServiceRateType]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingServiceRateType]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingServiceRateType]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingServiceSetting]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingServiceSetting]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingServiceSetting]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_CartItem]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_CartItem]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_CartItem]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_OrderCoupon]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_OrderCoupon]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_OrderCoupon]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_OrderItem]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_OrderItem]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_OrderItem]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_PaymentTransaction]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_PaymentTransaction]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_PaymentTransaction]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ProductCategory]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductCategory]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ProductCategory]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ProductDescriptor]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductDescriptor]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ProductDescriptor]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ProductField]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ProductField]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ProductField]
+GO
+/****** Object:  View [{objectQualifier}vDNNspot_Store_StoreEmailTemplate]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[{objectQualifier}vDNNspot_Store_StoreEmailTemplate]'))
+DROP VIEW [{objectQualifier}vDNNspot_Store_StoreEmailTemplate]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Order]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Order]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Order]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Product]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Product]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Product]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Category]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Category]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Category]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Coupon]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Coupon]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Coupon]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Cart]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Cart]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Cart]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_ShippingService]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_ShippingService]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_ShippingService]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_StoreEmailTemplate]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StoreEmailTemplate]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_StoreEmailTemplate]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_StorePaymentProvider]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StorePaymentProvider]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_StorePaymentProvider]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_StorePaymentProviderSetting]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_StoreSetting]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_StoreSetting]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_StoreSetting]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_TaxRegion]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_TaxRegion]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_TaxRegion]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_Store]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Store]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Store]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_DeliveryMethod]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_DeliveryMethod]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_DeliveryMethod]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_EmailTemplate]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_EmailTemplate]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_EmailTemplate]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_OrderStatus]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_OrderStatus]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_OrderStatus]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_PaymentProvider]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_PaymentProvider]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_PaymentProvider]
+GO
+/****** Object:  Table [{objectQualifier}DNNspot_Store_PaymentStatus]    Script Date: 05/12/2010 11:41:25 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_PaymentStatus]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_PaymentStatus]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{objectQualifier}DNNspot_Store_Currency]') AND type in (N'U'))
+DROP TABLE [{objectQualifier}DNNspot_Store_Currency]
+GO

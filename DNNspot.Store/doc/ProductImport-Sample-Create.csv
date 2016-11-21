@@ -1,0 +1,5 @@
+ImportAction,ProductId,Name,Sku,UrlName,Price,Weight,SeoTitle,SeoDescription,SeoKeywords,IsActive,CategoryNames,PhotoFilenames,DigitalFilename,Desc1Name,Desc1Html,Desc2Name,Desc2Html,Desc3Name,Desc3Html,Desc4Name,Desc4Html,Desc5Name,Desc5Html
+C,,Test Product One,TESTPROD-1,test-product-1,2.99,0,Test Product One | Test,,"keyword 1, keyword two",Y,Test Category,,,Description,Description 1 goes here,,,,,,,,
+C,,Test Product Two,TESTPROD-2,test-product-2,12.95,5,Test Product Two | Other Stuff in Title,,,Y,"Test Category, Another Test Category",,,Description,Description 1 goes here,Specifications,Specifications can go here. Including html like this <b>bold</b> word,,,,,,
+C,,Test Product Three,TESTPROD-3,test-product-3,25,0,Test Product Three,,"some keywords, more keywords",Y,Test Category,"3_28dd523b-53ac-4f12-bfa9-0bc5ed7a7475.jpg, 3_316ebfd4-9271-4566-a4f3-a5fd47f81441.jpg, 3_a0673921-840a-4ac1-91b5-53aba1871db2.jpg",,Description,Description 1 goes here,,,,,,,,
+C,,Test Product Four,TESTPROD-4,test-product-4,49.99,25,,,,Y,"Test Category, Another Test Category, Third Test Category",,,Description,Description 1 goes here,,,,,,,,

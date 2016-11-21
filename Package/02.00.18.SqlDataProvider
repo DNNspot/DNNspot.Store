@@ -1,0 +1,2 @@
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]
+ALTER COLUMN [Name] NVARCHAR(250)

@@ -1,0 +1,1308 @@
+﻿@import "css/jquery.popeye.css";
+
+.dstore { text-align: left; }
+    .dstore h1, .dstore h2, .dstore h3, .dstore h4 { font-weight: bold; }
+    .dstore th, .dstore td { padding: 3px; vertical-align: top; text-align: left; }
+    .dstore th { font-weight: bold; }
+    .dstore img { border: 0; vertical-align: top; }
+    .dstore a, .dstore a:link, .dstore a:visited, .dstore a:hover { text-decoration: underline; }
+    .dstore button { cursor: pointer; }
+    .dstore .inputHelp { font-size: 10px; font-style: italic; }    
+            
+    .dstore fieldset.collapsed { padding: 0; border: 0; }    
+    .dstore fieldset.collapsed > * { display: none; }
+    .dstore fieldset.collapsed legend { color: #3E81B5; display: block; text-decoration: underline; cursor: pointer; }
+    
+    .dstore .adminToolbar { clear: both; overflow: hidden; margin: 12px 0; }
+        .dstore .adminToolbar input { float: left; }
+    
+    .dstore .ui-drop-placeholder { height: 30px; background-color: #efefef; border: 1px solid #cccccc; }    
+    .dstore .datepick { width: 100px; }
+    .dstore .moveHandle { cursor: move; }
+    .siteCredit { display: block; padding: 1em 0; }
+    .siteCredit, .siteCredit a, .siteCredit a:link, .siteCredit a:visited 
+    {
+        font-size:11px;
+        font-weight:normal;
+        color:#C2C2C2;
+        text-decoration: none;
+        clear: both;
+    }
+
+/*--------------------------
+    Button Styles
+--------------------------*/
+.dstore .adminIconBtn
+{
+    height: 28px;
+    padding: 0 7px 0 26px;
+    margin: 0 7px 0 0 !important;
+    display: block;
+    float: left;
+                   
+    cursor: pointer;        
+    font-size: 10px;
+    font-weight: bold;        
+    text-decoration: none;
+    color: #565656;
+    background: #f5f5f5 url('images/icons/cog.png') no-repeat 4px center;                
+    border: 1px solid;
+    border-color: #E4E4E4 #CCCCCC #CCCCCC #E4E4E4;  
+    outline: 0;
+    -moz-outline: 0;    
+}
+.dstore a.adminIconBtn
+{
+    display: block;
+    float: left;
+    height: 20px;
+    padding-top: 6px;        
+    text-decoration: none;
+}
+
+.dstore .adminIconBtn { background-repeat:no-repeat!important; }
+.dstore .adminIconBtn.lorry { background-image: url('images/icons/lorry.png'); }
+.dstore .adminIconBtn.dollar { background-image: url('images/icons/money_dollar.png'); }
+.dstore .adminIconBtn.box { background-image: url('images/icons/box_open.png'); }
+.dstore .adminIconBtn.add { background-image: url('images/icons/add.png'); }        
+.dstore .adminIconBtn.ok { background-image: url('images/icons/tick.png'); }
+.dstore .adminIconBtn.cancel { background-image: url('images/icons/cross.png'); }
+.dstore .adminIconBtn.delete { background-image: url('images/icons/delete.png'); }
+.dstore .adminIconBtn.save, .dstore .adminIconBtn.disk { background-image: url('images/icons/disk.png'); }
+.dstore .adminIconBtn.email { background-image: url('images/icons/email.png'); }
+.dstore .adminIconBtn.email2 { background-image: url('images/icons/email_edit.png'); }
+.dstore .adminIconBtn.email3 { background-image: url('images/icons/email_go.png'); }
+.dstore .adminIconBtn.noicon { padding-left: 7px; background-image: none; }
+.dstore .adminIconBtn.xml { background-image: url('images/icons/icon_xml.gif'); padding-left: 46px; }
+.dstore .adminIconBtn.magnifier { background-image: url('images/icons/magnifier.png'); }
+            
+.dstore .adminIconBtn:hover
+{
+    background-color: #dff4ff;
+    background-repeat:no-repeat!important;
+    background-position: 4px center;
+    border: 1px solid #c2e1ef;
+    text-decoration: underline;     
+}
+.dstore a.adminIconBtn:hover { text-decoration: underline; }
+
+.dstore .positive, .dstore .adminIconBtn.ok { color: #529214; }
+.dstore .positive:hover, .dstore .adminIconBtn.ok:hover
+{
+    background-color: #E6EFC2;
+    border: 1px solid #C6D880;        
+}
+
+.dstore .negative, .dstore .adminIconBtn.cancel, .dstore .adminIconBtn.delete { color: #d12f19; }    
+.dstore .adminIconBtn.delete:hover { background-color: #fbe3e4; }
+.dstore .negative:hover, .dstore .adminIconBtn.delete:hover
+{        
+    border: 1px solid #fbc2c4;        
+}
+        
+.raquoButton { min-width:28px; font-size:26px; font-weight:bold; padding:0px; }
+/*--------------------------
+    Validation Styles
+--------------------------*/
+.dstore input.error, .dstore select.error, .dstore textarea.error
+{
+    background-color: #FFFFD5;
+    border: 1px solid red;
+    color: red;    
+}    
+.dstore .validationErrors { display: none; color: #2E3D47; background-color:#FFFFD5; border: 1px solid red; padding: 1em; margin: 1em 0; }
+    .dstore .validationErrors ul { margin: 0.5em 0 0 0; }
+    .dstore .validationErrors li { color: Black; list-style-type: disc; }
+        .dstore .validationErrors li label.error { color: #2E3D47; width: auto; } 
+        .dstore span.error { border: 1px solid red; }
+    
+/*----------------------------------------------------------------------
+    Fieldset & Form Layout        
+-----------------------------------------------------------------------*/    
+    .dstore fieldset
+    {
+        margin: 1em 0;
+        padding: 0.5em 1em;
+        border: none;
+    }
+    .dstore .admin fieldset
+    {
+        border: 1px solid #BFBAB0;    
+        background-color: #F7F7F5;              
+    }
+        .dstore legend
+        {
+            /*padding: 0 0.5em;*/
+            padding: 0;
+            margin: 0;
+            font-weight: bold;
+        }
+        /* IE fixes for <legend> element positioning */
+        body.ie .dstore legend
+        {
+            position: relative;
+            left: -7px;
+            top: -1.2em;    
+            margin-left: 0.5em;
+        }
+
+    .dstore ol.form { margin: 0; padding: 0; }
+        .dstore ol.form > li
+        {
+            list-style-type: none;
+            display: block;
+            margin: 0;
+            padding: 1em 0 0 0;
+        }
+        .dstore fieldset ol.form > li:first-child { padding-top: 0; }
+            /*.dstore ol.form li li { list-style-type: none; }*/
+        .dstore ol.form > li > label { display: block; margin-bottom: 2px; }
+        .dstore ol.form > li > input,
+        .dstore ol.form > li > textarea,
+        .dstore ol.form > li > select
+        {
+            display: inline;
+        }
+        
+    .dstore ol.form.labelsLeft
+    {
+        clear: left;
+        float: left;
+        width: 100%;
+    }    
+        .dstore ol.form.labelsLeft > li
+        {
+            clear: left;
+            float: left;
+            width: 100%;
+        }
+            .dstore ol.form.labelsLeft > li > label
+            {
+                display: block;
+                float: left;
+                width: 11em;
+                text-align: right;
+                margin: 0 1em 0 0;            
+            }
+        
+            .dstore ol.form.labelsLeft > li > input,
+            .dstore ol.form.labelsLeft > li > textarea,
+            .dstore ol.form.labelsLeft > li > select,
+            .dstore ol.form.labelsLeft > li > span
+            {
+                display: block;
+                float: left;
+            }
+            
+            .dstore ol.form.labelsLeft > li > input[type="submit"],
+            .dstore ol.form.labelsLeft > li > input[type="button"],
+            .dstore ol.form.labelsLeft > li > button
+            {
+                /* align buttons with input elements */
+                margin-left: 11em;
+            }    
+    
+/*-----------------------------------------
+    Table Grid Styles
+-----------------------------------------*/
+.dstore table.grid { border-collapse: collapse; width: 100%; background-color: White; }
+    .dstore table.grid th, .dstore table.grid td { border: 1px solid grey; padding: 4px; }
+        .dstore table.grid td td { border: 0; }
+    .dstore table.grid th { font-weight: bold; background-color: #cccccc; }
+    .dstore table.grid th.leftAlign, .dstore table.grid td.leftAlign { text-align: left; }
+    .dstore table.grid th.rightAlign, .dstore table.grid td.rightAlign { text-align: right; }
+    .dstore table.grid tr.alt td { background-color: #E5E5E5; }
+    
+    .dstore table.gridLight th { font-weight: normal; background-color: #E8E8E8; }
+    .dstore table.gridLight th, .dstore table.gridLight td { border-color: #cccccc; }
+    
+    .dstore table.hilite tr:hover td { background-color: #FFFFA5; }
+                
+    
+/*------------------------------
+    UserControl - Address Form
+------------------------------*/    
+fieldset.addressForm { border: none; margin: 0; padding: 0; max-width: 500px; }    
+    fieldset.addressForm ol { margin: 0; padding: 0; overflow: auto; }
+    fieldset.addressForm ol li 
+    {
+        display: block;
+        float: left;        
+        margin: 0;
+        padding: 0;
+        list-style-position: inside;
+        list-style-type: none;
+        text-align: left;
+    }
+    fieldset.addressForm ol li label, fieldset.addressForm ol li input
+    {
+        display: block;
+        text-align: left;
+    }
+    fieldset.addressForm ol li label {}
+    fieldset.addressForm ol li > span { display: block; float: left; }
+    fieldset.addressForm ol li input { width: 180px; margin: 0 0 0.5em 0; }
+    fieldset.addressForm ol li.firstNameName {}
+    fieldset.addressForm ol li.lastName { margin-left: 3em; }
+    fieldset.addressForm ol li.email { clear: left; }
+    fieldset.addressForm ol li.businessName { clear: left; }
+    fieldset.addressForm ol li.telephone { margin-left: 3em; }
+    fieldset.addressForm ol li.address { clear: left; }
+        fieldset.addressForm ol li.address input { width: 400px; }
+    fieldset.addressForm ol li.city { clear: left; }        
+    fieldset.addressForm ol li.region { margin-left: 3em; }
+    fieldset.addressForm ol li.postalCode { clear: left; }
+    fieldset.addressForm ol li.country { margin-left: 3em; }
+
+/*--------------------------
+    fieldset - Admin
+---------------------------*/
+    .admin fieldset { background-color: #FEFEFE; padding: 12px; border: 1px solid #BFBAB0; }
+        .admin fieldset legend { font-weight: bold; padding: 0 4px; }
+
+    .admin textarea { width: 400px; height: 52px; } /* about 3 lines tall */        
+    .admin fieldset li.adminToolbar { margin-left: 12em; }
+    
+    .admin .flash, .flash
+    {
+        background-color: #FFFFD2;
+        border: 1px solid #FFDD00;
+        color: Gray;
+        font-size: 10px;
+        font-weight: bold;
+        margin: 12px 0;
+        padding: 8px;
+    }        
+
+/*--------------------------
+    maxlength plugin
+--------------------------*/
+.dstore .maxlengthStatus { font-size: 10px; font-style: italic; font-weight: normal; margin: 0 0 0 0.5em; padding: 2px 0 0 0; }
+.dstore .maxlengthStatus.textarea { float: none; margin: 0 0 0.5em 0; padding: 0; }
+.dstore .maxlengthNotice { background-color: #cccccc; }
+    
+
+/*----------------------------
+    My Orders
+----------------------------*/    
+.dstore.myOrders { overflow: auto; }
+    .dstore.myOrders ol.form > li {  }
+    .dstore.myOrders ol.form > li > label { width: 6em; }
+    
+    .dstore.myOrders table {}
+        .dstore.myOrders table td { padding: 0.5em 1em; }
+        .dstore.myOrders table td.price { text-align: right; }
+    
+    .dstore.myOrders .findOrder { overflow: auto; clear: both; }
+    .dstore.myOrders .searchResults { clear: both; }
+    .dstore.myOrders .recentOrders { clear: both; }
+    
+    .dstore.viewMyOrder {}    
+        .dstore.viewMyOrder .productFields {}
+        .dstore.viewMyOrder .productFields > span { display: block; font-size: 10px; margin-left: 2em; }
+        .dstore.viewMyOrder > fieldset { border: 1px solid #BFBAB0; padding: 0.5em 1em; }
+        .dstore.viewMyOrder > fieldset legend { padding: 0 4px; margin: 0; }
+        .dstore.viewMyOrder > fieldset fieldset { padding: 0; }
+        
+        .dstore.viewMyOrder p { line-height: 18px; }
+        .dstore.viewMyOrder h2, .dstore.viewMyOrder h3 { margin: 0; padding: 0.5em 0; }
+        .dstore.viewMyOrder h4, .dstore.viewMyOrder .box th { background-color: #D9E5EE; margin: 0; padding: 4px; }
+        .dstore.viewMyOrder .box, .dstore.viewMyOrder .box td { background-color: #F8F7F5; }
+        .dstore.viewMyOrder td.box { padding: 0; }
+        .dstore.viewMyOrder td.box p { margin: 0; padding: 0.5em; }        
+        
+        .dstore.viewMyOrder table.orderItems { background-color: #F8F7F5; border: 1px solid #BEBCB7; border-collapse: collapse; width: 100%; margin: 1em 0; }
+        .dstore.viewMyOrder table.orderItems th, .dstore.viewMyOrder table.orderItems td { padding: 0.5em; }
+        .dstore.viewMyOrder table.orderItems thead th { background-color: #D9E5EE; border-bottom: 1px solid #BEBCB7; }
+        .dstore.viewMyOrder table.orderItems tbody td { border-bottom: 1px solid #BEBCB7; }
+        .dstore.viewMyOrder table.orderItems tfoot td { text-align: right; }
+        .dstore.viewMyOrder table.orderItems span.productFieldData { font-size: 11px; color: #3C3C3C; }            
+    
+/*----------------------------
+    Catalog - Category Menu
+----------------------------*/    
+.catalogCategoryMenu {}
+.catalogCategoryMenu ol { padding: 0; margin: 0; text-align: left; }
+.catalogCategoryMenu ol li { list-style-type: none; list-style-image: none; }
+.catalogCategoryMenu ol ol { margin-left: 24px; } /* nested list */
+.catalogCategoryMenu li { list-style-type: none; list-style-image: none; }
+.catalogCategoryMenu li.activePath > a { font-style: italic; }
+.catalogCategoryMenu li.activeNode > a { font-weight: bold; color: Black; text-decoration: none; }
+
+/*----------------------------
+    Catalog - Category
+----------------------------*/    
+.catalogCategory {}
+    .catalogCategory h2 { font-size: 18px; font-weight: bold; }
+    .catalogCategory .breadcrumbs { margin: 0 0 1em 0; }
+    
+    .catalogCategory div.resultsHeader { background-color: #E2E9FA; clear: both; overflow: auto; padding: 0.5em; margin: 0 0 1em 0; font-size: 11px; }
+        .catalogCategory div.resultsHeader a { font-size: 11px; }
+        .catalogCategory span.resultCount { display: block; float: left; }
+        .catalogCategory span.sortBy { display: block; float: right; }
+        .catalogCategory span.sortBy a.selected { color: #1C4F91; font-weight: bold; text-decoration: none; }
+        
+    .catalogCategory .productResults { border-top: 1px solid #cccccc; padding: 1em 0 0 0; margin: 1em 0 0 0; }        
+    .catalogCategory ul.productList { margin: 0; padding: 0; clear: both; overflow: auto; }
+        .catalogCategory ul.productList li { list-style-type: none; list-style-image: none; margin: 0 0 1em 0; padding: 0; display: block; float: left; width: 50%; }
+            .catalogCategory ul.productList li span { display: block; }
+
+/*----------------------------
+    Pagination Styles
+----------------------------*/        
+    .dstore .productPagination { clear: both; overflow: auto; background-color: #E2E9FA; }
+        .dstore .productPagination label { display: block; float: left; margin: 0; padding: 0.5em; }
+        .dstore .productPagination ul.pager { list-style-type: none; list-style-image: none; float: left; margin: 0; padding: 0; }
+            .dstore .productPagination ul.pager li { display: block; float: left; margin: 0; }
+                .dstore .productPagination ul.pager li a { display: block; float: left; padding: 0.5em; }
+                .dstore .productPagination ul.pager li.current a { text-decoration: none; font-weight: bold; }
+
+/*----------------------------
+    Featured Products
+----------------------------*/           
+.dstore.featuredProducts { overflow: auto; }
+    .dstore.featuredProducts div.product { float: left;  margin: 1em 4em; }
+        
+/*----------------------------
+    Catalog - Product
+----------------------------*/             
+.catalogProduct { clear: both; }    
+    .catalogProduct h2.productTitle { font-size: 22px; font-weight: bold; padding-bottom: 0.5em; border-bottom: 1px solid #cccccc; }
+    
+    .catalogProduct .leftCol { float: left; width: 250px; margin: 0 1em 0 0; }
+    .catalogProduct .rightCol { float: right; /*width: 400px;*/ width: 340px; }
+
+    /*
+    .catalogProduct .photoArea { width: 250px; float: left; margin-bottom: 1em; }
+        .catalogProduct .photoArea ul { margin: 0; padding: 0; }
+            .catalogProduct .photoArea li { list-style-type: none; display: inline; display: inline-block; margin: 3px 2px; }
+            .catalogProduct .photoArea .additionalPhotos { overflow: hidden; }
+                .catalogProduct .photoArea .additionalPhotos ul { float: left; margin: 0 auto; }
+                .catalogProduct .photoArea .additionalPhotos li { margin: 0; display: block; float: left; width: 31px; height: 31px; }
+    */
+    .catalogProduct .photoArea { width: 250px; float: left; margin-bottom: 1em; text-align:center; }
+    .catalogProduct .photoArea img { border:1px solid #CCCCCC; }
+        .catalogProduct .photoControls { margin: 4px 0; }
+            .catalogProduct .photoControls img { border:0; }
+            .catalogProduct .photoControls #photoPrev { margin-right: 12px; }
+            .catalogProduct .photoControls #photoNext { margin-left: 12px; }
+    .catalogProduct .photoThumbs { clear: both; }
+    .catalogProduct .photoArea ul { list-style:none; margin:0; padding:0 }
+    .catalogProduct .photoArea ul li { float:left; margin-left:3px; margin-right: 1px; margin-top: 4px; list-style-type: none; list-style-image: none; }
+    .catalogProduct .photoFooter { clear:both; }
+    .catalogProduct .photoSpotlight { width: 250px; }
+                                
+    .catalogProduct .specialNotes { border-top: 1px solid #CCCCCC; padding: 1em 0.5em; }
+        
+    /*.catalogProduct .tabArea { clear: both; margin: 0; padding: 1em 0 0 0; }*/
+    #productDescriptors { float: none; clear: both; }    
+    
+    .catalogProduct .attributeArea { margin: 0 0 1em 0; overflow: hidden; }
+        .catalogProduct .attributeArea ol {}
+            .catalogProduct .attributeArea ol.form li > label { width: 13em; }
+            .catalogProduct .attributeArea ol li.sku { font-size: 11px; }
+            .catalogProduct .attributeArea ol li.price { font-weight: normal; }
+                .catalogProduct .attributeArea ol li.price span.price {}
+                .catalogProduct .attributeArea ol li.price span.originalPrice { text-decoration:line-through; }
+                .catalogProduct .attributeArea ol li.price span.discountedPrice { font-weight: bold; font-size: 110%; margin-left: 4px; }
+            
+            .catalogProduct .attributeArea ol li.productField {}     
+                .attributeArea ol li.productField .RadioButtonList {}
+                .attributeArea ol li.productField .RadioButtonList > span { display: block; } /* vertical radios */
+                .attributeArea ol li.productField .CheckboxList > span { display: block; }
+                .attributeArea ol li.productField input.Textbox { width: 160px; }
+                .attributeArea ol li.productField textarea { width: 160px; height: 50px; }
+            .catalogProduct .attributeArea ol li.validationErrors { width: 90%; padding: 1em; margin: 1em 0 0 0; }
+            .catalogProduct .attributeArea ol li.validationErrors ul { padding-left: 2em; }
+            .catalogProduct .attributeArea ol li.validationErrors li > label.error { width: auto; }
+                
+            .catalogProduct .attributeArea ol li.qty input { width: 60px; }
+            .catalogProduct .attributeArea ol li.addToCart input {  }
+            .catalogProduct .attributeArea ol li.outOfStock { color: #8B0000; font-weight: bold; }
+            
+    .catalogProduct .categoryLinks { margin: 1em 0 0 0; font-size: 10px; }            
+        .catalogProduct .categoryLinks a { font-size: 10px; }
+
+/*----------------------------
+    Cart
+----------------------------*/         
+.dstore.cart {}
+    table.cartItems { width: 100%; margin: 0.5em 0 0 0; }        
+        .cartItems th, .cartItems td { padding: 0.5em; }
+        .cartItems th { font-size: 11px; }        
+        .cartItems > thead th { border-bottom: 1px solid #cccccc; color: Black; }
+        .cartItems > tbody { background-color: White; }
+        .cartItems > tbody td { border-bottom: 1px solid #cccccc; }
+        .cartItems > tfoot td { padding: 0.5em 0; }
+        
+        .cartItems .colImage { width: 40px; }
+        .cartItems .colProduct {}
+            .cartItems .colProduct .productFields { display: block; margin: 0 0 0 2em; font-size: 10px; }
+                .cartItems .colProduct .productFields span { display: block; }
+        .cartItems .colPrice { width: 70px; text-align: right; }
+        .cartItems .colQty { width: 55px; text-align: right; }
+        .cartItems .colSubtotal { width: 80px; text-align: right; }
+        .cartItems .colRemove { width: 18px; }
+        .cartItems input.quantity { width: 42px; display: block; text-align: right; float: right; }                           
+                        
+            .checkoutInputBox
+            {                
+                min-width: 180px;
+                max-width: 210px;
+                float: left;
+                padding: 10px;
+                margin: 0 10px 0 0;
+                background-color: white;
+                border: 1px solid #CCCCCC;                
+            }
+                .checkoutInputBox h5 
+                {
+                    color: black;
+                    font-size: 12px;
+                    font-weight: normal;
+                    margin: 0 0 0.5em;
+                    padding: 0;                    
+                }
+                .checkoutInputBox input[type="image"] { vertical-align: bottom; }
+                .checkoutInputBox input[type="text"] { width: 140px; }
+            
+            #shippingQuoteForm, #shippingQuoteForm td { font-size: 11px; color: Black; }
+                #shippingQuoteForm table { width: 100%; }
+                    #shippingQuoteForm table td.money { text-align: right; }
+                    
+            #couponCodeForm { }                        
+            #couponCodeForm .couponStatusMessage { padding: 1em; margin: 1em 0 0 0; color: #8B0000; font-size: 11px; background-color: #FFFFD2; border: 1px solid #FFDD00; font-weight: normal; }
+            .priceSummary 
+            {
+                float: right;
+                width: 230px;
+                padding: 0.5em 0;
+                background-color: #efefef;
+            }
+            .priceSummary > table { width: 100%; }
+                .priceSummary > table tbody { background-color: Transparent; }
+                .priceSummary > table td { text-align: right; border: 0; color: Black; padding: 0.5em 0; font-size: 11px; }
+                .priceSummary > table td.money { padding-right: 35px; width: 92px; }
+                /*.priceSummary label, .priceSummary span { display: block; float: left; padding: 3px; }
+                .priceSummary label { width: 100px; text-align: right; }
+                .priceSummary span { padding-right: 0; margin-right: 35px; width: 85px; text-align: right; }
+                .priceSummary .subtotal {}
+                .priceSummary .discount {}
+                */
+                    .priceSummary .discount span.appliedCoupons { padding: 0; font-style: italic; font-size: 10px; display: block; }                
+                .priceSummary .total td { font-weight: bold; font-size: 12px; }
+    
+    .dstore.cart .checkoutButtons { float: right; width: 230px; clear: right; }
+        .dstore.cart .checkoutButtons input,
+        .dstore.cart .checkoutButtons button
+        {
+            display: block; 
+            float: right;
+            clear: both;       
+            margin: 0.5em 0 0 0;
+        }               
+        
+    #paypalStdShippingDialog
+    {
+        background-color:white;
+        border:1px solid black;
+        float:right;
+        width: 300px;
+        height: 245px;        
+        padding:1em;
+        position:relative;
+        top: -250px;        
+        z-index:1500;        
+    }
+    #paypalStdShippingDialog h5 { font-size: 12px; margin: 0; }
+                
+/*----------------------------
+    Mini-Cart
+----------------------------*/                                         
+.dstore.minicart, .dstore.minicart div { font-size: 11px; text-align: left; }
+    .dstore.minicart a { font-size: 11px; }
+    .dstore.minicart p { padding-left: 22px; }
+   
+/*-------------------
+    Login Prompt
+--------------------*/
+.dstore.loginPrompt { overflow: auto; }
+    .loginPrompt .loginError { color: #8B0000; margin: 1em 0; }
+    .loginPrompt .box { float: left; border: 1px solid black; padding: 1em; width: 42%; min-height: 180px; }
+        .loginPrompt .box h4 { font-weight: bold; margin: 0.5em 0 1.5em 0; }        
+    .loginPrompt .account fieldset { border: none; margin: 0; padding: 0; }
+        .loginPrompt .account fieldset ol { margin: 0; padding: 0; }
+            .loginPrompt .account fieldset li { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
+                .loginPrompt .account fieldset li input,
+                .loginPrompt .account fieldset li label { display: block; }
+                .loginPrompt .account fieldset li input { width: 160px; }
+                .loginPrompt .account fieldset li label { margin: 0 0 0.5em 0; }
+    .loginPrompt .noAccount { margin-left: 3em; }
+    .loginPrompt .noAccount p { margin: 1em 0; }
+    .loginPrompt .noAccount span.action { display: block; margin: 1em; }
+    
+/*-------------------
+    Checkout
+--------------------*/    
+.dstore.checkout {}
+
+    .dstore.checkout .stepsNav
+    {
+        /*background: transparent url('images/bgCheckoutBar.png') no-repeat 0 0;*/
+        height: 40px;
+        
+    }
+
+    .dstore.checkout .stepsNav ol { margin: 0; padding: 0; }
+        .dstore.checkout .stepsNav ol li
+        {
+            list-style-position: inside;
+            list-style-type: none;
+            margin: 11px 0 0 16px;
+            padding: 0;
+            display: block;
+            float: left;
+        }
+            .dstore.checkout .stepsNav ol li span { font-size: 14px; font-weight: normal; }
+            .dstore.checkout .stepsNav ol li a { text-decoration: none; }
+            .dstore.checkout .stepsNav ol li span.active { font-weight: bold; }
+    
+    .checkout fieldset { margin-top: 0; }    
+    .checkout fieldset.panel { text-align: left; }
+        .checkout fieldset.panel legend { margin: 1em 0 0.5em 0; padding: 0; }
+        .checkout .buttons
+        {
+            margin: 1em 0; 
+            max-width: 470px;
+            overflow: auto;            
+        }
+            .checkout .buttons .prev { float: left; display: block; outline: 0; -moz-outline: 0; }
+            .checkout .buttons a.prev { padding-top: 12px; font-size: 16px; }
+            .checkout .buttons .next { float: right; display: block; outline: 0; -moz-outline: 0; }
+               
+    .checkout table.checkoutItems { width: 100%; border-collapse: collapse; margin-bottom: 1em; }
+        .checkout .checkoutItems th, .checkout .checkoutItems td { padding: 3px; }
+        .checkoutItems > thead th { font-size: 11px; color: Black; }
+        .checkout .checkoutItems td { border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; }
+            .checkoutItems .colProduct { text-align: left; }
+            .checkoutItems .colProduct .productFields { display: block; margin: 0 0 0 2em; font-size: 10px; }
+                .checkoutItems .colProduct .productFields span { display: block; }            
+            .checkoutItems .colQty { text-align: right; }
+            .checkoutItems .colSubtotal { text-align: right; }
+    .checkout .priceSummary { width: 250px; float: right; margin: 8px 0; padding-right: 6px; }
+        .checkout .priceSummary > div { float: right; clear: both; }
+    .checkout .btnPlaceOrder { clear: right; float: right; }
+    
+    .checkout #pnlShipping { position: relative; min-height: 190px; }
+        .checkout #pnlShipping #addressDisplay { margin-top: 1em; }
+        .checkout #pnlShipping div.isBusinessAddress { margin: 10px 0 14px 0; }
+        
+    #pnlPayment ul.paymentMethods { margin: 10px 0 0 0; padding: 0; float: none; }
+        #pnlPayment ul.paymentMethods > li { float: none; list-style-type: none; list-style-image: none; list-style-position: inside; margin-top: 1em; padding-left: 12px; }
+            #pnlPayment ul.paymentMethods > li > input { float: none; display: inline; margin-right: 2px; }
+            #pnlPayment ul.paymentMethods > li > label { float: none; display: inline; font-size: 14px; font-weight: bold; }
+            #pnlPayment ul.paymentMethods > li > p { margin-left: 30px; margin-top: 6px; }
+                #pnlPayment ul.paymentMethods > li > label img { vertical-align: bottom; cursor: pointer; }                
+        #pnlPayment span.inputHelp { margin-left: 0.5em; padding-top: 0.5em; }     
+        #ccFields { padding: 1em 0 0 2em; }
+        #pnlPayment input.next { margin-left: 12px; }
+    
+    #pnlPayment { position: relative; min-height: 200px; }
+        #pnlPayment > ol.form { min-height: 130px; }
+        #pnlPayment #orderTotals 
+        {           
+            float: none;
+            margin: 0;
+            width: auto;
+            border: 1px solid #CCCCCC;
+        }
+            #pnlPayment #orderTotals span { width: 65px; }
+            #pnlPayment .priceSummary > table td { padding: 0.5em; }
+
+    .checkoutReview div.box { float: left; min-height: 152px; }
+        .checkoutReview div.box label { font-weight: bold; font-size: 14px; }    
+        .checkoutReview div.box p { margin: 0.5em 0 1em 0; }
+                
+    .checkoutReview .leftCol { float: left; width: 330px; }
+        .checkoutReview .billingSummary { width: 200px; }
+        .checkoutReview .paymentSummary { width: 130px; }
+        .checkoutReview .shippingSummary { width: 100%; }
+    .checkoutReview .rightCol { float: right; width: 250px; }    
+        .checkoutReview .priceSummary label { font-weight: normal; }
+        .checkoutReview .priceSummary .shipping label span { float: none; font-size: 11px; width: auto; }
+    
+    .checkoutComplete {}
+        .checkoutComplete div.digitalDownloads {}
+            .checkoutComplete ul.digitalFiles { margin: 0; padding: 0; }
+                .checkoutComplete ul.digitalFiles li { list-style-type: disc; list-style-position: inside; margin: 0 0 1em 0; padding: 0 0 0 2em; }    
+    
+    .checkoutComplete .orderReceipt {}
+        .checkoutComplete .orderReceipt .productFields {}
+        .checkoutComplete .orderReceipt .productFields > span { display: block; font-size: 10px; margin-left: 2em; }
+        .checkoutComplete .orderReceipt > fieldset { border: 1px solid #BFBAB0; padding: 0.5em 1em; }
+        .checkoutComplete .orderReceipt > fieldset legend { padding: 0 4px; margin: 0; }
+        .checkoutComplete .orderReceipt > fieldset fieldset { padding: 0; }
+        
+        .checkoutComplete .orderReceipt p { line-height: 18px; }
+        .checkoutComplete .orderReceipt h2, .checkoutComplete .orderReceipt h3 { margin: 0; padding: 0.5em 0; }
+        .checkoutComplete .orderReceipt h4, .checkoutComplete .orderReceipt .box th { background-color: #D9E5EE; margin: 0; padding: 4px; }
+        .checkoutComplete .orderReceipt .box, .checkoutComplete .orderReceipt .box td { background-color: #F8F7F5; }
+        .checkoutComplete .orderReceipt td.box { padding: 0; }
+        .checkoutComplete .orderReceipt td.box p { margin: 0; padding: 0.5em; }        
+        
+        .checkoutComplete .orderReceipt table.orderItems { background-color: #F8F7F5; border: 1px solid #BEBCB7; border-collapse: collapse; width: 100%; margin: 1em 0; }
+        .checkoutComplete .orderReceipt table.orderItems th, .checkoutComplete .orderReceipt table.orderItems td { padding: 0.5em; }
+        .checkoutComplete .orderReceipt table.orderItems thead th { background-color: #D9E5EE; border-bottom: 1px solid #BEBCB7; }
+        .checkoutComplete .orderReceipt table.orderItems tbody td { border-bottom: 1px solid #BEBCB7; }
+        .checkoutComplete .orderReceipt table.orderItems tfoot td { text-align: right; }
+        .checkoutComplete .orderReceipt table.orderItems span.productFieldData { font-size: 11px; color: #3C3C3C; }        
+    
+/*-------------------
+    Admin Views
+--------------------*/
+.dstore.admin { margin-bottom: 2em; overflow: auto; }
+.dstore.adminAdminHome { overflow: auto; }
+.dstore.admin hr { height: 1px; color: #CCCCCC; background-color: #CCCCCC; border: 0; padding: 0; margin: 1em 0; width: 80%; }
+.dstore.admin .breadcrumb { margin: 1em 0; padding: 0.5em; background-color: #F5F9FB; border: 1px solid #EBEDF0; }
+    .dstore.admin .breadcrumb span { padding: 2px; }
+        .dstore.admin .breadcrumb span a { color: #3E81B5; font-weight: bold; text-decoration: underline; }
+    .dstore.admin .breadcrumb span.separator { padding-left: 4px; padding-right: 4px; font-size: 13px; }
+
+.dstore.adminAdminHome > ul { float: left; margin: 0; padding: 0; }
+    .dstore.adminAdminHome > ul li
+    {
+        list-style-position:inside;
+        list-style-type: none;
+        list-style-image: none;
+        margin-bottom:10px;
+        padding-left:2em;
+        font-size: 14px;
+        font-weight: bold;        
+        color: #666666;
+    }
+    .dstore.adminAdminHome > ul li a { text-decoration: none; color: #666666; }
+    .dstore.adminAdminHome > ul li a img { vertical-align: middle; }
+.dstore.adminAdminHome > ul ul { padding-left: 1em; padding-top: 0.5em; padding-bottom: 0.1em; }
+
+.dstore.adminProducts { }
+    .dstore.adminProducts li { list-style-type: none; margin-bottom: 8px; }
+        .dstore.adminProducts li a { text-decoration: none; }
+        
+.dstore .EditEmailTemplate ol li > label { font-weight: bold; }
+.dstore #tokenHelp {}        
+    .dstore #tokenHelp ul { margin-bottom: 1em; }
+        .dstore #tokenHelp ul li { list-style-type: disc; }
+
+/*-------------------
+    Admin - Orders
+--------------------*/
+.adminOrders {}
+.adminOrders table.grid th, .adminOrders table.grid td { font-size: 11px; }
+    .adminOrders .bulkActions { clear: both; overflow: auto; margin-bottom: 0.5em; }
+    .adminOrders .bulkActions > span { display: block; float: left; margin-right: 1em; padding-top: 6px; }
+
+/*-------------------
+    Admin - Shipping
+--------------------*/
+.dstore.admin #shippingMethods {}
+    .dstore.admin #shippingMethods table { margin-left: 3em; }
+    .dstore.adminShipping .ui-state-active { font-weight: bold; }
+    .dstore.adminShipping #shipServiceTabs > div { overflow: auto; }
+
+/*----------------------------
+    Admin - Product Import
+-----------------------------*/        
+.dstore.adminProductImport { overflow: auto; }
+.dstore.adminProductImport .flash h3 a { font-size: 14px; font-weight: bold; }
+.dstore.adminProductImport table td, .dstore.adminProductImport table th { font-size: 11px; font-weight: normal; }
+.dstore.adminProductImport .instructions li { margin: 1em 0; }
+        
+/*----------------------------
+    Admin - Store Settings
+-----------------------------*/        
+.dstore.StoreSettings ol.form.labelsLeft > li > label { width: 13em; }
+.dstore.StoreSettings .adminToolbar { padding-top: 2em; }
+.dstore.StoreSettings .inputHelp { display: block; }
+
+/*-------------------------
+    Admin - Categories
+--------------------------*/
+.adminCategories ol { margin-left: 0; padding-left: 0; }
+    .adminCategories li { list-style-type: none; margin: 8px 0; font-weight: normal; }
+    .adminCategories li.root { font-weight: bold; }
+    .adminCategories li.hiddenCat { color: Gray; font-weight: normal; font-style: italic; }
+    .adminCategories ol ol { padding-left: 40px; }
+    
+.adminCategories #categories { margin-bottom: 200px; padding-bottom: 200px; }    
+    .adminCategories #categories .catDivs { margin-bottom: 200px; padding-bottom: 200px; }
+        .adminCategories #categories .catDivs .moveHandle { cursor: move; }
+        .adminCategories #categories .catDivs div { padding: 0 0 0 1.5em; }
+            .adminCategories #categories .catDivs div > span { display: block; padding: 1em 0 0 0; overflow: hidden; }
+            .adminCategories #categories .catDivs div > span span { display: block; float: left; }
+            .adminCategories #categories .catDivs div > span span.edit { margin: 0 0.5em 0 0; }
+            .adminCategories #categories .catDivs div > span span.move { margin: 0 0 0 1em; }
+            .adminCategories #categories .catDivs div > span span.delete { margin: 0 0 0 1em; }
+
+/*-------------------------
+    Admin - Edit Category
+--------------------------*/
+.adminEditCategory fieldset fieldset.seo label { width: 10em; }
+.adminEditCategory fieldset.seo li .maxlengthStatus { margin-left: 14em; }
+
+/*-------------------------
+    Admin - Edit Product
+--------------------------*/
+.adminEditProduct textarea { width: 400px; height: 52px; } /* about 3 lines tall */
+.adminEditProduct > fieldset { padding: 0; }
+.adminEditProduct fieldset.submit
+{
+    float: none;  
+    width: auto;  
+    border: 0 none #FFF;  
+    background-color: Transparent;
+    padding-left: 13.5em;     
+    margin-top: 0;
+}
+.adminEditProduct fieldset legend { font-weight: bold; padding: 0 4px; }
+.adminEditProduct fieldset ol { }
+.adminEditProduct fieldset li { }
+.adminEditProduct label { }
+.adminEditProduct fieldset li.adminToolbar { margin-left: 12em; }
+    .adminEditProduct fieldset fieldset.seo label { width: 10em; text-align: left; }
+.adminEditProduct span label { width: auto; text-align: left; margin-left: 2px; } /* labels inside an ASP.NET radio/check list */
+.adminEditProduct fieldset input.number { width: 80px; }
+
+/*--- Product Menu / Tabs ---*/
+.adminEditProduct #productMenu { float: none; overflow: auto; margin: 0 0 1em 0; border-bottom: 1px solid #E7E2D8; }
+    .adminEditProduct #productMenu ul { margin: 0; padding: 0; float: left; }
+        .adminEditProduct #productMenu ul li { list-style-type: none; margin: 0; padding: 1em; display: block; float: left; clear: none; }
+            .adminEditProduct #productMenu ul li a { outline: 0; -moz-outline: 0; }
+            .adminEditProduct #productMenu ul li.active { background-color: #82BADD; }
+                .adminEditProduct #productMenu ul li.active a { color: white; font-weight: bold; text-decoration: none; }        
+            .adminEditProduct #productMenu ul li.disabled a { text-decoration: none; color: Gray; }
+            
+    .adminEditProduct div.productTab { overflow: auto; padding: 0 1em 1em 1em; }
+
+    .adminEditProduct #shipmentFieldset label { width: 10em; }
+    .adminEditProduct #shipmentFieldset span.inputHelp {  }
+    
+    .adminEditProduct #digitalFileFieldset label { width: 7em; }    
+    
+    .adminEditProduct #qtyOptionsFieldset span.inputHelp { padding-left: 0; }
+    
+    .adminEditProduct #inventoryFieldset li > label { width: 15em; }
+
+.adminEditProduct #tabPhotos .uploadArea { border-top:1px solid #BFBAB0; margin-top: 1em; padding-top: 1em; }
+    .adminEditProduct .photos { overflow: auto; }
+        .adminEditProduct .photos ol { float: left; padding: 0; margin: 0; }
+        .adminEditProduct .photos ol li { clear:none; float:left; list-style-type:none; margin:0.5em 2em 0.5em 0; width: 124px; }
+            .adminEditProduct .photos ol li img { margin-bottom: 2px; }            
+            .adminEditProduct .photos ol li span.move { cursor: move; display: block; float: left; }
+            .adminEditProduct .photos ol li span.delete { display: block; float: right; }
+        
+    .adminEditProduct object#upPhotosUploader
+    {
+        clear:left;
+        /*float:left;        */
+        margin-top:1em;
+    }    
+.adminEditProduct .uploadifyQueue { margin-top: 0.5em; }
+
+.adminEditProduct fieldset.productCategories { clear: none; margin: 0; border: 0; }
+    .adminEditProduct fieldset.productCategories input { margin: 0; }
+    .adminEditProduct fieldset.productCategories label { margin: 0; }    
+    .adminEditProduct fieldset.productCategories ol li:first-child { padding-top: 0; }
+    .adminEditProduct fieldset.productCategories ol li li { margin: 0.5em 0 0 0; list-style-type: none; }
+
+    .adminEditProduct #descriptors { margin-top: 1em; }    
+    .adminEditProduct #descriptors .pane input, .adminEditProduct #descriptors .pane label { float: none; display: inline; }
+        .adminEditProduct #descriptors div.descriptorName input.tabName { width: 160px; }
+    
+    .adminEditProduct #tabInventory {}
+        .adminEditProduct #tabInventory ol.form > li > label { width: 16em; }
+        
+    .adminEditProduct #tabCustomFields {}
+        #tabCustomFields #addFieldForm { background-color: #efefef; }
+        #tabCustomFields input[type='text'] { width: 160px; }
+        
+        #tabCustomFields .moveHandle { cursor: move; }
+        #tabCustomFields .customFieldContainer { clear: both; overflow: auto; border-top: 1px solid #CCCCCC; margin-top: 1em; padding: 1em; }
+        #tabCustomFields .customFieldContainer h4 span.menu { float: right; width: 150px; margin-left: 2em; }
+            #tabCustomFields .customFieldContainer th { font-weight: normal; }
+            #tabCustomFields .customFieldContainer td.price,
+            #tabCustomFields .customFieldContainer td.weight { text-align: right; }
+
+/*------------------------------
+    Admin - Edit Product Field
+-------------------------------*/
+.adminEditProductField { overflow: auto; }
+.adminEditProductField tr.newOptionRow a { display: none; }
+
+/*-------------------------
+    Admin - Edit Coupon
+--------------------------*/
+.adminEditCoupon span.appliesTo > span { display: block; }
+    .adminEditCoupon span.appliesTo > span table { margin-left: 2em; }
+    
+/*-------------------------
+    Admin - Edit Discount
+--------------------------*/
+.adminEditDiscount span.appliesTo > span { display: block; }
+    .adminEditDiscount span.appliesTo > span table { margin-left: 2em; }    
+
+/*---------------------------
+    Admin - Email Templates
+----------------------------*/
+.dstore.EmailTemplates {}
+    .dstore.EmailTemplates ul { margin: 0; padding: 0 0 0 1em; }
+        .dstore.EmailTemplates ul li { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
+
+/*---------------------------
+    Admin - Payment Methods
+----------------------------*/
+.adminPaymentMethods { clear: both; overflow: auto; }
+.adminPaymentMethods > fieldset > p { display: block; margin: 6px 0 20px 0; }
+.dstore .adminPaymentMethods > fieldset fieldset { border: none; background-color: transparent; padding: 0; }
+    .adminPaymentMethods h3 { background-color: #F7F7F5; color: Black; border: 1px solid #BFBAB0; }
+    
+.adminPaymentMethods div.providerAdminContainer { clear: both; overflow: auto; margin: 1em 0; }    
+    .adminPaymentMethods div.providerAdminContainer > input { float: left; display: block; margin: 0 8px 0 0; outline: 0; -moz-outline: 0; }
+    .adminPaymentMethods div.providerAdminContainer > label { float: left; display: block; font-weight: normal; font-size: 13px; }
+    .adminPaymentMethods div.providerAdminContainer > fieldset { float: left; width: 80%; margin: 6px 0 0 45px; display: none; }    
+        .adminPaymentMethods div.providerAdminContainer > fieldset legend { font-size: 14px; }
+        .adminPaymentMethods div.providerAdminContainer > fieldset > p { margin-top: 0; }
+        .adminPaymentMethods div.providerAdminContainer > fieldset input[type="text"] { width: 300px; }
+
+/*---------------------------
+    Admin - View Order
+----------------------------*/    
+.adminViewOrder {}
+    .adminViewOrder #orderBox, .adminViewOrder #customerBox { float: left; width: 98%; }
+    .adminViewOrder #orderBox { margin-right: 2%; }
+    
+    .adminViewOrder #paymentTransactions { clear:both; margin-top: 1em; float: left; }
+    
+    .adminViewOrder #billingBox, .adminViewOrder #shippingBox { float: left; width: 49%; }
+    .adminViewOrder #billingBox { margin-right: 2%; }
+    /*.adminViewOrder #billingBox fieldset, .adminViewOrder #shippingBox fieldset { min-height: 262px; }*/
+    
+    .adminViewOrder #paymentBox { width:49%; margin-right:2%; float:left; }
+    .adminViewOrder #paymentBox,.adminViewOrder #orderNotes, .adminViewOrder #orderItemsBox { clear: both; }
+    .adminViewOrder #orderItemsBox tfoot td { border: 0; }
+        .adminViewOrder #paymentBox ol.left, .adminViewOrder #paymentBox ol.right { width: 49%; clear: none; }
+        .adminViewOrder #paymentBox ol.paymentTransactions { margin-top: 1em; }
+        .adminViewOrder #paymentBox li.creditCard span span { display: block; }
+    
+    .adminViewOrder #orderItemsBox .productFields { display: block; margin: 0 0 0 2em; font-size: 10px; }
+        .adminViewOrder #orderItemsBox .productFields span { display: block; }           
+    
+    .adminViewOrder span.paymentTransactions { display: block; clear: both; padding-top: 1em; }
+    .adminViewOrder .box fieldset ul { float: left; margin: 0; padding: 0; }
+    
+   body#adminPrintOrderView { font-size:11px; }
+   .adminViewOrder .printColumn
+   {
+       float:left;
+       width:50%;
+   }
+   
+   body#adminShippingLabelsView { font-size:16px; }
+   #adminShippingLabelsView ol li { list-style:none; }
+
+/*----------------------------
+    jQuery - Watermark
+-----------------------------*/
+.watermark { color: #999 !important; }
+
+        
+/*----------------------------
+    jQuery - Tablesorter
+-----------------------------*/
+table.tablesorter {
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	/*width: 100%;*/
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(images/tablesorter/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+	padding-right: 18px;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(images/tablesorter/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(images/tablesorter/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}        
+        
+/*----------------------------
+    jQuery - Fancybox
+-----------------------------*/
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: 40px;
+	width: 40px;
+	margin-top: -20px;
+	margin-left: -20px;
+	cursor: pointer;
+	overflow: hidden;
+	z-index: 1104;
+	display: none;
+}
+
+* html #fancybox-loading {	/* IE6 */
+	position: absolute;
+	margin-top: 0;
+}
+
+#fancybox-loading div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 480px;
+	background-image: url('images/fancybox/fancybox.png');
+}
+
+#fancybox-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: #000;
+	z-index: 1100;
+	display: none;
+}
+
+* html #fancybox-overlay {	/* IE6 */
+	position: absolute;
+	width: 100%;
+}
+
+#fancybox-tmp {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: auto;
+	display: none;
+}
+
+#fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 20px;
+	z-index: 1101;
+	display: none;
+}
+
+#fancybox-outer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+}
+
+#fancybox-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	overflow: hidden;
+}
+
+#fancybox-hide-sel-frame {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+}
+
+#fancybox-close {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 30px;
+	height: 30px;
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px 0px;
+	cursor: pointer;
+	z-index: 1103;
+	display: none;
+}
+
+#fancybox_error {
+	color: #444;
+	font: normal 12px/20px Arial;
+	padding: 7px;
+	margin: 0;
+}
+
+#fancybox-content {
+	height: auto;
+	width: auto;
+	padding: 0;
+	margin: 0;
+}
+
+#fancybox-img {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+	line-height: 0;
+	vertical-align: top;
+	-ms-interpolation-mode: bicubic;
+}
+
+#fancybox-frame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+}
+
+#fancybox-title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-size: 12px;
+	z-index: 1102;
+}
+
+.fancybox-title-inside {
+	padding: 10px 0;
+	text-align: center;
+	color: #333;
+}
+
+.fancybox-title-outside {
+	padding-top: 5px;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+}
+
+.fancybox-title-over {
+	color: #FFF;
+	text-align: left;
+}
+
+#fancybox-title-over {
+	padding: 10px;
+	background-image: url('images/fancybox/fancy_title_over.png');
+	display: block;
+}
+
+#fancybox-title-wrap {
+	display: inline-block;
+}
+
+#fancybox-title-wrap span {
+	height: 32px;
+	float: left;
+}
+
+#fancybox-title-left {
+	padding-left: 15px;
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px -90px;
+	background-repeat: no-repeat;
+}
+
+#fancybox-title-main {
+	font-weight: bold;
+	line-height: 29px;
+	background-image: url('images/fancybox/fancybox-x.png');
+	background-position: 0px -40px;
+	color: #FFF;
+}
+
+#fancybox-title-right {
+	padding-left: 15px;
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -55px -90px;
+	background-repeat: no-repeat;
+}
+
+#fancybox-left, #fancybox-right {
+	position: absolute;
+	bottom: 0px;
+	height: 100%;
+	width: 35%;
+	cursor: pointer;
+	outline: none;
+	background-image: url('images/fancybox/blank.gif');
+	z-index: 1102;
+	display: none;
+}
+
+#fancybox-left {
+	left: 0px;
+}
+
+#fancybox-right {
+	right: 0px;
+}
+
+#fancybox-left-ico, #fancybox-right-ico {
+	position: absolute;
+	top: 50%;
+	left: -9999px;
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+	cursor: pointer;
+	z-index: 1102;
+	display: block;
+}
+
+#fancybox-left-ico {
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px -30px;
+}
+
+#fancybox-right-ico {
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px -60px;
+}
+
+#fancybox-left:hover, #fancybox-right:hover {
+	visibility: visible;    /* IE6 */
+}
+
+#fancybox-left:hover span {
+	left: 20px;
+}
+
+#fancybox-right:hover span {
+	left: auto;
+	right: 20px;
+}
+
+.fancy-bg {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	width: 20px;
+	height: 20px;
+	z-index: 1001;
+}
+
+#fancy-bg-n {
+	top: -20px;
+	left: 0;
+	width: 100%;
+	background-image: url('images/fancybox/fancybox-x.png');
+}
+
+#fancy-bg-ne {
+	top: -20px;
+	right: -20px;
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px -162px;
+}
+
+#fancy-bg-e {
+	top: 0;
+	right: -20px;
+	height: 100%;
+	background-image: url('images/fancybox/fancybox-y.png');
+	background-position: -20px 0px;
+}
+
+#fancy-bg-se {
+	bottom: -20px;
+	right: -20px;
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px -182px; 
+}
+
+#fancy-bg-s {
+	bottom: -20px;
+	left: 0;
+	width: 100%;
+	background-image: url('images/fancybox/fancybox-x.png');
+	background-position: 0px -20px;
+}
+
+#fancy-bg-sw {
+	bottom: -20px;
+	left: -20px;
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px -142px;
+}
+
+#fancy-bg-w {
+	top: 0;
+	left: -20px;
+	height: 100%;
+	background-image: url('images/fancybox/fancybox-y.png');
+}
+
+#fancy-bg-nw {
+	top: -20px;
+	left: -20px;
+	background-image: url('images/fancybox/fancybox.png');
+	background-position: -40px -122px;
+}
+
+/* IE */
+
+#fancybox-loading.fancybox-ie div	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_loading.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-close		{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_close.png', sizingMethod='scale'); }
+
+.fancybox-ie #fancybox-title-over	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_title_over.png', sizingMethod='scale'); zoom: 1; }
+.fancybox-ie #fancybox-title-left	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_title_left.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-title-main	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_title_main.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-title-right	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_title_right.png', sizingMethod='scale'); }
+
+.fancybox-ie #fancybox-left-ico		{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_nav_left.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-right-ico	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_nav_right.png', sizingMethod='scale'); }
+
+.fancybox-ie .fancy-bg { background: transparent !important; }
+
+.fancybox-ie #fancy-bg-n	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_n.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-ne	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_ne.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-e	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_e.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-se	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_se.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-s	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_s.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-sw	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_sw.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-w	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_w.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-nw	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/DesktopModules/DNNspot-Store/images/fancybox/fancy_shadow_nw.png', sizingMethod='scale'); }

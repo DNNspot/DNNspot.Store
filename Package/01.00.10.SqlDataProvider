@@ -1,0 +1,96 @@
+--------------------------
+-- ALTER existing tables
+--------------------------
+ALTER TABLE [{objectQualifier}DNNspot_Store_Order] ADD CustomerNotes nvarchar(max) NOT NULL DEFAULT ''
+
+------------------------
+-- Update Data
+------------------------ 
+UPDATE [{objectQualifier}DNNspot_Store_PaymentProvider] SET [Name] = 'CardCaptureOnly' WHERE Id = 1
+
+INSERT INTO [{objectQualifier}DNNspot_Store_PaymentProvider](Id,Name) VALUES(2,'PayLater')
+
+INSERT INTO [{objectQualifier}DNNspot_Store_OrderStatus](Id,Name) VALUES(30,'Processing')
+
+UPDATE [{objectQualifier}DNNspot_Store_EmailTemplate] SET NameKey = 'OrderReceived', Description = 'Email to customer when an order is received/placed' WHERE NameKey = 'OrderCompleted'
+UPDATE [{objectQualifier}DNNspot_Store_EmailTemplate] SET NameKey = 'OrderReceivedAdmin', Description = 'Email to store owner when an order is received/placed' WHERE NameKey = 'OrderCompletedAdmin'
+UPDATE [{objectQualifier}DNNspot_Store_EmailTemplate] SET NameKey = 'PaymentCompleted', Description = 'Email to customer when payment has been completed/charged successfully' WHERE NameKey = 'PaymentCompletedOffline'
+INSERT INTO [{objectQualifier}DNNspot_Store_EmailTemplate](Id,NameKey,Description,DefaultSubject,DefaultBody) VALUES(30,'ShippingUpdate','Email to customer when shipping status has changed','Shipping update for your order','&lt;table width=&quot;98%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;width: 98%;&quot;&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&lt;strong&gt;Hello {{customer.firstname}} {{customer.lastname}},&lt;/strong&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Your order has shipped! Tracking #: {{order.shipping.trackingnumber}}&lt;/strong&gt;&lt;/p&gt;
+            &lt;h3&gt;Your Order #{{order.number}} &lt;span style=&quot;font-size: 12px;&quot;&gt;(placed on {{order.date.monthname}} {{order.date.day}}, {{order.date.year}})&lt;/span&gt;&lt;/h3&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;width: 100%;&quot;&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Billing Information&lt;/h4&gt;
+                        &lt;p&gt;{{customer.firstname}} {{customer.lastname}}                             &lt;br /&gt;
+                        {{order.billing.address1}} {{order.billing.address2}}                             &lt;br /&gt;
+                        {{order.billing.city}}, {{order.billing.region}} {{order.billing.postalcode}}                             &lt;br /&gt;
+                        {{order.billing.countrycode}}                             &lt;br /&gt;
+                        Telephone: {{order.billing.telephone}}&lt;/p&gt;
+                        &lt;/td&gt;
+                        &lt;td width=&quot;3%&quot; style=&quot;width: 3%;&quot;&gt;&amp;#160;&lt;/td&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Payment&lt;/h4&gt;
+                        &lt;p&gt;Credit Card Type: {{order.billing.creditcardtype}}                             &lt;br /&gt;
+                        Card Number: xxxx-{{order.billing.creditcardlast4}}                             &lt;br /&gt;
+                        Expiration Date: {{order.billing.creditcardexpiration}}&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td colspan=&quot;3&quot;&gt;
+                        &lt;p&gt;&amp;#160;&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Shipping Information&lt;/h4&gt;
+                        &lt;p&gt;{{order.shipping.recipientname}}                             &lt;br /&gt;
+                        {{order.shipping.address1}} {{order.shipping.address2}}                             &lt;br /&gt;
+                        {{order.shipping.city}}, {{order.shipping.region}} {{order.shipping.postalcode}}                             &lt;br /&gt;
+                        {{order.shipping.countrycode}}                             &lt;br /&gt;
+                        Telephone: {{order.shipping.telephone}}&lt;/p&gt;
+                        &lt;/td&gt;
+                        &lt;td width=&quot;3%&quot; style=&quot;width: 3%;&quot;&gt;&amp;#160;&lt;/td&gt;
+                        &lt;td width=&quot;48%&quot; valign=&quot;top&quot; style=&quot;border: 1px solid rgb(190, 188, 183); width: 48%; vertical-align: top;&quot; class=&quot;box&quot;&gt;
+                        &lt;h4&gt;Shipping Method&lt;/h4&gt;
+                        &lt;p&gt;{{order.shipping.option}}&lt;/p&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;{{order.itemstable}}&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;&amp;#160;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;p&gt;Thanks for your order,             &lt;br /&gt;
+            &lt;strong&gt;{{store.name}}&lt;/strong&gt;&lt;/p&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&amp;#160;&lt;/p&gt;')
+
+UPDATE [{objectQualifier}DNNspot_Store_OrderStatus] SET [Name] = 'PendingOffsite' WHERE Id = 20
+UPDATE [{objectQualifier}DNNspot_Store_OrderStatus] SET [Name] = 'Processing' WHERE Id = 30

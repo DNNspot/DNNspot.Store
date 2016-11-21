@@ -1,0 +1,21 @@
+
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingLog](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ShippingRequestType] [varchar](50) NOT NULL,
+	[OrderId] [int] NULL,
+	[CartId] [uniqueidentifier] NULL,
+	[RequestSent] [varchar](max) NULL,
+	[ResponseReceived] [varchar](max) NULL,
+	[CreatedOn] [datetime] NOT NULL,
+ CONSTRAINT [PK_DNNspot_Store_ShippingLog] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_ShippingLog] ADD  CONSTRAINT [DF_Table_1_CreatedOnDate]  DEFAULT (getdate()) FOR [CreatedOn]
+GO
+
+

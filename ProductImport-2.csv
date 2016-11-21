@@ -1,0 +1,3 @@
+IsActive,Name,Sku,Slug,Price,Weight,SeoTitle,SeoDescription,SeoKeywords,SpecialNotes
+,Kevin's Shirt,KEVSHIRT,kevin-shirt,14.99,,Kevin's Shirt,Kevin's Awesome Shirt,"kevin, shirt, awesome",special stuff 1
+TRUE,Ryans Shirt,RYANSHIRT,ryan-shirt,11.5,,"Ryan's ""Cool"" Shirt",Ryan's Cool Shirt,"ryan, cool, shirt",special 2 stuff

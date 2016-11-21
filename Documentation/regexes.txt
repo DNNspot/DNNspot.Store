@@ -1,0 +1,24 @@
+
+works - grabs the right-most category name
+/(?<cat>[\w-_]+?(?=/[^/]*\.aspx))+
+
+
+works - captures the right-most category name into the 'cat' group, but also fills in the other category names in the array, but the names have trailing slashes '/'
+^/(?<cat>[\w-_]*/)+
+
+works! - captures category names into the multi-value 'cat' named group, and captures the page name into the 'slug' named group
+^/(?<cat>[\w-_]*/)*(?<slug>.*)\.aspx
+
+holy grail! -   captures tabid into 'tabid' group, category names into the multi-value 'cat' named group, and captures the page name into the 'slug' named group
+                works with DNN pages at the root level and pages underneath the root
+/.*?-t(?<tabid>\d+)/(?<cat>[\w-_]*/)*(?<slug>.*)\.aspx
+
+
+--------------------------------
+ DNN Friendly Url Entry (host settings)
+
+Match: 
+.*?-t(?<tabid>\d+)/(?<cat>[\w-_]*/)*(?<slug>.*)\.aspx
+
+Replace With:
+~/Default.aspx?TabId=$1&cat=$2&slug=$3

@@ -1,0 +1,7 @@
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+ADD [IsPriceDisplayed] bit NOT NULL DEFAULT 1
+--CONSTRAINT IsPriceDisplayed DEFAUlT 1
+
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+ADD [IsAvailableForPurchase] bit NOT NULL DEFAULT 1
+--CONSTRAINT IsAvailableForPurchase DEFAUlT 1
