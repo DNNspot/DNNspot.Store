@@ -268,31 +268,31 @@ namespace DNNspot.Store
         /// </summary>
         private void CheckDnnSiteUrlsConfig()
         {
-            string cacheKeySiteUrls = StoreContext.CacheKeys.FriendlyStoreUrlsEnabled;
+            //string cacheKeySiteUrls = StoreContext.CacheKeys.FriendlyStoreUrlsEnabled;
 
-            //Debug.Write("Checking for DNN Site Urls Config...");
+            ////Debug.Write("Checking for DNN Site Urls Config...");
 
-            bool? urlsEnabledFromCache = WA.Parser.ToBool(DataCache.GetCache(cacheKeySiteUrls));
-            if (!urlsEnabledFromCache.GetValueOrDefault(false))
-            {
-                //Debug.Write("DNN Site Urls Config SHOULD be updated...");
-                // cache has expired, or urls are not enabled
-                // let's try to enabled them
-                if (StoreContext.UpdateDnnHostSiteUrlConfig())
-                {
-                    //Debug.Write("DNN Site Urls Config was updated successfully.");
-                    // set the cache so we don't check again for a while
-                    DataCache.SetCache(cacheKeySiteUrls, "true", TimeSpan.FromHours(23));
-                }
-                else
-                {
-                    //Debug.Write("ERROR - Unable to update DNN Site Urls Config!");
-                }
-            }
-            else
-            {
-                //Debug.Write("DNN Site Urls Config has already been updated");
-            }
+            //bool? urlsEnabledFromCache = WA.Parser.ToBool(DataCache.GetCache(cacheKeySiteUrls));
+            //if (!urlsEnabledFromCache.GetValueOrDefault(false))
+            //{
+            //    //Debug.Write("DNN Site Urls Config SHOULD be updated...");
+            //    // cache has expired, or urls are not enabled
+            //    // let's try to enabled them
+            //    if (StoreContext.UpdateDnnHostSiteUrlConfig())
+            //    {
+            //        //Debug.Write("DNN Site Urls Config was updated successfully.");
+            //        // set the cache so we don't check again for a while
+            //        DataCache.SetCache(cacheKeySiteUrls, "true", TimeSpan.FromHours(23));
+            //    }
+            //    else
+            //    {
+            //        //Debug.Write("ERROR - Unable to update DNN Site Urls Config!");
+            //    }
+            //}
+            //else
+            //{
+            //    //Debug.Write("DNN Site Urls Config has already been updated");
+            //}
         }
 
         private string GetBasePhysicalPathFromRequest()

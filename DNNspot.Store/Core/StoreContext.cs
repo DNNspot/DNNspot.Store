@@ -270,77 +270,77 @@ namespace DNNspot.Store
             RewriterConfiguration urlConfig = DotNetNuke.HttpModules.Config.RewriterConfiguration.GetConfig();
 
             bool ruleExistsInConfig = false;
-            string rxMatch = @".*?-t(?<tabid>\d+)/(?<slug>.*)\.aspx";
-            string rxReplace = @"~/Default.aspx?TabId=$1&slug=$2";
-            foreach (RewriterRule rule in urlConfig.Rules)
-            {
-                if (rule.LookFor == rxMatch)
-                {
-                    ruleExistsInConfig = true;
-                    break;
-                }
-            }
+            //string rxMatch = @".*?-t(?<tabid>\d+)/(?<slug>.*)\.aspx";
+            //string rxReplace = @"~/Default.aspx?TabId=$1&slug=$2";
+            //foreach (RewriterRule rule in urlConfig.Rules)
+            //{
+            //    if (rule.LookFor == rxMatch)
+            //    {
+            //        ruleExistsInConfig = true;
+            //        break;
+            //    }
+            //}
 
-            if (!ruleExistsInConfig)
-            {
-                RewriterRule storeUrlRule = new RewriterRule();
-                storeUrlRule.LookFor = rxMatch;
-                storeUrlRule.SendTo = rxReplace;
-                urlConfig.Rules.Add(storeUrlRule);
+            //if (!ruleExistsInConfig)
+            //{
+            //    RewriterRule storeUrlRule = new RewriterRule();
+            //    storeUrlRule.LookFor = rxMatch;
+            //    storeUrlRule.SendTo = rxReplace;
+            //    urlConfig.Rules.Add(storeUrlRule);
 
-                RewriterConfiguration.SaveConfig(urlConfig.Rules);
-                ruleExistsInConfig = true;
-            }
+            //    RewriterConfiguration.SaveConfig(urlConfig.Rules);
+            //    ruleExistsInConfig = true;
+            //}
             
-            rxMatch = @".*?-t(?<tabid>\d+)/(?<cat>[\w-_]*/)*(?<slug>.*)\.aspx";
-            rxReplace = @"~/Default.aspx?TabId=$1&cat=$2&slug=$3";
+            //rxMatch = @".*?-t(?<tabid>\d+)/(?<cat>[\w-_]*/)*(?<slug>.*)\.aspx";
+            //rxReplace = @"~/Default.aspx?TabId=$1&cat=$2&slug=$3";
 
-            ruleExistsInConfig = false;
+            //ruleExistsInConfig = false;
 
-            foreach (RewriterRule rule in urlConfig.Rules)
-            {
-                if (rule.LookFor == rxMatch)
-                {
-                    ruleExistsInConfig = true;
-                    break;
-                }
-            }
+            //foreach (RewriterRule rule in urlConfig.Rules)
+            //{
+            //    if (rule.LookFor == rxMatch)
+            //    {
+            //        ruleExistsInConfig = true;
+            //        break;
+            //    }
+            //}
 
-            if (!ruleExistsInConfig)
-            {
-                RewriterRule storeUrlRule = new RewriterRule();
-                storeUrlRule.LookFor = rxMatch;
-                storeUrlRule.SendTo = rxReplace;
-                urlConfig.Rules.Add(storeUrlRule);
+            //if (!ruleExistsInConfig)
+            //{
+            //    RewriterRule storeUrlRule = new RewriterRule();
+            //    storeUrlRule.LookFor = rxMatch;
+            //    storeUrlRule.SendTo = rxReplace;
+            //    urlConfig.Rules.Add(storeUrlRule);
 
-                RewriterConfiguration.SaveConfig(urlConfig.Rules);
-                ruleExistsInConfig = true;
-            }
+            //    RewriterConfiguration.SaveConfig(urlConfig.Rules);
+            //    ruleExistsInConfig = true;
+            //}
 
-            rxMatch = @".*?-t(?<tabid>\d+)/(?<cat>[\w-_]*/)\.aspx";
-            rxReplace = @"~/Default.aspx?TabId=$1&cat=$2";
+            //rxMatch = @".*?-t(?<tabid>\d+)/(?<cat>[\w-_]*/)\.aspx";
+            //rxReplace = @"~/Default.aspx?TabId=$1&cat=$2";
 
-            ruleExistsInConfig = false;
+            //ruleExistsInConfig = false;
 
-            foreach (RewriterRule rule in urlConfig.Rules)
-            {
-                if (rule.LookFor == rxMatch)
-                {
-                    ruleExistsInConfig = true;
-                    break;
-                }
-            }
+            //foreach (RewriterRule rule in urlConfig.Rules)
+            //{
+            //    if (rule.LookFor == rxMatch)
+            //    {
+            //        ruleExistsInConfig = true;
+            //        break;
+            //    }
+            //}
 
-            if (!ruleExistsInConfig)
-            {
-                RewriterRule storeUrlRule = new RewriterRule();
-                storeUrlRule.LookFor = rxMatch;
-                storeUrlRule.SendTo = rxReplace;
-                urlConfig.Rules.Add(storeUrlRule);
+            //if (!ruleExistsInConfig)
+            //{
+            //    RewriterRule storeUrlRule = new RewriterRule();
+            //    storeUrlRule.LookFor = rxMatch;
+            //    storeUrlRule.SendTo = rxReplace;
+            //    urlConfig.Rules.Add(storeUrlRule);
 
-                RewriterConfiguration.SaveConfig(urlConfig.Rules);
-                ruleExistsInConfig = true;
-            }
+            //    RewriterConfiguration.SaveConfig(urlConfig.Rules);
+            //    ruleExistsInConfig = true;
+            //}
             return ruleExistsInConfig;
         }
     }
