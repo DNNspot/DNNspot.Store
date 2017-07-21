@@ -28,8 +28,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.Services;
+using System.Web.SessionState;
 using DNNspot.Store.DataModel;
+using DotNetNuke.Common;
+using DotNetNuke.Entities.Portals;
 using WA.Extensions;
 
 namespace DNNspot.Store.Modules.Admin
@@ -40,7 +44,8 @@ namespace DNNspot.Store.Modules.Admin
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class UploadifyHandler : IHttpHandler
-    {
+{
+    
         HttpContext context;
         HttpResponse response;
         HttpRequest request;
@@ -86,19 +91,30 @@ namespace DNNspot.Store.Modules.Admin
                         //string fileExt = Path.GetExtension(postedFile.FileName);
                         //string filenameWithExt = string.Format("{0}_{1}{2}", idParam.Value, Guid.NewGuid(), fileExt);
                         //string filePath = fileUploadDirectory + filenameWithExt;
-                        string filePath = fileUploadDirectory + Path.GetFileName(postedFile.FileName).CreateUniqueSequentialFileNameInDir(fileUploadDirectory);
-                        postedFile.SaveAs(filePath);
-
-                        // Digital Files are NOT handled here anymore (uploaded via ASP.NET FileUpload control in EditProduct.ascx)
-                        // Only product photos are "uploadified"
-                        if (typeParam == "photo")
+                        string extension = Path.GetExtension(postedFile.FileName);
+                        var suitableExtensions = new List<string>() {".jpg", ".png", ".gif", ".tiff", ".jpeg", ".bmp", ".ico"};
+                        if (extension != null && suitableExtensions.Contains(extension.ToLower()))
                         {
-                            ProductPhoto newPhoto = product.ProductPhotoCollectionByProductId.AddNew();
-                            newPhoto.Filename = Path.GetFileName(filePath);
-                            newPhoto.DisplayName = Path.GetFileNameWithoutExtension(postedFile.FileName);
-                            newPhoto.SortOrder = 99;
+                            string filePath = fileUploadDirectory +
+                                              Path.GetFileName(postedFile.FileName).CreateUniqueSequentialFileNameInDir(
+                                                  fileUploadDirectory);
+                            postedFile.SaveAs(filePath);
+
+                            // Digital Files are NOT handled here anymore (uploaded via ASP.NET FileUpload control in EditProduct.ascx)
+                            // Only product photos are "uploadified"
+                            if (typeParam == "photo")
+                            {
+                                ProductPhoto newPhoto = product.ProductPhotoCollectionByProductId.AddNew();
+                                newPhoto.Filename = Path.GetFileName(filePath);
+                                newPhoto.DisplayName = Path.GetFileNameWithoutExtension(postedFile.FileName);
+                                newPhoto.SortOrder = 99;
+                            }
+                            product.Save();
                         }
-                        product.Save();
+                        else
+                        {
+                            throw new Exception("No file extension found...or incorrect file extension.");
+                        }
                     }
                 }
 
@@ -119,5 +135,6 @@ namespace DNNspot.Store.Modules.Admin
                 return false;
             }
         }
+
     }
 }

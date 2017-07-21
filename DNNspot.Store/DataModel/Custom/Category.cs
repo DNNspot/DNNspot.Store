@@ -246,10 +246,17 @@ namespace DNNspot.Store.DataModel
 
         public List<Product> GetProducts(ProductSortByField productSortByField)
         {
-            return ProductCollection.FindProductsByCategory(this.Id.Value, productSortByField);
+            if (this.Id.HasValue)
+            {
+                return ProductCollection.FindProductsByCategory(this.Id.Value, productSortByField);
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public static short GetNextSortOrder(int storeId)
+	    public static short GetNextSortOrder(int storeId)
         {
             //SELECT
             //MAX(SortOrder)

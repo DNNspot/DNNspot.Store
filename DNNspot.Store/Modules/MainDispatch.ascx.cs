@@ -42,10 +42,8 @@ namespace DNNspot.Store.Modules
 {
     public partial class MainDispatch : PortalModuleBase //StoreModuleBase
     {
-        public string Version;
         protected override void OnInit(System.EventArgs e)
         {
-            Version = String.Format("{0}/{1}", DotNetNuke.Application.DotNetNukeContext.Current.Application.Version.ToString(), ModuleConfiguration.DesktopModule.Version);
             base.OnInit(e);
 
             DataModel.DataModel.Initialize();            

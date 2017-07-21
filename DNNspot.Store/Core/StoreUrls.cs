@@ -65,6 +65,8 @@ namespace DNNspot.Store
         string productFileFolderFileRoot;
         string shippingLabelFolderFileRoot;
 
+        private string sessionGuid;
+
         // Tabs
         TabInfo tabWithMainDispatch = null;
         int tabIdWithStoreAdmin = -1;
@@ -214,7 +216,7 @@ namespace DNNspot.Store
 
         public string AdminUploadifyHandler
         {
-            get { return moduleFolderUrlRoot + "Modules/Admin/UploadifyHandler.ashx"; }
+            get { return moduleFolderUrlRoot + String.Format("Modules/Admin/UploadifyHandler.ashx?portalId={0}", this.portalSettings.PortalId); }
         }
 
         public string AdminAjaxHandler
@@ -394,6 +396,7 @@ namespace DNNspot.Store
                 string additonalParamString = otherParamList.Count > 0 ? "?" + otherParamList.ToDelimitedString("&") : "";
 
                 string catSlugs = "";
+                //categorySlugs = categorySlugs.Where(t => !string.IsNullOrEmpty(t)).ToList();
                 if (categorySlugs != null && categorySlugs.Count > 0)
                 {
                     catSlugs = categorySlugs.ToDelimitedString("/").TrimEnd('/');

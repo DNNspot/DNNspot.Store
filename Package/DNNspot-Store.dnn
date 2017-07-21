@@ -1,6 +1,6 @@
 ﻿<dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="DNNspot Store" type="Module" version="3.0.1">
+        <package name="DNNspot Store" type="Module" version="3.0.3">
             <friendlyName>DNNspot Store</friendlyName>
             <description>Powerful, yet simple eCommerce for DotNetNuke.</description>
             <owner>
@@ -186,7 +186,7 @@
                     <basePath>bin</basePath>
                     <assembly>
                       <name>DNNspot.Store.dll</name>
-					  <version>3.0.1</version>
+					  <version>3.0.3</version>
                     </assembly>
                     <assembly>
                       <name>WA.Shared.dll</name>
@@ -250,7 +250,7 @@
             </components>
         </package>
         
-        <package name="DNNspot Store - Admin" type="Module" version="3.0.1">
+        <package name="DNNspot Store - Admin" type="Module" version="3.0.3">
             <friendlyName>DNNspot Store - Admin</friendlyName>
             <description>Administration Module for DNNspot Store</description>
             <owner>
@@ -291,7 +291,7 @@
             </components>
         </package>
         
-        <package name="DNNspot Store - My Orders" type="Module" version="3.0.1">
+        <package name="DNNspot Store - My Orders" type="Module" version="3.0.3">
             <friendlyName>DNNspot Store - My Orders</friendlyName>
             <description>Shows order history for a customer</description>
             <owner>
@@ -331,7 +331,7 @@
             </components>
         </package>
 		
-        <package name="DNNspot Store - Featured Products" type="Module" version="3.0.1">
+        <package name="DNNspot Store - Featured Products" type="Module" version="3.0.3">
             <friendlyName>DNNspot Store - Featured Products</friendlyName>
             <description>Display featured products on any page in your site</description>
             <owner>

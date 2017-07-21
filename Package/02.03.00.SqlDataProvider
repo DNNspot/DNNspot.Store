@@ -1,20 +1,79 @@
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'Length' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+BEGIN
+    -- Column not Exists
 ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
 ADD [Length] [decimal](10,8) NULL
+END
 
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'Width' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+BEGIN
+    -- Column not Exists
 ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
 ADD [Width] [decimal](10,8) NULL
+END
 
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'Height' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+BEGIN
+    -- Column not Exists
 ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
 ADD [Height] [decimal](10,8) NULL
+END
 
+
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'Length' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_OrderItem]'))
+BEGIN
+    -- Column not Exists
 ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]
 ADD [Length] [decimal](10,8) NULL
+END
 
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'Width' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_OrderItem]'))
+BEGIN
+    -- Column not Exists
 ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]
 ADD [Width] [decimal](10,8) NULL
+END
 
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'Height' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_OrderItem]'))
+BEGIN
+    -- Column not Exists
 ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_OrderItem]
 ADD [Height] [decimal](10,8) NULL
+END
 
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'ShippingServiceType' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_Order]'))
+BEGIN
+    -- Column not Exists
 ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order]
 ADD [ShippingServiceType] [varchar](150) NULL
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

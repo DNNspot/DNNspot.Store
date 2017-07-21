@@ -1,2 +1,10 @@
-ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order]
-ADD [OrderNotes] [varchar](max) NOT NULL DEFAULT('')
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'OrderNotes' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_Order]'))
+BEGIN
+    -- Column not Exists
+    
+	ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Order]
+	ADD [OrderNotes] [varchar](max) NOT NULL DEFAULT('')
+END
+
+

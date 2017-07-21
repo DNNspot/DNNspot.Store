@@ -1,15 +1,34 @@
-ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
-ADD [ViewPermissions] [varchar](150) NULL Default('-1')
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'ViewPermissions' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+BEGIN
+    -- Column not Exists
+    
+	ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+	ADD [ViewPermissions] [varchar](150) NULL Default('-1')
+	
+	UPDATE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+	SET [ViewPermissions] = '-1'
+END
 
-GO
 
-ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
-ADD [CheckoutPermissions] [varchar](150) NULL Default('-1')
 
-GO
 
-UPDATE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
-SET [ViewPermissions] = '-1'
 
-UPDATE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
-SET [CheckoutPermissions] = '-1'
+IF NOT EXISTS(SELECT * FROM sys.columns 
+            WHERE Name = N'CheckoutPermissions' AND Object_ID = Object_ID(N'[{objectQualifier}DNNspot_Store_Product]'))
+BEGIN
+    -- Column not Exists
+    
+	ALTER TABLE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+	ADD [CheckoutPermissions] [varchar](150) NULL Default('-1')
+		UPDATE {databaseOwner}[{objectQualifier}DNNspot_Store_Product]
+	SET [CheckoutPermissions] = '-1'
+END
+
+
+
+
+
+
+
+

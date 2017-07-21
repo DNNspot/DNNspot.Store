@@ -68,6 +68,8 @@ namespace DNNspot.Store.Modules.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             PhotoUploadFolder = ModuleRootWebPath.MakeRelative();
+            Session["uploadGuid"] = Guid.NewGuid();
+
             if (!IsPostBack)
             {
                 //--- Product Deletion

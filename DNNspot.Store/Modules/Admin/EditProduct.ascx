@@ -447,7 +447,7 @@
 
 <script type="text/javascript">
 var urlToAjaxHandler = "<%= StoreUrls.AdminAjaxHandler %>";
-var uploadifyHandlerUrl = "<%= StoreUrls.AdminUploadifyHandler %>";
+var uploadifyHandlerUrl = "<%= StoreUrls.AdminUploadifyHandler %>&guid=<%= Session["uploadGuid"] %>";
 var urlToSlugService = "<%= StoreUrls.SlugService %>";
 var $name = null;
 var $slug = null;    
@@ -618,28 +618,28 @@ var $sortableProductFields = null;
         
     function initUploadify() {
         jQuery('#uploadifyPhotos').uploadify({
-            'uploader': '<%= ModuleRootWebPath %>uploadify/uploadify.swf'
-            , 'script': uploadifyHandlerUrl
+            'uploader': uploadifyHandlerUrl
+            , 'swf': '<%= ModuleRootWebPath %>uploadify/uploadify.swf'
             , 'folder': '<%= PhotoUploadFolder %>ProductPhotos'
-            , 'buttonImg': '<%= ModuleRootImagePath %>btnUploadPhotos.png'
+            , 'buttonImage': '<%= ModuleRootImagePath %>btnUploadPhotos.png'
             , 'width': 141
             , 'height': 31
             , 'wmode': 'transparent'
             , 'cancelImg': '<%= ModuleRootWebPath %>uploadify/cancel.png'
             , 'auto': true
             , 'multi': true
-            , 'fileDesc': 'Image Files (.jpg, .png, .gif)'
-            , 'fileExt': '*.jpg;*.jpeg;*.png;*.gif'
-            , 'scriptData': { 'productId': '<%= product.Id.GetValueOrDefault(-1) %>', 'type': 'photo' }
+            , 'fileTypeDesc': 'Image Files (.jpg, .png, .gif)'
+            , 'fileTypeExts': '*.jpg;*.jpeg;*.png;*.gif'
+            , 'formData': { 'productId': '<%= product.Id.GetValueOrDefault(-1) %>', 'type': 'photo' }
             //, 'onComplete': function(event, queueID, fileObj, response, data) {
                 //console.log('single file upload completed');
             //}
-            , 'onAllComplete': function(event, data) {
+            , 'onQueueComplete': function(event, data) {
                 //console.log('ALL uploads completed');                
                 populatePhotoList();                                     
             }
         });    
-    }        
+    }          
     
     function populatePhotoList() {
         jQuery.post(urlToAjaxHandler, { 'action': 'getProductPhotosJson', 'productId': <%= product.Id.GetValueOrDefault(-1) %>, 'PortalId': <%= PortalId %> }, function(data) {                
